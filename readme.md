@@ -28,6 +28,16 @@ Une fois cela fait utiliser la commande ```javascriptnpm run dev``` pour que vot
 
 Pour déployer tapez la commande ```javascript npm run prod``` et votre projet se compilera dans le dossier "dist" à la racine de votre projet
 
+### Structure
+
+## arborescence de l'app
+
+L'application a un module principale, il s'agit de app (app.module.js)
+
+le sous module app.core (core.module.js) sert à injecter les modules récurrents (ui-router, scormwrapper etc...).
+
+Les modules que vous créez sont à intégrer sous forme de sous module : app.monsousmodule (sousmodule.module.js) et à injecter directement dans le module principal (app)
+
 ### Expérimental
 
 en console rendez-vous dans le dossier utils et tapez : ```javascript node getFiles``` cela vous retournera les fichiers html, js et img le but à terme étant de les inclures directement dans index.js pour ne pas avoir à le faire à la main
