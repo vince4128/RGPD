@@ -3,6 +3,11 @@
     'use strict';//Pour éviter des variables non déclarées ou d'autres dégueulasserie
 
     angular
-        .module('app',[])//Déclaration du module principal
+        .module('app',[
+            /*
+            *   module core
+            */
+            'app.core'
+        ])//Déclaration du module principal
 
 }());
