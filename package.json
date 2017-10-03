@@ -21,6 +21,7 @@
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
+    "glob": "^7.1.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
