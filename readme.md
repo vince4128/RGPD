@@ -22,7 +22,7 @@ tapez la commande ```javascript npm install```
 
 toutes les dépendances s'installent !
 
-Une fois cela fait utiliser la commande ```javascriptnpm run dev``` pour que votre projet soit affiché dans un navigateur à l'url "http://localhost:3001"
+Une fois cela fait utiliser la commande ```javascript npm run dev``` pour que votre projet soit affiché dans un navigateur à l'url "http://localhost:3001"
 
 ## Déploiement
 
