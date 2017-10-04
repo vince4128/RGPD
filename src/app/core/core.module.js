@@ -1,9 +1,7 @@
-(function(){ //Fonction immédiatemment invoquée (pour éviter d'avoir des variables globales)
-
-    'use strict';//Pour éviter des variables non déclarées ou d'autres dégueulasserie
-
+(function(){
+    'use strict';
     angular
-        .module('app.core',[
+        .module('app.core', [
             /*
             *   Angular module
             */
@@ -13,5 +11,5 @@
             */
             'scormwrapper'
         ]);
-
+        
 }());
