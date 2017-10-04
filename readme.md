@@ -38,6 +38,12 @@ le sous module app.core (core.module.js) sert à injecter les modules récurrent
 
 Les modules que vous créez sont à intégrer sous forme de sous module : app.monsousmodule (sousmodule.module.js) et à injecter directement dans le module principal (app)
 
+/!\ N'oubliez pas comme toujours d'ajouter vos fichiers .js dans le fichier index.js
+
+### Créer un module
+
+Pour créer un module, référez vous au module newmodule et reproduisez son arborescence (un dossier pour votre module, les fichiers xxx.module.js, xxx.route.js, xxxController.js), puis référencez votre module dans le module principal ('app').
+
 ### Expérimental
 
 en console rendez-vous dans le dossier utils et tapez : ```javascript node getFiles``` cela vous retournera les fichiers html, js et img le but à terme étant de les inclures directement dans index.js pour ne pas avoir à le faire à la main
