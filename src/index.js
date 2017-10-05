@@ -20,6 +20,7 @@ require("./app/newmodule/newmodule.module.js");
 /* Angular - directives */
 
 /* Angular - services */
+require("./app/service/scorm.service.js");
 
 /* Angular - routes */
 require('./app/newmodule/newmodule.route.js');
