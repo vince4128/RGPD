@@ -20,7 +20,11 @@
             //
             scormApiVersion:scormApiVersion,
             //getter et setter
-            getScormVersion:getScormVersion
+            getScormVersion:getScormVersion,
+            getSuspend:getSuspend,
+            getObjSuspend:getObjSuspend,
+            sendSuspend:sendSuspend,
+            sendObjSuspend:sendObjSuspend
         };
 
         //variable ici (avant le return sinon elles sont undefined)
@@ -133,12 +137,70 @@
             }
         }
 
+        //méthode de mise à jour de suspend
+
         //getter & setter
 
         //méthode de récupération de la version de scorm
         function getScormVersion(){
             if(scormApiVersion){
                 return scormApiVersion;
+            }
+        }
+
+        //méthode de récupération du suspend brut
+        function getSuspend(){
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSGetValue('cmi.suspend_data');
+                if(success){
+                    console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
+                    return success;
+                }
+            }else{
+                //écrire le code pour scorm 2004 a supp une fois OK
+                console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+
+            }
+        }
+
+        //méthode pour envoyer le suspend brut
+        function sendSuspend(newSuspend){
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSSetValue('cmi.suspend_data',newSuspend);
+                if(success){
+                    console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue('cmi.suspend_data'));
+                }
+            }else{
+                //écrire le code pour scorm 2004 a supp une fois OK
+                console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+            }
+        }
+
+        //méthode de récupération du suspend objet
+        function getObjSuspend(){
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSGetValue('cmi.suspend_data');
+                if(success){
+                    console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
+                    return angular.fromJson(success);
+                }
+            }else{
+                //écrire le code pour scorm 2004 a supp une fois OK
+                console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+
+            }
+        }
+
+        //méthode pour envoyer le suspend objet
+        function sendObjSuspend(newSuspend){
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSSetValue('cmi.suspend_data',angular.toJson(newSuspend));
+                if(success){
+                    console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue('cmi.suspend_data'));
+                }
+            }else{
+                //écrire le code pour scorm 2004 a supp une fois OK
+                console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
             }
         }
 
