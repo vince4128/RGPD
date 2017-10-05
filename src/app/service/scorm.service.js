@@ -14,10 +14,6 @@
             initScorm: initScorm,
             endScorm: endScorm,
             //
-            sendSessionTime: sendSessionTime,
-            sendScore: sendScore,
-            sendStatut: sendStatut,
-            //
             scormApiVersion:scormApiVersion,
             existingSuspend:existingSuspend,
             existingObjSuspend:existingObjSuspend,
@@ -26,7 +22,10 @@
             getSuspend:getSuspend,
             getObjSuspend:getObjSuspend,
             sendSuspend:sendSuspend,
-            sendObjSuspend:sendObjSuspend
+            sendObjSuspend:sendObjSuspend,
+            sendSessionTime: sendSessionTime,
+            sendScore: sendScore,
+            sendStatut: sendStatut,
         };
 
         //variable ici (avant le return sinon elles sont undefined)
