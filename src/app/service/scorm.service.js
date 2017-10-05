@@ -16,6 +16,7 @@
             //
             sendSessionTime: sendSessionTime,
             sendScore: sendScore,
+            sendStatut: sendStatut,
             //
             scormApiVersion:scormApiVersion,
             //getter et setter
@@ -115,6 +116,20 @@
             }else{
                 //écrire le code pour scorm 2004 a supp une fois OK
                 console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+            }
+        }
+
+        //méthode d'envoi du status
+        function sendStatut(status){
+            console.log("# scormService : envoi du statut");
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSSetValue('cmi.core.lesson_status',status);
+                if(success){
+                    console.log("# scormService : Le status a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue('cmi.core.lesson_status'));
+                }else{
+                    //écrire le code pour scorm 2004 a supp une fois OK
+                    console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+                }
             }
         }
 
