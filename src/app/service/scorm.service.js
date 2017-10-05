@@ -19,6 +19,8 @@
             sendStatut: sendStatut,
             //
             scormApiVersion:scormApiVersion,
+            existingSuspend:existingSuspend,
+            existingObjSuspend:existingObjSuspend,
             //getter et setter
             getScormVersion:getScormVersion,
             getSuspend:getSuspend,
@@ -30,7 +32,8 @@
         //variable ici (avant le return sinon elles sont undefined)
         var startTime;
         var scormApiVersion = "";
-        var objSuspend = {};
+        var existingObjSuspend = {};
+        var existingSuspend = "";
 
         //appel de la méthode privée d'initialisation du service
         activate();
@@ -66,7 +69,9 @@
                 //a supp une fois OK
                 console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
 
-              } 
+              }
+              //initialiser le suspend
+              initSuspend(); 
             } else {
               console.log("# scormService : connexion scorm pas initialisé");
             }
@@ -154,7 +159,8 @@
                 var success = scormWrapper.doLMSGetValue('cmi.suspend_data');
                 if(success){
                     console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
-                    return success;
+                    existingSuspend = success;
+                    return existingSuspend;
                 }
             }else{
                 //écrire le code pour scorm 2004 a supp une fois OK
@@ -182,7 +188,8 @@
                 var success = scormWrapper.doLMSGetValue('cmi.suspend_data');
                 if(success){
                     console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
-                    return angular.fromJson(success);
+                    existingObjSuspend = angular.fromJson(success);
+                    return existingObjSuspend;
                 }
             }else{
                 //écrire le code pour scorm 2004 a supp une fois OK
@@ -238,6 +245,12 @@
                 return hms;
 
             }
+        }
+
+        //méthode d'initialisation du suspend
+        function initSuspend(){
+            existingSuspend = getSuspend();
+            //existingObjSuspend = getObjSuspend();
         }
 
     }
