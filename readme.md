@@ -66,6 +66,8 @@ Utilisez ensuite les méthodes suivantes :
 *scormService.sendSessionTime envoie le temps de la session (automatiquement envoyé lors de la clôture de la session).
 *scormService.sendScore() envoie le score
 *scormService.sendStatut() envoie le statut
+*scormService.getScore() envoie le score
+*scormService.getStatut() envoie le statut
 
 
 ### Expérimental
