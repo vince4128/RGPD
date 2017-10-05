@@ -15,6 +15,7 @@
             endScorm: endScorm,
             //
             sendSessionTime: sendSessionTime,
+            sendScore: sendScore,
             //
             scormApiVersion:scormApiVersion,
             //getter et setter
@@ -101,6 +102,20 @@
 
             }
             
+        }
+
+        //méthode d'envoi du score
+        function sendScore(score){
+            console.log("# scormService : envoi du score");
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSSetValue('cmi.core.score.raw',score);
+                if(success){
+                    console.log("# scormService : Le score à été envoyé " + scormWrapper.doLMSGetValue('cmi.core.score.raw'));
+                }
+            }else{
+                //écrire le code pour scorm 2004 a supp une fois OK
+                console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+            }
         }
 
         //getter & setter
