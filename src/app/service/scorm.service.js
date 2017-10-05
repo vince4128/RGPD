@@ -47,7 +47,20 @@
             if(success){
               console.log("# scormService : connexion scorm initialisé");
               scormApiVersion = scormWrapper.getAPIVersion();
-              console.log("# scormService : version de scorm : " + scormApiVersion);  
+              console.log("# scormService : version de scorm : " + scormApiVersion);
+              //On va initialiser le statut à incomplet pour surcharger le comportement des LMS
+              if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSSetValue('cmi.core.lesson_status','incomplete');
+                if(success){
+                    console.log("# scormService : statut changé à " + scormWrapper.doLMSGetValue('cmi.core.lesson_status'));
+                }
+              } else {
+                //initialiser le statut à incomplete en scorm 2004
+
+                //a supp une fois OK
+                console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+
+              } 
             } else {
               console.log("# scormService : connexion scorm pas initialisé");
             }
