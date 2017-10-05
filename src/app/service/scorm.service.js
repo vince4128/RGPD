@@ -23,6 +23,7 @@
 
         function initScorm() {
             //Quelle version de scorm ?//
+            //modif a faire apparaitre//
             console.log('# scormService lance setAPIVersion #');
             scormWrapper.setAPIVersion("Auto");
             //Initialiser le scorm
