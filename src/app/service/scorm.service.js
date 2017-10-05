@@ -21,6 +21,8 @@
             getScormVersion:getScormVersion,
             getSuspend:getSuspend,
             getObjSuspend:getObjSuspend,
+            getScore:getScore,
+            getStatut:getStatut,
             sendSuspend:sendSuspend,
             sendObjSuspend:sendObjSuspend,
             sendSessionTime: sendSessionTime,
@@ -127,6 +129,21 @@
             }
         }
 
+        //méthode pour récupérer le score
+        function getScore(){
+            console.log("# récupération du score ");
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSGetValue('cmi.core.score.raw');
+                if(success){
+                    console.log("# scormService : le score a bien été récupéré " + success);
+                    return success;
+                }else{
+                    //écrire le code pour scorm 2004 a supp une fois OK
+                    console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+                }
+            }
+        }
+
         //méthode d'envoi du status
         function sendStatut(status){
             console.log("# scormService : envoi du statut");
@@ -134,6 +151,21 @@
                 var success = scormWrapper.doLMSSetValue('cmi.core.lesson_status',status);
                 if(success){
                     console.log("# scormService : Le status a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue('cmi.core.lesson_status'));
+                }else{
+                    //écrire le code pour scorm 2004 a supp une fois OK
+                    console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+                }
+            }
+        }
+
+        //méthode pour récupérer le score
+        function getStatut(){
+            console.log("# récupération du statut ");
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSGetValue('cmi.core.lesson_statut');
+                if(success){
+                    console.log("# scormService : le statut a bien été récupéré " + success);
+                    return success;
                 }else{
                     //écrire le code pour scorm 2004 a supp une fois OK
                     console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
