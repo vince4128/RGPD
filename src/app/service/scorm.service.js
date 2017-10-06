@@ -23,11 +23,13 @@
             getObjSuspend:getObjSuspend,
             getScore:getScore,
             getStatut:getStatut,
+            getLocation:getLocation,
             sendSuspend:sendSuspend,
             sendObjSuspend:sendObjSuspend,
             sendSessionTime: sendSessionTime,
             sendScore: sendScore,
             sendStatut: sendStatut,
+            sendLocation:sendLocation
         };
 
         //variable ici (avant le return sinon elles sont undefined)
@@ -90,6 +92,8 @@
             scormWrapper.doLMSFinish();
 
         }
+
+        //getter & setter
 
         //méthode d'envoi du temps
         function sendSessionTime(){
@@ -158,11 +162,11 @@
             }
         }
 
-        //méthode pour récupérer le score
+        //méthode pour récupérer le statut
         function getStatut(){
             console.log("# récupération du statut ");
             if(scormApiVersion === "1.2"){
-                var success = scormWrapper.doLMSGetValue('cmi.core.lesson_statut');
+                var success = scormWrapper.doLMSGetValue('cmi.core.lesson_status');
                 if(success){
                     console.log("# scormService : le statut a bien été récupéré " + success);
                     return success;
@@ -172,10 +176,6 @@
                 }
             }
         }
-
-        //méthode de mise à jour de suspend
-
-        //getter & setter
 
         //méthode de récupération de la version de scorm
         function getScormVersion(){
@@ -239,6 +239,35 @@
             }else{
                 //écrire le code pour scorm 2004 a supp une fois OK
                 console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+            }
+        }
+
+        //méthode d'envoi du location
+        function sendLocation(newLocation){
+            console.log("# scormService : envoi du location");
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSSetValue('cmi.core.lesson_location',newLocation);
+                if(success){
+                    console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue('cmi.core.lesson_location'));
+                }else{
+                    //écrire le code pour scorm 2004 a supp une fois OK
+                    console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+                }
+            }
+        }
+
+        //méthode pour récupérer le location
+        function getLocation(){
+            console.log("# récupération du location ");
+            if(scormApiVersion === "1.2"){
+                var success = scormWrapper.doLMSGetValue('cmi.core.lesson_location');
+                if(success){
+                    console.log("# scormService : le location a bien été récupéré " + success);
+                    return success;
+                }else{
+                    //écrire le code pour scorm 2004 a supp une fois OK
+                    console.log("# scormService Le code pour scorm 2004 n'a pas encore été écrit");
+                }
             }
         }
 
