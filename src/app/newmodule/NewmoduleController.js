@@ -11,6 +11,8 @@
         /* jshint validthis:true */
         var vm = this;
 
+        vm.atraduire = ".TEST_HTML";
+
         activate();
 
         function activate() { }
