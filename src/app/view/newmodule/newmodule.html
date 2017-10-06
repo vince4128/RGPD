@@ -1,1 +1,22 @@
 <p>new module</p>
+
+<section translate-namespace="tradObj">
+    
+    <p translate=".TITLE_ID">texte à traduire : {{vm.polyglote}}</p>
+
+    <p translate=".TITLE_ID"></p>
+
+    <!-- avec du html à binder -->
+    <!--avant-->
+    <!--<p ng-bind-html="vm.atraduire"></p>-->
+    <!--après-->
+    <p translate="{{vm.atraduire}}"></p>
+
+    <!--intégration d'une variable-->
+
+    <input type="text" ng-model="lenom" placeholder="tapez un nom pour le voir apparaître dans la traduction">
+    <p translate=".TEST_GREETING_ID" translate-value-name="{{lenom}}"></p>
+    <p translate>.TEST_KEY_IN_HTML</p>
+    <p>{{TEST_WITH_FILTER_ID | translate}}</p>
+
+</section>
