@@ -17,6 +17,9 @@ require("../lib/angularjs-scorm-wrapper/angularjs-scorm-wrapper.min.js");
 //
 require("./app/newmodule/newmodule.module.js");
 
+/* Angular - config */
+require("./app/core/config.js");
+
 /* Angular - directives */
 
 /* Angular - services */
