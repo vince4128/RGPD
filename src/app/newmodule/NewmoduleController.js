@@ -5,11 +5,14 @@
         .module('app.newmodule')
         .controller('NewmoduleCtrl', NewmoduleCtrl)
 
-        NewmoduleCtrl.$inject = [];
+    NewmoduleCtrl.$inject = ['_data'];
 
-    function NewmoduleCtrl() {
+    function NewmoduleCtrl(_data) {
         /* jshint validthis:true */
         var vm = this;
+
+        // données récupérées du resolve dans le state
+        vm.data = _data;
 
         activate();
 
