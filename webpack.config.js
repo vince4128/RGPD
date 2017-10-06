@@ -41,6 +41,7 @@ let VENDOR_LIBS = [
     'angular-touch/angular-touch',
     'angular-ui-notification/dist/angular-ui-notification',
     'ng-dialog/js/ngDialog',
+    'angular-translate/dist/angular-translate'
 ]
 
 
