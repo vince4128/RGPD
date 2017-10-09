@@ -22,7 +22,7 @@
             .preferredLanguage('fr')//le langage que nous voulons utiliser
             .fallbackLanguage('en')//si un langage par ex cz est choisi alors qu'il n'existe pas alors l'anglais sera présenté (fonctionne pas pour l'instant)
             .useStaticFilesLoader({//les fichiers doivent être nommés comme les clés utilisés (fr,en,etc...)
-                prefix: '/app/lang/',
+                prefix: './app/lang/',
                 suffix: '.json'
             })
             .useSanitizeValueStrategy('sanitize');
