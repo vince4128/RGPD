@@ -2,12 +2,6 @@
 
 //fichiers de langues
 require("./app/lang/fr.json");
-require("./app/lang/en.json");
-
-/* Images */
-
-require('../assets/img/example-en.jpg');
-require('../assets/img/example-fr.jpg');
 
 /*  styles  */
 require("./scss/style.scss");
