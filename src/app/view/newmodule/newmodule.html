@@ -34,8 +34,7 @@
     <button translate ng-click="vm.changeLanguage('en')">.TEST_AVAILABLE_LANGUAGE.en</button>
     <button translate ng-click="vm.changeLanguage('xx')">langue inconnu pour tester erreur</button>
 
-
-
-    <p>{{vm.langChoice}}</p>
+    <h3>Image en fonction de la langue</h3>
+    <img ng-src="img/example-{{vm.langue}}.jpg" alt="">
 
 </section>
