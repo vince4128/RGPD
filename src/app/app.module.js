@@ -7,24 +7,23 @@
         //modules développés
         'app.newmodule'
     ])
-    .config(configuration)
-    .run(runApp);
+        .config(configuration)
+        .run(runApp);
 })();
 
 //configuration
 configuration.$inject = ['$urlRouterProvider'];
 
-function configuration($urlRouterProvider){
-    $urlRouterProvider.otherwise('/');
+function configuration($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/newmodule');
 };
 
 //run
-runApp.$inject = ['$window','scormService'];
+runApp.$inject = ['$window', 'scormService'];
 
-function runApp($window, scormService){
+function runApp($window, scormService) {
 
     var vm = this;
 
     scormService.initScorm();
-    
 }

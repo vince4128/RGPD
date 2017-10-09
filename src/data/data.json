@@ -1,0 +1,62 @@
+{
+  "module": {
+    "header": {
+      "title": "module.title",
+      "description": "module.description"
+    },
+    "section": [
+      {
+        "id": "0",
+        "code": "intro",
+        "type": "course",
+        "title": "intro.title",
+        "item": [
+          {
+            "id": "0",
+            "code": "page_1",
+            "type": "text",
+            "title": "intro.page_1.title",
+            "sound": "intro.page_1.fileName",
+            "instruction": "intro.page_1.instruction",
+            "content": "intro.page_1.content"
+          },
+          {
+            "id": "1",
+            "code": "page_2",
+            "type": "text",
+            "title": "intro.page_2.title",
+            "sound": "intro.page_2.fileName",
+            "instruction": "intro.page_2.instruction",
+            "content": "intro.page_2.content"
+          }
+        ]
+      },
+      {
+        "id": "1",
+        "code": "course_1",
+        "type": "course",
+        "title": "course_1.title",
+        "item": [
+          {
+            "id": "0",
+            "code": "page_1",
+            "type": "text",
+            "title": "course_1.page_1.title",
+            "sound": "course_1.page_1.fileName",
+            "instruction": "course_1.page_1.instruction",
+            "content": "course_1.page_1.content"
+          },
+          {
+            "id": "1",
+            "code": "page_2",
+            "type": "text",
+            "title": "course_1.page_2.title",
+            "sound": "course_1.page_2.fileName",
+            "instruction": "course_1.page_2.instruction",
+            "content": "course_1.page_2.content"
+          }
+        ]
+      }
+    ]
+  }
+}
