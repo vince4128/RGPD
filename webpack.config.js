@@ -42,7 +42,8 @@ let VENDOR_LIBS = [
     'angular-ui-notification/dist/angular-ui-notification',
     'ng-dialog/js/ngDialog',
     'angular-translate/dist/angular-translate',
-    'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files'
+    'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files',
+    'angular-i18n/angular-locale_fr',
 ]
 
 
@@ -50,10 +51,19 @@ if(!dev){
 
     /* /!\ A TESTER !! */
     //si on est pas en dev on utilise des versions minifiees des lib js
-    for(let i = 0; i<VENDOR_LIBS.length; i++){
-        VENDOR_LIBS[i] += ".min";
-    
-    }
+    VENDOR_LIBS = [
+        //lib ici
+        'angular/angular.min',
+        'angular-animate/angular-animate.min',
+        '@uirouter/angularjs/release/angular-ui-router.min',
+        'angular-sanitize/angular-sanitize.min',
+        'angular-touch/angular-touch.min',
+        'angular-ui-notification/dist/angular-ui-notification.min',
+        'ng-dialog/js/ngDialog.min',
+        'angular-translate/dist/angular-translate.min',
+        'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min',
+        'angular-i18n/angular-locale_fr',
+    ];
 
     //si on est pas en dev on ajoute postcss-loader et autoprefixer
     cssLoaders.push({
@@ -137,7 +147,7 @@ let config = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            name:'img/[name].[hash:7].[ext]'
+                            name:'img/[name].[ext]'
                         }
                     }
                 ]
