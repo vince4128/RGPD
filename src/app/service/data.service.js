@@ -16,6 +16,7 @@
         return service;
 
         function getData() {
+<<<<<<< HEAD
             return $http.get('data/data.json', { cache: true }).then(function (resp) {
                 return resp.data.module;
             });
@@ -31,5 +32,9 @@
             });
         };
 
+=======
+            return [];
+        };
+>>>>>>> Internationalization
     }
 })();

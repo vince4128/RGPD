@@ -13,6 +13,7 @@
                 url: '/newmodule',
                 templateUrl: 'app/view/newmodule/newmodule.html',
                 controller: 'NewmoduleCtrl',
+<<<<<<< HEAD
                 controllerAs: 'vm',
                 resolve: {
                     //passé en paramètre à NewmoduleCtrl
@@ -32,6 +33,9 @@
                         return dataService.getSection($stateParams.sectionId);
                     }]
                 }
+=======
+                controllerAs: 'vm'
+>>>>>>> Internationalization
             });
     }
 

@@ -28,9 +28,9 @@ Une fois cela fait utiliser la commande ```javascript npm run dev``` pour que vo
 
 Pour déployer tapez la commande ```javascript npm run prod``` et votre projet se compilera dans le dossier "dist" à la racine de votre projet
 
-### Structure
+## Structure
 
-## arborescence de l'app
+### arborescence de l'app
 
 L'application a un module principale, il s'agit de app (app.module.js)
 
@@ -43,6 +43,32 @@ Les modules que vous créez sont à intégrer sous forme de sous module : app.mo
 ### Créer un module
 
 Pour créer un module, référez vous au module newmodule et reproduisez son arborescence (un dossier pour votre module, les fichiers xxx.module.js, xxx.route.js, xxxController.js), puis référencez votre module dans le module principal ('app').
+
+### Service existant
+
+Ce projet intègre un service du nom de scormService, qui utilise lui même le service scormWrapper du module scormwrapper.
+
+Ce service est injecté dans la phase de run du module principal app.module.js, l'initiation du scorm est réalisé lors de cette phase (run) obeservez la console javascript du navigateur pour vérifier que l'initialisation c'est faite.
+
+Même chose pour la clôture de session scorm, un écouteur d'évènement onbeforeunload est placé dans la phase de run de l'application, celle-ci ce charge de la remontée du scorm à la fermeture de la fenêtre, là encore réferez-vous à la console javascript de votre navigateur pour voir les mesages de débug
+
+Utilisez ensuite les méthodes suivantes :
+
+*scormService.initScorm() pour initialiser le scorm (déjà intégré pas nécessaire de l'utiliser manuellement)
+*scormservice.endScorm() pour clôturer le scorm (déjà intégré pas nécessaire de l'utiliser manuellement)
+*scormService.existingSuspend() pour récupérer le suspend existant obtenu à l'initialisation du module
+*scormService.existingObjSuspend même chose mais au format objet (attention vous devez décommenter la ligne 284 (//existingObjSuspend = getObjSuspend();)) et vous assurez que votre suspend a bien été enregistré avec la syntaxe .json
+*scormService.getScormVersion() retourne la version de scorm
+*scormService.getSuspend() retourne le suspend
+*scormService.sendsuspend() envoie le suspend
+*scormService.getObjSuspend() retourne le suspend sous forme d'objet (attention le suspend doit être enregistré avec la syntaxe json dans la bdd)
+*scormService.sendObjSuspend() convertit un objet javascript a la syntaxe json et l'enregistre dans la bdd en tant que suspend (attention de bien envoyer un objet)
+*scormService.sendSessionTime envoie le temps de la session (automatiquement envoyé lors de la clôture de la session).
+*scormService.sendScore() envoie le score
+*scormService.sendStatut() envoie le statut
+*scormService.getScore() envoie le score
+*scormService.getStatut() envoie le statut
+
 
 ### Expérimental
 

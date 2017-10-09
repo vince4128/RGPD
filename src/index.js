@@ -1,3 +1,8 @@
+/* Data */
+
+//fichiers de langues
+require("./app/lang/fr.json");
+
 /*  styles  */
 require("./scss/style.scss");
 
@@ -17,6 +22,9 @@ require("./app/core/core.module.js");
 require("../lib/angularjs-scorm-wrapper/angularjs-scorm-wrapper.min.js");
 //
 require("./app/newmodule/newmodule.module.js");
+
+/* Angular - config */
+require("./app/core/config.js");
 
 /* Angular - directives */
 

@@ -26,4 +26,14 @@ function runApp($window, scormService) {
     var vm = this;
 
     scormService.initScorm();
+<<<<<<< HEAD
+=======
+
+    //on attache un ecouteur d'évènement sur la fermeture de la fenêtre
+    $window.onbeforeunload = function(event) {
+        event.preventDefault(); //on empêche la fermeture de la fenêtre
+        scormService.endScorm(); //LMSFinish va fermer la fenêtre tout seul
+    }
+    
+>>>>>>> Internationalization
 }
