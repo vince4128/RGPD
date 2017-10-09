@@ -14,6 +14,8 @@
 
         return service;
 
-        function getData() { }
+        function getData() {
+            return [];
+        };
     }
 })();
