@@ -1,0 +1,16 @@
+{
+    "tradObj": {
+        "TITLE_ID": "Internationalization",
+        "LANGUAGE_ID": "Language",
+        "TEST_ID": "test English",
+        "TEST_HTML": "<h4>Demonstration</h4> with html tag to be interpreted",
+        "TEST_PLURAL_ID": "{testCount, plural, =0{null result}, one{result 1}, other{# Messages}}",
+        "TEST_GREETING_ID": "Hi {{name}} !",
+        "TEST_KEY_IN_HTML": "Key directly placed in the .html",
+        "TEST_WITH_FILTER_ID": "Translated by using a filter",
+        "TEST_AVAILABLE_LANGUAGE": {
+            "fr": "French",
+            "en": "English"
+        }
+    }
+}
