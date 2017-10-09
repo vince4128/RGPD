@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
 
     angular
@@ -10,10 +10,10 @@
     function newmoduleConfig($stateProvider) {
         $stateProvider
             .state('newmodule', {
-                url:'/newmodule',
-                templateUrl:'app/view/newmodule/newmodule.html',
-                controller:'NewmoduleCtrl',
-                controllerAs:'vm'
+                url: '/newmodule',
+                templateUrl: 'app/view/newmodule/newmodule.html',
+                controller: 'NewmoduleCtrl',
+                controllerAs: 'vm'
             });
     }
 
