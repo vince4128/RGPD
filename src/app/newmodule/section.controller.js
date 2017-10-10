@@ -18,6 +18,8 @@
 
         vm.section = _section;
 
+        vm.currentItem = 0;
+
         activate();
 
         //////////////
