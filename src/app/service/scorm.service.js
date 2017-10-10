@@ -267,9 +267,11 @@
 
             //a supp une fois OK
             console.log("# scormService : conversion du temps pour du Scorm " + scormApiVersion);
+            
+            var hms;
 
             if (scormApiVersion === "1.2") {
-                var hms = "";
+                hms = "";
                 var dtm = new Date();
                 dtm.setTime(_milliSecondsElapsed);
                 var h = "0" + Math.floor(_milliSecondsElapsed / 3600000);
@@ -289,7 +291,7 @@
                 nbMinutes = "0" + nbMinutes;
                 nbSeconds = "0" + nbSeconds;
 
-                var hms = "PT" + nbHours.substr(nbHours.length - 4) + "H" + nbMinutes.substr(nbMinutes.length - 2) + "M" + nbSeconds.substr(nbSeconds.length - 2) + "S";
+                hms = "PT" + nbHours.substr(nbHours.length - 4) + "H" + nbMinutes.substr(nbMinutes.length - 2) + "M" + nbSeconds.substr(nbSeconds.length - 2) + "S";
             }
             else
             {
