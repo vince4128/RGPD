@@ -15,7 +15,7 @@
         var directive = {
             link: link,
             restrict: 'A',
-            templateUrl: 'app/template/prevandnext/prevandnext.html',
+            templateUrl: './app/template/prevandnext/prevandnext.html',
             scope: {
                 items: '=',
                 currentItem: '='
@@ -44,7 +44,7 @@
         ///////////////////////
 
         function nextItem(){
-            if(vm.currentItem < vm.items.item.length-1){
+            if(vm.currentItem < vm.items.length-1){
                 vm.currentItem++;
             }      
         }

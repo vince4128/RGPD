@@ -10,6 +10,7 @@ require("./scss/style.scss");
 require("./app/view/layout/layout.html");
 require("./app/view/newmodule/newmodule.html");
 require("./app/view/newmodule/section.html");
+require("./app/template/prevandnext/prevandnext.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
