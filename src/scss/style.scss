@@ -1,0 +1,14 @@
+//RESET
+@import "../../node_modules/normalize.css/normalize.css";
+
+//UI-NOTIFICATION
+@import "../../node_modules/angular-ui-notification/dist/angular-ui-notification.min.css";
+
+//NG-DIALOG
+@import "../../node_modules/ng-dialog/css/ngDialog.min.css";
+@import "../../node_modules/ng-dialog/css/ngDialog-theme-default.min.css";
+@import "../../node_modules/ng-dialog/css/ngDialog-theme-plain.min.css";
+
+//FONT AWESOME
+$fa-font-path: "~fontAwesomefonts" !default;
+@import "../../node_modules/font-awesome/scss/font-awesome";
