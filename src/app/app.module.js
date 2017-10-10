@@ -5,6 +5,7 @@
         //angular modules 
         'app.core',
         //modules développés
+        'app.directive',
         'app.newmodule'
     ])
         .config(configuration)

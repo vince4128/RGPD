@@ -23,6 +23,7 @@ require('../node_modules/viewport-units-buggyfill/viewport-units-buggyfill.js').
 require("./app/app.module.js");
 require("./app/core/core.module.js");
 require("../lib/angularjs-scorm-wrapper/angularjs-scorm-wrapper.min.js");
+require("./app/directive/directive.module.js");
 //
 require("./app/newmodule/newmodule.module.js");
 
@@ -30,6 +31,7 @@ require("./app/newmodule/newmodule.module.js");
 require("./app/core/config.js");
 
 /* Angular - directives */
+require("./app/directive/prevandnext.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");
