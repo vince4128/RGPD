@@ -1,6 +1,11 @@
 <p>Contenu chapitre sélectionné, id: {{vm.sectionId}}</p>
+
+<p>currentItem : {{vm.currentItem+1}}</p>
+
 <div>
     <ul>
-        <li ng-repeat="item in vm.section.item"><a>{{item.title}}</a></li>
+        <li ng-repeat="item in vm.section.item" ng-if="$index === vm.currentItem"><a>{{item.title}}</a></li>
     </ul>
 </div>
+
+<div data-prevandnext items="vm.section" current-item="vm.currentItem"></div>
