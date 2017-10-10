@@ -272,7 +272,7 @@
                 var hms = "";
                 var dtm = new Date();
                 dtm.setTime(_milliSecondsElapsed);
-                var h = "0" + Math.floor(n / 3600000);
+                var h = "0" + Math.floor(_milliSecondsElapsed / 3600000);
                 var m = "0" + dtm.getMinutes();
                 var s = "0" + dtm.getSeconds();
                 hms = h.substr(h.length - 2) + ":" + m.substr(m.length - 2) + ":";
