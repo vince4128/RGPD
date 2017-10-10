@@ -10,14 +10,28 @@
     function dataService($http) {
         var service = {
             getData: getData,
-            getSection: getSection
+            getSection: getSection,
+            currentData: []
         };
 
         return service;
 
         function getData() {
             return $http.get('data/data.json', { cache: true }).then(function (resp) {
-                return resp.data.module;
+                service.currentData = resp.data.module;
+                for(var i=0; i<service.currentData.section.length; i++){
+                    
+                    var currentObj = service.currentData.section[i];
+                    currentObj["id"] = String(i);
+                    currentObj["read"] = false; //TODO: raccrocher les wagons avec le location
+
+                    for(var j=0; j<currentObj.item.length; j++){
+                        currentObj.item[j]["id"] = String(j);
+                        currentObj.item[j]["read"] = false; //TODO: raccrocher les wagons avec le location
+                    }
+
+                }
+                return service.currentData;
             });
         };
 
@@ -25,10 +39,7 @@
             function sectionMatchesParam(section) {
                 return section.id === id;
             }
-
-            return service.getData().then(function (data) {
-                return data.section.find(sectionMatchesParam);
-            });
+            return service.currentData.section.find(sectionMatchesParam);
         };
 
     }
