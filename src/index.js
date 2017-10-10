@@ -14,6 +14,9 @@ require("./app/view/newmodule/section.html");
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
 
+//fix viewport support on safari mobile
+require('../node_modules/viewport-units-buggyfill/viewport-units-buggyfill.js').init();
+
 /* Angular */
 
 /* Angular - module */
