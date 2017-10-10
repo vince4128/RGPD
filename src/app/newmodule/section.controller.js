@@ -9,8 +9,8 @@
         .module('app.newmodule')
         .controller('SectionCtrl', SectionCtrl);
 
-    SectionCtrl.$inject = ["$log", "$stateParams", "_section","$scope","$rootScope"];
-    function SectionCtrl($log, $stateParams, _section,$scope,$rootScope) {
+    SectionCtrl.$inject = ["$log", "$stateParams", "_section", "$scope"];
+    function SectionCtrl($log, $stateParams, _section, $scope) {
         var vm = this;
         vm.class = 'SectionCtrl';
 
@@ -22,8 +22,8 @@
 
         activate();
 
-        $scope.$on('eventest', function(event) {
-            alert('ok');//lu non lu //ajouter l'info dans le suspend
+        $scope.$on('eventest', function(event, data) {
+            vm.section.item[vm.currentItem].seen = data;
         });
 
         //////////////

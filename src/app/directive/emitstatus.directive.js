@@ -15,7 +15,7 @@
         var directive = {
             link: link,
             restrict: 'A',
-            template:'<div><button ng-click="vm.emitstatus()">test</button><div ng-transclude></div></div>',
+            templateUrl:'./app/template/emitstatus/emitstatus.html',
             scope:{
 
             },
@@ -30,9 +30,9 @@
         }
     }
 
-    emitstatusController.$inject = ['$rootScope','$scope'];
+    emitstatusController.$inject = ['$scope'];
 
-    function emitstatusController($rootScope,$scope){
+    function emitstatusController($scope){
 
         var vm = this;
 
@@ -40,10 +40,7 @@
         ///////////////////////////
 
         function emitstatus(s){
-            $scope.$emit('eventest',0);
-            //$rootScope.$broadcast('eventest',0);
-            //$rootScope.$emit('eventest',0);
-            alert('emitstatus fired !');
+            $scope.$emit('eventest',s);
         }
 
     }
