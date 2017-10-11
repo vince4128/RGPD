@@ -53,8 +53,14 @@
             if(vm.currentItem < vm.items.length-1){
                 if(vm.items[vm.currentItem].type === "text"){
                     vm.emitstatus(true);
+                    vm.currentItem++;
+                } else {
+                    if(vm.items[vm.currentItem].read){
+                        vm.currentItem++;
+                    }else{
+                        alert('une action est nécessaire');
+                    }
                 }
-                vm.currentItem++;
             }   
         }
 
