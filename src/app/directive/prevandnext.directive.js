@@ -32,21 +32,30 @@
 
     }
 
-    //prevandnextController.$inject = [];
+    prevandnextController.$inject = ['$scope'];
 
-    function prevandnextController() {
+    function prevandnextController($scope) {
 
         var vm = this;
 
         //vm.currentItem = 0;
         vm.nextItem = nextItem;
         vm.prevItem = prevItem;
-        ///////////////////////
+
+        vm.emitstatus = emitstatus;
+        ///////////////////////////
+
+        function emitstatus(s){
+            $scope.$emit('readevent',s);
+        }
 
         function nextItem(){
             if(vm.currentItem < vm.items.length-1){
+                if(vm.items.type = "text"){
+                    vm.emitstatus(true);
+                }
                 vm.currentItem++;
-            }      
+            }   
         }
 
         function prevItem(){

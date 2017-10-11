@@ -11,6 +11,7 @@ require("./app/view/layout/layout.html");
 require("./app/view/newmodule/newmodule.html");
 require("./app/view/newmodule/section.html");
 require("./app/template/prevandnext/prevandnext.html");
+require("./app/template/emitstatus/emitstatus.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -33,6 +34,7 @@ require("./app/core/config.js");
 
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");
+require("./app/directive/emitstatus.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");

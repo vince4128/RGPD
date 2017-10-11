@@ -4,7 +4,10 @@
 
 <div>
     <ul>
-        <li ng-repeat="item in vm.section.item" ng-if="$index === vm.currentItem"><a>{{item.title}}</a></li>
+        <li ng-repeat="item in vm.section.item" ng-if="$index === vm.currentItem"><a>{{item.title}} {{item.read}}</a>
+            <div data-emitstatus>
+            </div>
+        </li>
     </ul>
 </div>
 

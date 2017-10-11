@@ -9,8 +9,8 @@
         .module('app.newmodule')
         .controller('SectionCtrl', SectionCtrl);
 
-    SectionCtrl.$inject = ["$log", "$stateParams", "_section"];
-    function SectionCtrl($log, $stateParams, _section) {
+    SectionCtrl.$inject = ["$log", "$stateParams", "_section", "$scope"];
+    function SectionCtrl($log, $stateParams, _section, $scope) {
         var vm = this;
         vm.class = 'SectionCtrl';
 
@@ -21,6 +21,10 @@
         vm.currentItem = 0;
 
         activate();
+
+        $scope.$on('readevent', function(event, data) {
+            vm.section.item[vm.currentItem].read = data;
+        });
 
         //////////////
 
