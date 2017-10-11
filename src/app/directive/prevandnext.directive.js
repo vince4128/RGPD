@@ -51,7 +51,7 @@
 
         function nextItem(){
             if(vm.currentItem < vm.items.length-1){
-                if(vm.items.type = "text"){
+                if(vm.items[vm.currentItem].type === "text"){
                     vm.emitstatus(true);
                 }
                 vm.currentItem++;
