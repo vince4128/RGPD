@@ -16,14 +16,13 @@
             link: link,
             restrict: 'A',
             scope: {
-                item: '='
+                item: '=',
             }
         };
         return directive;
 
         function link(scope, element, attrs) {
-            //var generatedTemplate = '<div data-' + scope.item.type + '></div>';
-            var generatedTemplate = '<div data-emitstatus ></div>';
+            var generatedTemplate = '<div data-' + scope.item.type + ' ' + 'item="item"' + '></div>';
             element.append($compile(generatedTemplate)(scope));
         }
     }
