@@ -19,6 +19,7 @@ require("./app/template/emitstatus/emitstatus.html");
 require("./app/template/text/text.html");
 require("./app/template/clicktosee/clicktosee.html");
 require("./app/template/qsimple/qsimple.html");
+require("./app/template/textimg/textimg.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -46,6 +47,7 @@ require("./app/directive/itemgenerator.directive.js");
 require("./app/directive/text.directive.js");
 require("./app/directive/clicktosee.directive.js");
 require("./app/directive/qsimple.directive.js");
+require("./app/directive/textimg.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");

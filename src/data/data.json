@@ -74,6 +74,17 @@
                 "ko":"intro.page_4.content.feedback.ko"
               }
             }
+          },
+          {
+            "code": "page_5",
+            "type": "textimg",
+            "title": "intro.page_5.title",
+            "sound": "intro.page_5.fileName",
+            "instruction": "intro.page_5.instruction",
+            "content": {
+              "text":"intro.page_5.content.text",
+              "img":"intro.page_5.content.img"
+            }
           }
         ]
       },
@@ -145,6 +156,17 @@
                 "ok":"course_1.page_4.content.feedback.ok",
                 "ko":"course_1.page_4.content.feedback.ko"
               }
+            }
+          },
+          {
+            "code": "page_5",
+            "type": "textimg",
+            "title": "course_1.page_5.title",
+            "sound": "course_1.page_5.fileName",
+            "instruction": "course_1.page_5.instruction",
+            "content": {
+              "text":"course_1.page_5.content.text",
+              "img":"course_1.page_5.content.img"
             }
           }
         ]
