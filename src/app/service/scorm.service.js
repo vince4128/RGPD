@@ -190,7 +190,7 @@
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));
             } else {
-                console.log("# scormService setSuspend failed");
+                console.log("# scormService : setSuspend failed");
             }
         }
 
@@ -199,30 +199,31 @@
             var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
 
             if (success) {
-                console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
+                console.log("# scormService : Suspend récupéré avec la valeur : " + success);
                 existingObjSuspend = angular.fromJson(success);
                 return existingObjSuspend;
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService getObjSuspend failed");
+                console.log("# scormService : getObjSuspend failed");
             }
         }
 
         //méthode pour envoyer le suspend objet
         function setObjSuspend(_suspend) {
+            //TODO : vérifier taille de l'objet envoyé ( SPM: 4096 )
             var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, angular.toJson(_suspend));
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSSetValue(SUSPEND_DATA));
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService setObjSuspend failed");
+                console.log("# scormService : setObjSuspend failed");
             }
         }
 
         //méthode d'envoi du location
         function setLocation(_location) {
             console.log("# scormService : envoi du location");
-
+            
             var success = scormWrapper.doLMSSetValue(LOCATION(), _location);
             if (success) {
                 console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LOCATION()));

@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('dataService', dataService)
 
-    dataService.$inject = ['$http'];
+    dataService.$inject = ['$http', 'scormService'];
 
-    function dataService($http) {
+    function dataService($http, scormService) {
         var service = {
             getData: getData,
             getSection: getSection,
@@ -19,15 +19,18 @@
         function getData() {
             return $http.get('data/data.json', { cache: true }).then(function (resp) {
                 service.currentData = resp.data.module;
+                
+                var suspendObj = scormService.existingObjSuspend;
+                var isEmpty = angular.equals(suspendObj, {});
+                
                 for(var i=0; i<service.currentData.section.length; i++){
-                    
                     var currentObj = service.currentData.section[i];
-                    currentObj["id"] = String(i);
-                    currentObj["read"] = false; //TODO: raccrocher les wagons avec le location
+                    currentObj.id = String(i);
+                    currentObj.read = isEmpty ? suspendObj.section[i].read : false;
 
                     for(var j=0; j<currentObj.item.length; j++){
-                        currentObj.item[j]["id"] = String(j);
-                        currentObj.item[j]["read"] = false; //TODO: raccrocher les wagons avec le location
+                        currentObj.item[j].id = String(j);
+                        currentObj.item[j].read = isEmpty ? suspendObj.section[i].item[j].read : false; 
                     }
 
                 }
