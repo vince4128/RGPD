@@ -5,8 +5,9 @@
 <div>
     <ul>
         <li ng-repeat="item in vm.section.item" ng-if="$index === vm.currentItem"><a>{{item.title}} {{item.read}}</a>
-            <div data-emitstatus>
-            </div>
+            <!--<div data-emitstatus>
+            </div>-->
+            <div itemgenerator item="item"></div>
         </li>
     </ul>
 </div>

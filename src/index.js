@@ -35,6 +35,8 @@ require("./app/core/config.js");
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");
 require("./app/directive/emitstatus.directive.js");
+require("./app/directive/itemgenerator.directive.js");
+require("./app/directive/text.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");
