@@ -7,12 +7,17 @@ require("./app/lang/fr.json");
 require("./scss/style.scss");
 
 /*  html    */
+
+//view
 require("./app/view/layout/layout.html");
 require("./app/view/newmodule/newmodule.html");
 require("./app/view/newmodule/section.html");
+
+//template
 require("./app/template/prevandnext/prevandnext.html");
 require("./app/template/emitstatus/emitstatus.html");
 require("./app/template/text/text.html");
+require("./app/template/clicktosee/clicktosee.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -38,6 +43,7 @@ require("./app/directive/prevandnext.directive.js");
 require("./app/directive/emitstatus.directive.js");
 require("./app/directive/itemgenerator.directive.js");
 require("./app/directive/text.directive.js");
+require("./app/directive/clicktosee.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");

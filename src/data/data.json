@@ -25,6 +25,27 @@
             "sound": "intro.page_2.fileName",
             "instruction": "intro.page_2.instruction",
             "content": "intro.page_2.content"
+          },
+          {
+            "code": "page_3",
+            "type": "clicktosee",
+            "title": "intro.page_3.title",
+            "sound": "intro.page_3.fileName",
+            "instruction": "intro.page_3.instruction",
+            "content": [
+              {
+                  "text":"intro.page_3.item1.text",
+                  "img":"intro.page_3.item1.img"
+              },
+              {
+                  "text":"intro.page_3.item2.text",
+                  "img":"intro.page_3.item3.img"
+              },
+              {
+                  "text":"intro.page_3.item3.text",
+                  "img":"intro.page_3.item3.img"
+              }
+            ]
           }
         ]
       },
@@ -48,6 +69,23 @@
             "sound": "course_1.page_2.fileName",
             "instruction": "course_1.page_2.instruction",
             "content": "course_1.page_2.content"
+          },
+          {
+            "code": "page_3",
+            "type": "clicktosee",
+            "title": "course_1.page_3.title",
+            "sound": "course_1.page_3.fileName",
+            "instruction": "course_1.page_3.instruction",
+            "content": [
+              {
+                  "text":"intro.page_3.item1.text",
+                  "img":"intro.page_3.item1.img"
+              },
+              {
+                  "text":"intro.page_3.item2.text",
+                  "img":"intro.page_3.item3.img"
+              }
+            ]
           }
         ]
       }
