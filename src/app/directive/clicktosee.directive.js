@@ -9,7 +9,7 @@
 
     function clicktosee() {
         // Usage:
-        //     <directive></directive>
+        //     <div data-clicktosee item="item"></div data-clicktosee item="item">
         // Creates:
         //
         var directive = {

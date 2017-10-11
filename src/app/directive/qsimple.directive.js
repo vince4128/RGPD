@@ -9,7 +9,7 @@
 
     function qsimple() {
         // Usage:
-        //     <directive></directive>
+        //     <div data-qsimple item="item"></div>
         // Creates:
         //
         var directive = {
@@ -44,7 +44,6 @@
         //////////////
 
         function check() {
-            alert('check');
             if (vm.radio.checked || vm.radio.checked === 0) {
                 $scope.$emit('readevent',true);
                 //checker la rep
@@ -52,7 +51,6 @@
                     //la réponse est bonne
                     vm.feedback.feedOk = true;
                 } else {
-                    alert('la rep est pas bonne !');
                     //la réponse est fausse
                     vm.feedback.feedOk = false;
                 }

@@ -9,7 +9,7 @@
 
     function itemgenerator($compile) {
         // Usage:
-        //     <directive></directive>
+        //     <div itemgenerator item="item"></div>
         // Creates:
         //
         var directive = {
