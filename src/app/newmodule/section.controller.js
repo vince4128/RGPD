@@ -1,7 +1,3 @@
-/**
- * @author sberthe
- * @since 10/6/2017
- */
 (function () {
     'use strict';
 
@@ -17,8 +13,8 @@
         vm.sectionId = $stateParams.sectionId;
 
         vm.section = _section;
-
-        vm.currentItem = 0;
+        
+        vm.currentItem = parseInt($stateParams.itemId);
 
         activate();
 

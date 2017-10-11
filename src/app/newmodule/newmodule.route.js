@@ -24,6 +24,9 @@
         $stateProvider
             .state('newmodule.section', {
                 url: '/{sectionId}',
+                params: {
+                    itemId: 0,
+                  },
                 templateUrl: 'app/view/newmodule/section.html',
                 controller: 'SectionCtrl',
                 controllerAs: 'vm',

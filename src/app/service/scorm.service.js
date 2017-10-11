@@ -92,7 +92,7 @@
                 //initialiser le suspend
                 initSuspend();
             } else {
-                console.log("# scormService : connexion scorm pas initialisé");
+                console.log("# scormService : connexion scorm pas initialisée");
             }
         }
 
@@ -181,6 +181,7 @@
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
                 console.log("# scormService : getSuspend failed");
+                return "";
             }
         }
 
@@ -205,6 +206,7 @@
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
                 console.log("# scormService : getObjSuspend failed");
+                return {};
             }
         }
 
@@ -244,6 +246,7 @@
             }
             else {
                 console.log("# scormService : le location n'a pas été récupéré ");
+                return "";
             }
         }
 
