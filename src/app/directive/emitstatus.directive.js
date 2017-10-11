@@ -40,7 +40,7 @@
         ///////////////////////////
 
         function emitstatus(s){
-            $scope.$emit('eventest',s);
+            $scope.$emit('readevent',s);
         }
 
     }

@@ -22,8 +22,8 @@
 
         activate();
 
-        $scope.$on('eventest', function(event, data) {
-            vm.section.item[vm.currentItem].seen = data;
+        $scope.$on('readevent', function(event, data) {
+            vm.section.item[vm.currentItem].read = data;
         });
 
         //////////////
