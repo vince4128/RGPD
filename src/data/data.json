@@ -34,18 +34,46 @@
             "instruction": "intro.page_3.instruction",
             "content": [
               {
-                  "text":"intro.page_3.item1.text",
-                  "img":"intro.page_3.item1.img"
+                  "text":"intro.page_3.content[0].text",
+                  "img":"intro.page_3.content[0].img"
               },
               {
-                  "text":"intro.page_3.item2.text",
-                  "img":"intro.page_3.item3.img"
+                  "text":"intro.page_3.content[1].text",
+                  "img":"intro.page_3.content[1].img"
               },
               {
-                  "text":"intro.page_3.item3.text",
-                  "img":"intro.page_3.item3.img"
+                  "text":"intro.page_3.content[2].text",
+                  "img":"intro.page_3.content[2].img"
               }
             ]
+          },
+          {
+            "code": "page_4",
+            "type": "qsimple",
+            "title": "intro.page_4.title",
+            "sound": "intro.page_4.fileName",
+            "instruction": "intro.page_4.instruction",
+            "content": {
+              "question":"intro.page_4.content.question",
+              "proposal":[
+                {
+                  "text":"intro.page_4.content.proposal[0].text",
+                  "value":false
+                },
+                {
+                  "text":"intro.page_4.content.proposal[1].text",
+                  "value":false
+                },
+                {
+                  "text":"intro.page_4.content.proposal[2].text",
+                  "value":true
+                }
+              ],
+              "feedback":{
+                "ok":"intro.page_4.content.feedback.ok",
+                "ko":"intro.page_4.content.feedback.ko"
+              }
+            }
           }
         ]
       },
@@ -78,14 +106,46 @@
             "instruction": "course_1.page_3.instruction",
             "content": [
               {
-                  "text":"intro.page_3.item1.text",
-                  "img":"intro.page_3.item1.img"
+                  "text":"intro.page_3.content[0].text",
+                  "img":"intro.page_3.content[0].img"
               },
               {
-                  "text":"intro.page_3.item2.text",
-                  "img":"intro.page_3.item3.img"
+                  "text":"intro.page_3.content[1].text",
+                  "img":"intro.page_3.content[1].img"
               }
             ]
+          },
+          {
+            "code": "page_4",
+            "type": "qsimple",
+            "title": "course_1.page_4.title",
+            "sound": "course_1.page_4.fileName",
+            "instruction": "course_1.page_4.instruction",
+            "content": {
+              "question":"course_1.page_4.content.question",
+              "proposal":[
+                {
+                  "text":"course_1.page_4.proposal[0].text",
+                  "value":false
+                },
+                {
+                  "text":"course_1.page_4.proposal[1].text",
+                  "value":true
+                },
+                {
+                  "text":"course_1.page_4.proposal[2].text",
+                  "value":false
+                },
+                {
+                  "text":"course_1.page_4.proposal[3].text",
+                  "value":false
+                }
+              ],
+              "feedback":{
+                "ok":"course_1.page_4.content.feedback.ok",
+                "ko":"course_1.page_4.content.feedback.ko"
+              }
+            }
           }
         ]
       }
