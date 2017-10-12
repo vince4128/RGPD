@@ -47,7 +47,7 @@ let VENDOR_LIBS = [
 ]
 
 
-if(!dev){
+if (!dev) {
 
     /* /!\ A TESTER !! */
     //si on est pas en dev on utilise des versions minifiees des lib js
@@ -66,41 +66,43 @@ if(!dev){
     ];
 
     //si on est pas en dev on ajoute postcss-loader et autoprefixer
-    cssLoaders.push({
+    /*cssLoaders.push({
         loader: 'postcss-loader',
         options: {
             plugins: (loader) => [
+                require('postcss-import'),
                 require('autoprefixer')({
                     browsers: ['last 2 versions', 'ie > 8']
                 })
             ]
         }
-    })
+    })*/
 }
 
 //configuration
 let config = {
 
     //point d'entrée
-    entry:{
-        vendor:VENDOR_LIBS, //Les bibliothèques
-        app:'./src/index.js'//l'index.js qui répertorie tout ce qu'il y a à compiler
+    entry: {
+        vendor: VENDOR_LIBS, //Les bibliothèques
+        app: './src/index.js'//l'index.js qui répertorie tout ce qu'il y a à compiler
     },
 
-    watch:dev,//si on est en phase de dev on surveille les fichiers (superflu étant donné qu'on utilise webpack-dev-server ?)
+    watch: dev,//si on est en phase de dev on surveille les fichiers (superflu étant donné qu'on utilise webpack-dev-server ?)
 
     //point de sortie
-    output:{
-        path:path.resolve('./dist'),
+    output: {
+        path: path.resolve('./dist'),
         filename: dev ? '[name].js' : '[name].[chunkhash:8].js'
     },
 
     //alias (experimental (ok pour les url dans sass))
     resolve: {
         alias: {
-            'assets' : path.resolve('./assets'),
-            'img':path.resolve('./assets/img/'),
-            'fontAwesomefonts':path.resolve('./node_modules/font-awesome/fonts/')
+            'assets': path.resolve('./assets'),
+            'img': path.resolve('./assets/img/'),
+            'fontAwesomefonts': path.resolve('./node_modules/font-awesome/fonts/'),
+            'node_modules': path.resolve('./node_modules/')
         }
     },
 
@@ -111,9 +113,9 @@ let config = {
 
         rules: [
             {
-                test:/\.js$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
-                use:['babel-loader']
+                use: ['babel-loader']
             },
             {
                 test: /\.css$/,
@@ -131,86 +133,86 @@ let config = {
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                use:[
+                use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name:'fonts/[name].[ext]'
+                            name: 'fonts/[name].[ext]'
                         }
                     }
                 ]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
-                use:[
+                use: [
                     {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            name:'img/[name].[ext]'
+                            name: 'img/[name].[ext]'
                         }
                     }
                 ]
             },
             {
                 test: /\.(html|txt|json)$/,
-                use:[
+                use: [
                     {
-                        loader:'file-loader',
+                        loader: 'file-loader',
                         options: {
-                            name:'[name].[ext]',
-                            useRelativePath:true,
-                            context:'./src',
+                            name: '[name].[ext]',
+                            useRelativePath: true,
+                            context: './src',
                         }
                     }
                 ],
-                exclude: path.join(__dirname,'src/index.html')//on exclue index.html car on utilise HtmlWebpackPlugin
+                exclude: path.join(__dirname, 'src/index.html')//on exclue index.html car on utilise HtmlWebpackPlugin
             }
         ]
 
     },
 
     devServer: {
-        port:3001,
+        port: 3001,
         contentBase: path.join(__dirname, "src"),
     },
 
     plugins: [
 
         //donnons un ordre aux fichiers
-        new CommonsPlugin({ name:"vendor", chunks:['vendor'], minChunks:Infinity}),
-        new CommonsPlugin({ name:"app", chunks:['app']}),
+        new CommonsPlugin({ name: "vendor", chunks: ['vendor'], minChunks: Infinity }),
+        new CommonsPlugin({ name: "app", chunks: ['app'] }),
 
         new ExtractTextPlugin({
             filename: dev ? '[name]'.css : '[name].[contenthash:8].css',
             disable: dev
         }),
         new HtmlWebpackPlugin({
-            chunks:[
+            chunks: [
                 //'commons',
                 'vendor',
                 'app'
             ],
-            chunksSortMode: function(a, b) {
-                return (a.names[0] < b.names[0])? 1 : -1;
-             },//cette fonction remet les "chunks dans l'ordre"
-            template:'src/index.html'
+            chunksSortMode: function (a, b) {
+                return (a.names[0] < b.names[0]) ? 1 : -1;
+            },//cette fonction remet les "chunks dans l'ordre"
+            template: 'src/index.html'
         })
     ]
 
 }
 
 
-if(!dev){
+if (!dev) {
     config.plugins.push(new UglifyJSPlugin({
-      sourceMap:true
+        sourceMap: true
     })),
-    config.plugins.push(new ManifestPlugin()),
-    config.plugins.push(new CleanWebpackPlugin(['dist'], {
-        root: path.resolve('./'),
-        verbose: true,
-        dry: false
-      }))
-  }
-  
-  module.exports = config;
+        config.plugins.push(new ManifestPlugin()),
+        config.plugins.push(new CleanWebpackPlugin(['dist'], {
+            root: path.resolve('./'),
+            verbose: true,
+            dry: false
+        }))
+}
+
+module.exports = config;
