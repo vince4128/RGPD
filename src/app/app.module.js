@@ -26,6 +26,7 @@ function runApp($window, scormService, $rootScope) {
 
     var vm = this;
 
+    //booléen pour s'assurer de ne revenir sur la page du location, qu'une seule fois
     $rootScope.locationRead = false;
 
     scormService.initScorm();

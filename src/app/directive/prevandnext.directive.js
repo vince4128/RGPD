@@ -9,7 +9,7 @@
 
     function prevandnext() {
         // Usage:
-        //     <div data-prevandnext items="vm.section" current-item="vm.currentItemIndex"></div>
+        //     <div data-prevandnext items="vm.section" current-item-index="vm.currentItemId"></div>
         // Creates:
         //
         var directive = {
