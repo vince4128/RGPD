@@ -9,7 +9,7 @@
 
     function prevandnext() {
         // Usage:
-        //     <div data-prevandnext items="vm.section" current-item="vm.currentItem"></div>
+        //     <div data-prevandnext items="vm.section" current-item="vm.currentItemIndex"></div>
         // Creates:
         //
         var directive = {
@@ -18,7 +18,7 @@
             templateUrl: './app/template/prevandnext/prevandnext.html',
             scope: {
                 items: '=',
-                currentItem: '='
+                currentItemIndex: '='
             },
             controller: prevandnextController,
             controllerAs: 'vm',
@@ -38,7 +38,7 @@
 
         var vm = this;
 
-        //vm.currentItem = 0;
+        //vm.currentItemIndex = 0;
         vm.nextItem = nextItem;
         vm.prevItem = prevItem;
 
@@ -50,13 +50,13 @@
         }
 
         function nextItem(){
-            if(vm.currentItem < vm.items.length-1){
-                if(vm.items[vm.currentItem].type === "text"){
+            if(vm.currentItemIndex < vm.items.length-1){
+                if(vm.items[vm.currentItemIndex].type === "text"){
                     vm.emitstatus(true);
-                    vm.currentItem++;
+                    vm.currentItemIndex++;
                 } else {
-                    if(vm.items[vm.currentItem].read){
-                        vm.currentItem++;
+                    if(vm.items[vm.currentItemIndex].read){
+                        vm.currentItemIndex++;
                     }else{
                         alert('une action est nécessaire');
                     }
@@ -65,8 +65,8 @@
         }
 
         function prevItem(){
-            if(vm.currentItem > 0){
-                vm.currentItem--;
+            if(vm.currentItemIndex > 0){
+                vm.currentItemIndex--;
             }            
         }
     }

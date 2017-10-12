@@ -16,16 +16,14 @@
             //
             scormApiVersion: scormApiVersion,
             existingSuspend: existingSuspend,
-            existingObjSuspend: existingObjSuspend,
+            createSuspend: createSuspend,
             //getter et setter
             getScormVersion: getScormVersion,
             getSuspend: getSuspend,
-            getObjSuspend: getObjSuspend,
             getScore: getScore,
             getStatus: getStatus,
             getLocation: getLocation,
             setSuspend: setSuspend,
-            setObjSuspend: setObjSuspend,
             setSessionTime: setSessionTime,
             setScore: setScore,
             setStatus: setStatus,
@@ -35,8 +33,7 @@
         //variable ici (avant le return sinon elles sont undefined)
         var startTime;
         var scormApiVersion = "";
-        var existingObjSuspend = {};
-        var existingSuspend = "";
+        var existingSuspend = {};
         //
         var LESSON_STATUS = function () {
             return (scormApiVersion === "1.2") ? 'cmi.core.lesson_status' : 'cmi.completion_status';
@@ -176,18 +173,19 @@
             var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
             if (success) {
                 console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
-                existingSuspend = success;
+                existingSuspend = angular.fromJson(success);
                 return existingSuspend;
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
                 console.log("# scormService : getSuspend failed");
-                return "";
+                return {};
             }
         }
 
         //méthode pour envoyer le suspend brut
         function setSuspend(_suspend) {
-            var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, _suspend);
+            //TODO : vérifier taille de l'objet envoyé ( SPM: 4096 )
+            var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, angular.toJson(_suspend));
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));
             } else {
@@ -195,37 +193,10 @@
             }
         }
 
-        //méthode de récupération du suspend objet
-        function getObjSuspend() {
-            var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
-
-            if (success) {
-                console.log("# scormService : Suspend récupéré avec la valeur : " + success);
-                existingObjSuspend = angular.fromJson(success);
-                return existingObjSuspend;
-            } else {
-                //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : getObjSuspend failed");
-                return {};
-            }
-        }
-
-        //méthode pour envoyer le suspend objet
-        function setObjSuspend(_suspend) {
-            //TODO : vérifier taille de l'objet envoyé ( SPM: 4096 )
-            var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, angular.toJson(_suspend));
-            if (success) {
-                console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSSetValue(SUSPEND_DATA));
-            } else {
-                //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : setObjSuspend failed");
-            }
-        }
-
         //méthode d'envoi du location
         function setLocation(_location) {
             console.log("# scormService : envoi du location");
-            
+
             var success = scormWrapper.doLMSSetValue(LOCATION(), _location);
             if (success) {
                 console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LOCATION()));
@@ -320,11 +291,39 @@
         //méthode d'initialisation du suspend
         function initSuspend() {
             existingSuspend = getSuspend();
-            //existingObjSuspend = getObjSuspend();
 
             //a supp une fois OK
             console.log("# scormService : !!! LE SUSPEND est " + existingSuspend);
         }
 
+        //on initialise l'objet suspend avec les données du module
+        function createSuspend(_data) {
+            var result = {};
+            result.section = [];
+
+            for (var i = 0; i < _data.section.length; i++) {
+                var currentObj = _data.section[i];
+                result.section[i] = new Section(currentObj.id);
+
+                for (var j = 0; j < currentObj.item.length; j++) {
+                    var currentItem = currentObj.item[j];
+                    result.section[i].item[j] = new Item(currentItem.id);
+                }
+            }
+
+            return result;
+        }
+
+        function Section(id) {
+            this.id = id;
+            this.read = false;
+            this.item = [];
+        }
+
+        function Item(id) {
+            this.id = id;
+            this.read = false;
+            this.data = "";
+        }
     }
 })();

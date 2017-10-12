@@ -54,6 +54,7 @@
                     //la réponse est fausse
                     vm.feedback.feedOk = false;
                 }
+                $scope.$emit('dataEvent', vm.item.content)
             }else{
                 alert('veuillez sélectionner une réponse');
             }

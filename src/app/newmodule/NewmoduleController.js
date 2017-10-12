@@ -16,14 +16,14 @@
 
         activate();
         
-        //si on a un location on se rend tout de suite sur la bonne page
-        var _location = scormService.getLocation();
-        if(_location)
-        {
-            var _locationValues = _location.split(",");
-            $state.go("newmodule.section", {sectionId:_locationValues[0], itemId:_locationValues[1]});
+        function activate() { 
+            //si on a un location on se rend tout de suite sur la bonne page
+            var _location = scormService.getLocation();
+            if(_location) //TODO: booléen pour ne le faire qu'une fois
+            {
+                var _locationValues = _location.split(",");
+                $state.go("newmodule.section", {sectionId:_locationValues[0], itemId:_locationValues[1]});
+            }
         }
-
-        function activate() { }
     }
 })();
