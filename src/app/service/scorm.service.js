@@ -194,9 +194,11 @@
         }
 
         //méthode d'envoi du location
-        function setLocation(_location) {
-            console.log("# scormService : envoi du location");
+        function setLocation(_section, _item) {
+            var _location = _section+","+_item;
 
+            console.log("# scormService : envoi du location :" + _location);
+            
             var success = scormWrapper.doLMSSetValue(LOCATION(), _location);
             if (success) {
                 console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LOCATION()));

@@ -5,9 +5,9 @@
         .module('app.newmodule')
         .controller('NewmoduleCtrl', NewmoduleCtrl)
 
-    NewmoduleCtrl.$inject = ['_data', 'scormService', '$state'];
+    NewmoduleCtrl.$inject = ['_data', 'scormService', '$state', '$rootScope', "$scope"];
 
-    function NewmoduleCtrl(_data, scormService, $state) {
+    function NewmoduleCtrl(_data, scormService, $state, $rootScope, $scope) {
         /* jshint validthis:true */
         var vm = this;
 
@@ -15,12 +15,13 @@
         vm.data = _data;
 
         activate();
-        
+
         function activate() { 
             //si on a un location on se rend tout de suite sur la bonne page
             var _location = scormService.getLocation();
-            if(_location) //TODO: booléen pour ne le faire qu'une fois
+            if(_location && !$rootScope.locationRead)
             {
+                $rootScope.locationRead = true;
                 var _locationValues = _location.split(",");
                 $state.go("newmodule.section", {sectionId:_locationValues[0], itemId:_locationValues[1]});
             }

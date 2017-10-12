@@ -20,11 +20,13 @@ function configuration($urlRouterProvider) {
 };
 
 //run
-runApp.$inject = ['$window', 'scormService'];
+runApp.$inject = ['$window', 'scormService', '$rootScope'];
 
-function runApp($window, scormService) {
+function runApp($window, scormService, $rootScope) {
 
     var vm = this;
+
+    $rootScope.locationRead = false;
 
     scormService.initScorm();
 

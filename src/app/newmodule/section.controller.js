@@ -18,6 +18,8 @@
         var suspend = scormService.existingSuspend;
 
         activate();
+        
+        /** Ecouteurs événements */
 
         $scope.$on('readevent', function(event, data) {
             vm.section.item[vm.currentItemId].read = data;
@@ -30,6 +32,11 @@
         $scope.$on('dataEvent', function(event, data) {
             suspend.section[vm.sectionId].item[vm.currentItemId].data = data;
             scormService.setSuspend(suspend);
+        });
+
+        $scope.$on('itemChange', function(event, data) {
+            data = angular.isUndefined(data) ? "0" : data;
+            scormService.setLocation(vm.sectionId, data);
         });
 
         //////////////

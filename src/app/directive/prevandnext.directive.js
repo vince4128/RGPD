@@ -38,16 +38,23 @@
 
         var vm = this;
 
-        //vm.currentItemIndex = 0;
-        vm.nextItem = nextItem;
-        vm.prevItem = prevItem;
-
+        vm.buttonHandler = buttonHandler;
         vm.emitstatus = emitstatus;
+        vm.emitItemChange = emitItemChange;
         ///////////////////////////
 
         function emitstatus(s){
-            $scope.$emit('readevent',s);
+            $scope.$emit('readevent', s);
         }
+
+        function emitItemChange(){
+            $scope.$emit('itemChange', vm.currentItemIndex);
+        }
+
+        //à déclencher la première fois que l'on se rend sur un item ( rechargé au changement de section )
+        vm.emitItemChange();
+
+        ///////////////////////////
 
         function nextItem(){
             if(vm.currentItemIndex < vm.items.length-1){
@@ -59,15 +66,37 @@
                         vm.currentItemIndex++;
                     }else{
                         alert('une action est nécessaire');
+                        return false;
                     }
                 }
+                return true;
             }   
         }
 
         function prevItem(){
             if(vm.currentItemIndex > 0){
                 vm.currentItemIndex--;
+                return true;
+            }
+            else{
+                return false;
             }            
+        }
+
+        function buttonHandler(direction){
+            var isOk = false;
+            if(direction === "next")
+            {
+                isOk = nextItem();
+            }
+            else if (direction === "prev"){
+                isOk = prevItem();
+            }
+
+            if(isOk)
+            {
+                vm.emitItemChange();
+            }
         }
     }
 
