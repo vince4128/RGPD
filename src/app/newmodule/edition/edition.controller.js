@@ -14,6 +14,7 @@
          * TODO :
          * - on ne choisit le type d'une section ou d'un item que quand on le crée.
          * - supprimer ou déplacer des items/sections
+         * - mapper sur la trad
          */
 
         // données récupérées du resolve dans le state
