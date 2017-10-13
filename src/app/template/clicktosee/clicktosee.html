@@ -2,9 +2,13 @@
 <hr>
 
 <ul>
-    <li ng-repeat="item in vm.item.content"><a href="" ng-click="item.seen = true; vm.currentItem=$index; vm.checkReadEvent()">cliquer ici pour révéler {{item.img}} <span ng-if="item.seen">vu !</span></a></li>
+    <li ng-repeat="item in vm.item.content.clickableitem">
+        <a href="" ng-click="item.seen = true; vm.currentItem=$index; vm.checkReadEvent()">cliquer ici pour révéler {{item.img}} 
+            <span ng-if="item.seen">vu !</span>
+        </a>
+    </li>
 </ul>
 
 <ul>
-    <li ng-repeat="item in vm.item.content" ng-if="vm.currentItem == $index">{{item.text}}</li>
+    <li ng-repeat="item in vm.item.content.clickableitem" ng-if="vm.currentItem == $index">{{item.text}}</li>
 </ul>

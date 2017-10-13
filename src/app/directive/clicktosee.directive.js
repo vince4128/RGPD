@@ -42,8 +42,9 @@
 
         function checkReadEvent(){
             var allSeen = false;
-            for(var i=0; i<vm.item.content.length; i++){
-                if(!vm.item.content[i].seen){
+            console.log(vm.item.content.clickableitem);
+            for(var i=0; i<vm.item.content.clickableitem.length; i++){
+                if(!vm.item.content.clickableitem[i].seen){
                     return;
                 }else{
                     allSeen = true;

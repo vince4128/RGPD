@@ -6,7 +6,7 @@
         'app.core',
         //modules développés
         'app.directive',
-        'app.newmodule'
+        'app.home'
     ])
         .config(configuration)
         .run(runApp);
@@ -16,7 +16,7 @@
 configuration.$inject = ['$urlRouterProvider'];
 
 function configuration($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/newmodule');
+    $urlRouterProvider.otherwise('/home');
 };
 
 //run

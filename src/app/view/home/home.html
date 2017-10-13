@@ -1,0 +1,7 @@
+<p>Sélectionnez un chapitre</p>
+<div>
+    <ul>
+        <li ng-repeat="section in vm.data.section"><a data-ui-sref="home.section({ sectionId: section.id })">{{section.title}}</a></li>
+    </ul>
+</div>
+<div data-ui-view id="sectionview"></div>
