@@ -16,7 +16,11 @@
             "title": "intro.page_1.title",
             "sound": "intro.page_1.fileName",
             "instruction": "intro.page_1.instruction",
-            "content": "intro.page_1.content"
+            "content": [
+              {
+                "text":"intro.page_1.content"
+              }
+            ]
           },
           {
             "code": "page_2",
@@ -24,7 +28,11 @@
             "title": "intro.page_2.title",
             "sound": "intro.page_2.fileName",
             "instruction": "intro.page_2.instruction",
-            "content": "intro.page_2.content"
+            "content": [
+              {
+                "text":"intro.page_2.content"
+              }
+            ]
           },
           {
             "code": "page_3",
@@ -99,7 +107,11 @@
             "title": "course_1.page_1.title",
             "sound": "course_1.page_1.fileName",
             "instruction": "course_1.page_1.instruction",
-            "content": "course_1.page_1.content"
+            "content": [
+              {
+                "text":"course_1.page_1.content"
+              }
+            ]
           },
           {
             "code": "page_2",
