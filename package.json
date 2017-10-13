@@ -49,6 +49,7 @@
     "lato-webfont": "^2.15.1",
     "ng-dialog": "^1.4.0",
     "normalize.css": "^7.0.0",
+    "underscore": "^1.8.3",
     "viewport-units-buggyfill": "^0.6.2"
   }
 }

@@ -42,7 +42,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     _data: ['dataService', function (dataService) {
-                        return dataService.getData(false);
+                        return dataService.getTranslatableData();
                     }]
                 }
             });
