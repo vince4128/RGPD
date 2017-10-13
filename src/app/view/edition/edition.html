@@ -1,0 +1,41 @@
+<div style="background:#ecf0f1; margin:10px;">
+    <div id="sectionList" style="background:#bdc3c7; display: inline-block; vertical-align:top; width:10%; padding:6px;">
+        <h3>Sections</h3>
+        <ul>
+            <li ng-repeat="section in vm.data.section" ng-click="vm.currentSection = section" style="background:#ffffff; margin:2px 0;">{{section.title}}</li>
+        </ul>
+        <button ng-click="vm.createSection()">Ajouter une section</button>
+    </div>
+    <div ng-if="vm.currentSection" style="display: inline-block; width:80%;">
+        <div id="sectionInfos" style="background:#bdc3c7; padding:6px; margin-bottom:6px;">
+            <h3>Titre : <input type="text" name="title" value="{{vm.currentSection.title}}"></h3>
+            <select ng-model="vm.currentSection.type">
+                <option ng-repeat="sectiontype in vm.sectiontypes" value="{{sectiontype.code}}">{{sectiontype.description}}</option>
+            </select>
+            <p>Code : <input type="text" name="code" value="{{vm.currentSection.code}}"></p>
+        </div>
+        <div>
+            <div id="itemList" style="background:#bdc3c7; display: inline-block; vertical-align:top; width:20%; padding:6px;">
+                <h3>Items</h3>
+                <ul>
+                    <li ng-repeat="item in vm.currentSection.item" ng-click="vm.currentItem = item" style="background:#ffffff; margin:2px 0;">{{item.title}}</li>
+                </ul>
+                <button ng-click="vm.createItem()">Ajouter un item</button>
+            </div>
+            <div ng-if="vm.currentItem" id="itemInfos" style="background:#bdc3c7; display: inline-block; width:75%; padding:6px;">
+                <h3>Titre : <input type="text" name="title" value="{{vm.currentItem.title}}"></h3>
+                <select ng-model="vm.currentItem.type">
+                    <option ng-repeat="itemtype in vm.itemtypes" value="{{itemtype.code}}">{{itemtype.description}}</option>
+                </select>
+                <p>Code : <input type="text" name="code" value="{{vm.currentItem.code}}"></p>
+                <p>Instruction : <input type="text" name="instruction" value="{{vm.currentItem.instruction}}"></p>
+                <p>Fichier sonore : <input type="text" name="sound" value="{{vm.currentItem.sound}}">.mp3</p>
+                
+                <div ng-if="vm.currentItem.type == 'text'">
+                    <h4>Contenu texte :</h4>
+                    <textarea rows="4" cols="50">{{vm.currentItem.content}}</textarea><!-- vm.currentItem.content.text -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

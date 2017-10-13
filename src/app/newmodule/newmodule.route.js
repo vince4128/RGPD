@@ -17,11 +17,10 @@
                 resolve: {
                     //passé en paramètre à NewmoduleCtrl
                     _data: ['dataService', function (dataService) {
-                        return dataService.getData();
+                        return dataService.getData(true);
                     }]
                 }
-            });
-        $stateProvider
+            })
             .state('newmodule.section', {
                 url: '/{sectionId}',
                 params: {
@@ -33,6 +32,17 @@
                 resolve: {
                     _section: ['dataService', '$stateParams', function (dataService, $stateParams) {
                         return dataService.getSection($stateParams.sectionId);
+                    }]
+                }
+            })
+            .state('edition', {
+                url: '/edit',
+                templateUrl: 'app/view/edition/edition.html',
+                controller: 'EditionCtrl',
+                controllerAs: 'vm',
+                resolve: {
+                    _data: ['dataService', function (dataService) {
+                        return dataService.getData(false);
                     }]
                 }
             });

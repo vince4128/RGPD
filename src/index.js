@@ -59,6 +59,7 @@ require('./app/newmodule/newmodule.route.js');
 /* Angular - controllers */
 require('./app/newmodule/NewmoduleController.js');
 require('./app/newmodule/section.controller.js');
+require('./app/newmodule/edition/edition.controller.js');
 
 /* Data */
 require('./data/data.json');
