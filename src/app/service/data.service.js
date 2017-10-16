@@ -5,13 +5,14 @@
         .module('app.core')
         .factory('dataService', dataService)
 
-    dataService.$inject = ['$http', 'scormService', '$translate', '_'];
+    dataService.$inject = ['$http', 'scormService', '$translate'];
 
-    function dataService($http, scormService, $translate, _) {
+    function dataService($http, scormService, $translate) {
         var service = {
             getData: getData,
             getSection: getSection,
             getTranslatableData: getTranslatableData,
+            setTranslations : setTranslations,
             currentData: [],
             translatableData : []
         };
@@ -68,10 +69,55 @@
             });
         }
 
-        function setTranslations(){
-            var test = _.pick(service.translatableData, 'key', 'value');
-            console.log(test);
+        function setTranslations()
+        {
+            var log = getObject(service.translatableData);
+            console.log(log);
         }
+
+        function getObject(theObject) {
+            var result = [];
+            if(theObject instanceof Array) {
+                for(var i = 0; i < theObject.length; i++) {
+                    result.push(getObject(theObject[i]));
+                }
+            }
+            else
+            {
+                for(var prop in theObject) {
+                    //console.log(prop + ': ' + theObject[prop]);
+                    if(prop == 'key') {
+                        var key = theObject['key'];
+                        var newObj = { [key]:theObject['value'] };
+                        result.push(newObj);
+                    }
+                    if(theObject[prop] instanceof Object || theObject[prop] instanceof Array) {
+                        result.push(getObject(theObject[prop]));
+                    }
+                }
+            }
+            return flattenObject(result);
+        };
+
+        function flattenObject(ob) {
+            var toReturn = {};
+            
+            for (var i in ob) {
+                if (!ob.hasOwnProperty(i)) continue;
+                
+                if ((typeof ob[i]) == 'object') {
+                    var flatObject = flattenObject(ob[i]);
+                    for (var x in flatObject) {
+                        if (!flatObject.hasOwnProperty(x)) continue;
+                        
+                        toReturn[i + '.' + x] = flatObject[x];
+                    }
+                } else {
+                    toReturn[i] = ob[i];
+                }
+            }
+            return toReturn;
+        };
 
         function getSection(id) {
             function sectionMatchesParam(section) {
@@ -83,7 +129,7 @@
         function mapSuspendData(){
             var suspendObj = scormService.getSuspend();
             var isEmpty = angular.equals(suspendObj, {});
-
+            
             for(var i=0; i<service.currentData.section.length; i++){
                 var currentObj = service.currentData.section[i];
                 currentObj.read = isEmpty ? false : suspendObj.section[i].read; //workaround : cette propriété est-elle nécessaire, ne pourrait-on pas se contenter du suspend ?

@@ -172,9 +172,9 @@
         function getSuspend() {
             var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
             if (success) {
-                console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
+                console.log("# scormService : Suspend récupéré avec la valeur : " + success);
                 existingSuspend = angular.fromJson(success);
-                return existingSuspend;
+                return existingSuspend; //TOFIX : undefined ?
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
                 console.log("# scormService : getSuspend failed");

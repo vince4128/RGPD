@@ -16,7 +16,7 @@
 
         //récupérer l'item en cours dans le suspend
         var suspend = scormService.existingSuspend;
-
+        
         activate();
         
         /** Ecouteurs événements */

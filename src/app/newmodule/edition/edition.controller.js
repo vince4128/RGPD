@@ -43,26 +43,26 @@
         activate();
 
         function activate() {
-            console.log(vm.data);
+            //console.log(vm.data);
         }
 
-        function onChange(){
-            console.log(vm.data.header);
+        function onChange() {
+            //console.log(vm.data.header);
         }
 
         function createSection() {
-            var _name = "course_" + parseInt(vm.data.section.length); // length = mauvaise idée en cas de suppression d'une section
-            vm.data.section.push(new Section(_name, "course"));
-            console.log(vm.data);
+            var _code = "course_" + parseInt(vm.data.section.length); // length = mauvaise idée en cas de suppression d'une section
+            vm.data.section.push(new Section("course", _code));
+            //console.log(vm.data);
         }
 
         function createItem() {
             var _name = "page_" + parseInt(vm.currentSection.item.length); // length = mauvaise idée en cas de suppression d'un item
-            vm.currentSection.item.push(new Item(_name, "text"));
-            console.log(vm.data);
+            vm.currentSection.item.push(new Item("text", _name, vm.currentSection.code));
+            //console.log(vm.data);
         }
 
-        function test(data){
+        function test(data) {
             dataService.setTranslations();
         }
     }
@@ -77,41 +77,55 @@
         this.description = description;
     }
 
-    function Section(code, type) {
+    function Section(type, code) {
         this.code = code;
-        this.title = "";
         this.type = type;
-        this.item = [new Item("page_0", 'text')];
+        this.title = new TranslatableText(code, 'title');
+        this.item = [new Item('text', "page_0", code)];
     }
 
-    function Item(code, type) {
+    function Item(type, code, parentCode) {
         this.code = code;
-        this.title = "";
         this.type = type;
-        this.content = createItemContent(type);
+        this.title = new TranslatableText(generateKey(code, [parentCode]), 'title');
+        this.instruction = new TranslatableText(generateKey(code, [parentCode]), 'instruction');
+        this.content = createContentObj(type, code, parentCode);
     }
 
-    function ClickableItem(code) {
+    function ClickableItem(code, parentCode, rootCode) {
         this.code = code;
-        this.text = "";
+        this.text = new TranslatableText(generateKey(code, [rootCode, parentCode]), 'text');
         this.img = "";
     }
 
-    function TranslatableText(){
-        this.key; //module.title
-        this.value; //Bonjour
+    function TranslatableText(key, propertyName) {
+        this.key = key + '.' + propertyName;
+        this.value = 'A renseigner';
     }
 
-    function createItemContent(type) {
+    function createContentObj(type, parentCode, rootCode) {
         switch (type) {
             case 'text':
-                return { "text": '' };
+                return { "text": new TranslatableText(generateKey('item_0', [rootCode, parentCode]), 'content') };
 
             case 'textimg':
-                return { "text": '', "img": '' };
+                return { "text": new TranslatableText(generateKey('item_0', [rootCode, parentCode]), 'content'), "img": rootCode + '.' + parentCode + '.content' };
 
             case 'clicktosee':
-                return {clickableitem:[new ClickableItem('item_0')]};
+                return { clickableitem: [new ClickableItem('item_0', parentCode, rootCode)] };
         }
+    }
+
+    function generateKey(code, parentCodeArr) {
+        var result = '';
+        if (parentCodeArr) {
+            var tempArr = [];
+            angular.copy(parentCodeArr, tempArr);
+            while (tempArr[0]) {
+                result += tempArr.shift() + '.';
+            }
+        }
+        result += code;
+        return result;
     }
 })();
