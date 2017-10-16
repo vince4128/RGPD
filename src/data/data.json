@@ -194,6 +194,218 @@
             }
           }
         ]
+      },
+      {
+        "code": "quiz",
+        "type": "quiz",
+        "title": "quiz.title",
+        "item": [
+          {
+            "code":"quiz_intro",
+            "type":"introquiz",
+            "title":"quiz.quiz_intro.title",
+            "sound":"quiz.quiz_intro.fileName",
+            "instruction":"quiz.quiz_intro.instruction",
+            "content":{
+              "introcontent":"introcontent"
+            }
+          },
+          {
+            "code":"question_1",
+            "type":"qsimple",
+            "title":"quiz.question_1.title",
+            "sound":"quiz.question_1.fileName",
+            "instruction":"quiz.question_1.instruction",
+            "evaluated":true,
+            "content":{
+              "question": "quiz.question_1.content.question",
+              "proposal": [
+                {
+                  "code": "proposal_0",
+                  "text": "quiz.question_1.proposal.proposal_0.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_1",
+                  "text": "quiz.question_1.proposal.proposal_1.text",
+                  "value": true
+                },
+                {
+                  "code": "proposal_2",
+                  "text": "quiz.question_1.proposal.proposal_2.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_3",
+                  "text": "quiz.question_1.proposal.proposal_3.text",
+                  "value": false
+                }
+              ],
+              "feedback": {
+                "ok": "quiz.question_1.content.feedback.ok",
+                "ko": "quiz.question_1.content.feedback.ko"
+              }
+            }
+          },
+          {
+            "code":"question_2",
+            "type":"qsimple",
+            "title":"quiz.question_2.title",
+            "sound":"quiz.question_2.fileName",
+            "instruction":"quiz.question_2.instruction",
+            "evaluated":true,
+            "content":{
+              "question": "quiz.question_2.content.question",
+              "proposal": [
+                {
+                  "code": "proposal_0",
+                  "text": "quiz.question_2.proposal.proposal_0.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_1",
+                  "text": "quiz.question_2.proposal.proposal_1.text",
+                  "value": true
+                },
+                {
+                  "code": "proposal_2",
+                  "text": "quiz.question_2.proposal.proposal_2.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_3",
+                  "text": "quiz.question_2.proposal.proposal_3.text",
+                  "value": false
+                }
+              ],
+              "feedback": {
+                "ok": "quiz.question_2.content.feedback.ok",
+                "ko": "quiz.question_2.content.feedback.ko"
+              }
+            }
+          },
+          {
+            "code":"question_3",
+            "type":"qsimple",
+            "title":"quiz.question_3.title",
+            "sound":"quiz.question_3.fileName",
+            "instruction":"quiz.question_3.instruction",
+            "evaluated":true,
+            "content":{
+              "question": "quiz.question_3.content.question",
+              "proposal": [
+                {
+                  "code": "proposal_0",
+                  "text": "quiz.question_3.proposal.proposal_0.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_1",
+                  "text": "quiz.question_3.proposal.proposal_1.text",
+                  "value": true
+                },
+                {
+                  "code": "proposal_2",
+                  "text": "quiz.question_3.proposal.proposal_2.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_3",
+                  "text": "quiz.question_3.proposal.proposal_3.text",
+                  "value": false
+                }
+              ],
+              "feedback": {
+                "ok": "quiz.question_3.content.feedback.ok",
+                "ko": "quiz.question_3.content.feedback.ko"
+              }
+            }
+          },
+          {
+            "code":"question_4",
+            "type":"qsimple",
+            "title":"quiz.question_4.title",
+            "sound":"quiz.question_4.fileName",
+            "instruction":"quiz.question_4.instruction",
+            "evaluated":true,
+            "content":{
+              "question": "quiz.question_4.content.question",
+              "proposal": [
+                {
+                  "code": "proposal_0",
+                  "text": "quiz.question_4.proposal.proposal_0.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_1",
+                  "text": "quiz.question_4.proposal.proposal_1.text",
+                  "value": true
+                },
+                {
+                  "code": "proposal_2",
+                  "text": "quiz.question_4.proposal.proposal_2.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_3",
+                  "text": "quiz.question_4.proposal.proposal_3.text",
+                  "value": false
+                }
+              ],
+              "feedback": {
+                "ok": "quiz.question_4.content.feedback.ok",
+                "ko": "quiz.question_4.content.feedback.ko"
+              }
+            }
+          },
+          {
+            "code":"question_5",
+            "type":"qsimple",
+            "title":"quiz.question_5.title",
+            "sound":"quiz.question_5.fileName",
+            "instruction":"quiz.question_5.instruction",
+            "evaluated":true,
+            "content":{
+              "question": "quiz.question_5.content.question",
+              "proposal": [
+                {
+                  "code": "proposal_0",
+                  "text": "quiz.question_5.proposal.proposal_0.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_1",
+                  "text": "quiz.question_5.proposal.proposal_1.text",
+                  "value": true
+                },
+                {
+                  "code": "proposal_2",
+                  "text": "quiz.question_5.proposal.proposal_2.text",
+                  "value": false
+                },
+                {
+                  "code": "proposal_3",
+                  "text": "quiz.question_5.proposal.proposal_3.text",
+                  "value": false
+                }
+              ],
+              "feedback": {
+                "ok": "quiz.question_5.content.feedback.ok",
+                "ko": "quiz.question_5.content.feedback.ko"
+              }
+            }
+          },
+          {
+            "code":"quiz_intro",
+            "type":"resultquiz",
+            "title":"quiz.quiz_intro.title",
+            "sound":"quiz.quiz_intro.fileName",
+            "instruction":"quiz.quiz_intro.instruction",
+            "content":{
+              "introcontent":"introcontent"
+            }
+          }
+        ]
       }
     ]
   }
