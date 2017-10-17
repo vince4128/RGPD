@@ -85,7 +85,6 @@
             else
             {
                 for(var prop in theObject) {
-                    //console.log(prop + ': ' + theObject[prop]);
                     if(prop == 'key') {
                         var key = theObject['key'];
                         var newObj = { [key]:theObject['value'] };
@@ -109,8 +108,8 @@
                     var flatObject = flattenObject(ob[i]);
                     for (var x in flatObject) {
                         if (!flatObject.hasOwnProperty(x)) continue;
-                        
-                        toReturn[i + '.' + x] = flatObject[x];
+                        toReturn[x] = flatObject[x];
+                        //toReturn[i + '.' + x] = flatObject[x];
                     }
                 } else {
                     toReturn[i] = ob[i];
