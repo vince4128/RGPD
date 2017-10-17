@@ -17,7 +17,7 @@
             quizScore:quizScore,
             quizScorePercent,quizScorePercent,
             quizProgression:quizProgression,
-            quizGetScorePercent:quizGetScorePercent,
+            getQuizScorePercent:getQuizScorePercent,
             checkScore:checkScore
         };
 
@@ -67,7 +67,7 @@
             quizProgression = [progress,tabQ.length];
         }
 
-        function quizGetScorePercent(){
+        function getQuizScorePercent(){
             return quizScorePercent;
         }
 
