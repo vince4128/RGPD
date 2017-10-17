@@ -25,7 +25,7 @@
             .state('home.section', {
                 url: '/{sectionId}',
                 params: {
-                    itemId: 0,
+                    itemId: 0
                   },
                 templateUrl: 'app/view/home/section.html',
                 controller: 'SectionCtrl',

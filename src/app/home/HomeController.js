@@ -14,6 +14,19 @@
         // données récupérées du resolve dans le state
         vm.data = _data;
 
+        //reroutage à la sortie d'une section
+        $scope.$on('sectionEnd', function(event, data) {
+            var isOk = vm.data.section.length > data && data >= 0;
+            if(isOk && !$rootScope.returnToHomeAtSectionEnd)
+            {
+                $state.go('home.section', {sectionId:data, itemId:0});
+            }
+            else
+            {
+                $state.go('home');
+            }
+        });
+
         activate();
 
         function activate() { 

@@ -5,8 +5,8 @@
         .module('app.home')
         .controller('SectionCtrl', SectionCtrl);
 
-    SectionCtrl.$inject = ["$log", "$stateParams", "_section","_suspend", "$scope", "scormService"];
-    function SectionCtrl($log, $stateParams, _section, _suspend, $scope, scormService) {
+    SectionCtrl.$inject = ["$log", "$stateParams", "_section","_suspend", "$scope", "scormService", "$rootScope", "$state"];
+    function SectionCtrl($log, $stateParams, _section, _suspend, $scope, scormService, $rootScope, $state) {
         var vm = this;
         vm.class = 'SectionCtrl';
 
@@ -37,6 +37,12 @@
         $scope.$on('itemChange', function(event, data) {
             data = angular.isUndefined(data) ? "0" : data;
             scormService.setLocation(vm.sectionId, data);
+        });
+
+        $scope.$on('sectionEnd', function(event, data) {
+            vm.section.read = true;
+            suspend.section[vm.sectionId].read = true;
+            scormService.setSuspend(suspend);
         });
 
         //////////////

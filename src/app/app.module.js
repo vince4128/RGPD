@@ -29,6 +29,9 @@ function runApp($window, scormService, $rootScope) {
     //booléen pour s'assurer de ne revenir sur la page du location, qu'une seule fois
     $rootScope.locationRead = false;
 
+    //booléen indiquant si l'on revient au menu à la fin d'une section, ou si l'on passe à la suite
+    $rootScope.returnToHomeAtSectionEnd = false;
+
     scormService.initScorm();
 
     //on attache un ecouteur d'évènement sur la fermeture de la fenêtre

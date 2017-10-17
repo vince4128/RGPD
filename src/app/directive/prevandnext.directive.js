@@ -18,7 +18,8 @@
             templateUrl: './app/template/prevandnext/prevandnext.html',
             scope: {
                 items: '=',
-                currentItemIndex: '='
+                currentItemIndex: '=',
+                currentSectionIndex: '='
             },
             controller: prevandnextController,
             controllerAs: 'vm',
@@ -41,6 +42,8 @@
         vm.buttonHandler = buttonHandler;
         vm.emitstatus = emitstatus;
         vm.emitItemChange = emitItemChange;
+        vm.emitSectionEnd = emitSectionEnd;
+        
         ///////////////////////////
 
         function emitstatus(s){
@@ -49,6 +52,11 @@
 
         function emitItemChange(){
             $scope.$emit('itemChange', vm.currentItemIndex);
+        }
+
+        function emitSectionEnd(goForward){
+            var newIndex = goForward ? parseInt(vm.currentSectionIndex)+1 : parseInt(vm.currentSectionIndex)-1;
+            $scope.$emit('sectionEnd', newIndex);
         }
 
         //à déclencher la première fois que l'on se rend sur un item ( rechargé au changement de section )
@@ -70,7 +78,12 @@
                     }
                 }
                 return true;
-            }   
+            }
+            else
+            {
+                vm.emitSectionEnd(true);
+                return false;
+            }
         }
 
         function prevItem(){
@@ -79,6 +92,7 @@
                 return true;
             }
             else{
+                vm.emitSectionEnd(false);
                 return false;
             }            
         }
@@ -92,7 +106,7 @@
             else if (direction === "prev"){
                 isOk = prevItem();
             }
-
+            
             if(isOk)
             {
                 vm.emitItemChange();
