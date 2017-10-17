@@ -29,9 +29,9 @@
         }
     }
 
-    qsimpleController.$inject = ['$scope'];
+    qsimpleController.$inject = ['$scope','quizService'];
 
-    function qsimpleController($scope) {
+    function qsimpleController($scope,quizService) {
 
         var vm = this;
         //////////////
@@ -41,6 +41,7 @@
 
         vm.check = check;
         vm.reset = reset;
+        vm.answerValue = null;
         //////////////
 
         function check() {
@@ -50,11 +51,17 @@
                 if (vm.item.content.proposal[vm.radio.checked].value) {
                     //la réponse est bonne
                     vm.feedback.feedOk = true;
+                    vm.answerValue = true;
                 } else {
                     //la réponse est fausse
                     vm.feedback.feedOk = false;
+                    vm.answerValue = false;
                 }
                 $scope.$emit('dataEvent', vm.item.content)
+                if(vm.item.content.evaluated){
+                    quizService.setAnswerValue(vm.item.questionId,vm.answerValue,vm.radio.checked);
+                }
+                $scope.$emit('quizEvent', {answer:vm.radio.checked, value:vm.answerValue});
             }else{
                 alert('veuillez sélectionner une réponse');
             }

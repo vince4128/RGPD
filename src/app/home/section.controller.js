@@ -5,8 +5,9 @@
         .module('app.home')
         .controller('SectionCtrl', SectionCtrl);
 
-    SectionCtrl.$inject = ["$log", "$stateParams", "_section","_suspend", "$scope", "scormService"];
-    function SectionCtrl($log, $stateParams, _section, _suspend, $scope, scormService) {
+    SectionCtrl.$inject = ["$log", "$stateParams", "_section","_suspend", "$scope", "scormService","quizService"];
+    function SectionCtrl($log, $stateParams, _section, _suspend, $scope, scormService, quizService) {
+
         var vm = this;
         vm.class = 'SectionCtrl';
 
@@ -16,7 +17,7 @@
 
         //récupérer l'item en cours dans le suspend
         var suspend = _suspend;
-
+        
         activate();
         
         /** Ecouteurs événements */
@@ -30,13 +31,26 @@
         });
 
         $scope.$on('dataEvent', function(event, data) {
-            suspend.section[vm.sectionId].item[vm.currentItemId].data = data;
-            scormService.setSuspend(suspend);
+            //trop dense pour le suspend
+            /*suspend.section[vm.sectionId].item[vm.currentItemId].data = data;
+            scormService.setSuspend(suspend);*/
         });
 
         $scope.$on('itemChange', function(event, data) {
-            data = angular.isUndefined(data) ? "0" : data;
-            scormService.setLocation(vm.sectionId, data);
+            //trop dense pour le suspend
+            /*data = angular.isUndefined(data) ? "0" : data;
+            scormService.setLocation(vm.sectionId, data);*/
+        });
+
+        $scope.$on('quizEvent', function(event,data){
+            suspend.section[vm.sectionId].item[vm.currentItemId].answerValue = data.value;
+            suspend.section[vm.sectionId].item[vm.currentItemId].answer = data.answer;
+            //mettre à jour dans le tableau de quizService
+            scormService.setSuspend(suspend);
+            quizService.updateTabQ(suspend);
+            if(quizService.checkScore()){
+                scormService.setScore(quizService.getQuizScorePercent);
+            }
         });
 
         //////////////
