@@ -40,7 +40,6 @@
         /** Ecouteurs événements */
 
         $scope.$on('readevent', function(event, data) {
-            alert(angular.toJson(suspend));
             vm.section.item[vm.currentItemId].read = data;
 
             //mettre à jour l'item en cours dans le suspend
@@ -49,31 +48,32 @@
         });
 
         $scope.$on('dataEvent', function(event, data) {
-            suspend.section[vm.sectionId].item[vm.currentItemId].data = data;
-            scormService.setSuspend(suspend);
+            //trop dense pour le suspend
+            /*suspend.section[vm.sectionId].item[vm.currentItemId].data = data;
+            scormService.setSuspend(suspend);*/
         });
 
         $scope.$on('itemChange', function(event, data) {
-            data = angular.isUndefined(data) ? "0" : data;
-            scormService.setLocation(vm.sectionId, data);
+            //trop dense pour le suspend
+            /*data = angular.isUndefined(data) ? "0" : data;
+            scormService.setLocation(vm.sectionId, data);*/
         });
 
         $scope.$on('quizEvent', function(event,data){
             suspend.section[vm.sectionId].item[vm.currentItemId].answerValue = data.value;
             suspend.section[vm.sectionId].item[vm.currentItemId].answer = data.answer;
             //mettre à jour dans le tableau de quizService
-            console.log("### suspend de la question " + angular.toJson(suspend.section[vm.sectionId].item[vm.currentItemId]));
             scormService.setSuspend(suspend);
             quizService.updateTabQ(suspend);
-            //vérifier envoi du score
+            if(quizService.checkScore()){
+                scormService.setScore(quizService.getQuizScorePercent);
+            }
         });
 
         //////////////
 
         function activate() {
             $log.debug('Activating ' + vm.class);
-
-            //alert('# section ctrl ' + )
         }
     }
 })();
