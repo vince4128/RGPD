@@ -295,9 +295,8 @@
             existingSuspend = getSuspend();
 
             //a supp une fois OK
-            console.log("# scormService : !!! LE SUSPEND est " + existingSuspend);
             if(!angular.equals(existingSuspend, {})){
-                console.log("suspend existe");
+                console.log("suspend existe " + existingSuspend);
                 quizService.setTabQ(existingSuspend);
             }
 
