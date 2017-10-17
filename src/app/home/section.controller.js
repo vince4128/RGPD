@@ -38,8 +38,8 @@
 
         $scope.$on('itemChange', function(event, data) {
             //trop dense pour le suspend
-            /*data = angular.isUndefined(data) ? "0" : data;
-            scormService.setLocation(vm.sectionId, data);*/
+            data = angular.isUndefined(data) ? "0" : data;
+            scormService.setLocation(vm.sectionId, data);
         });
 
         $scope.$on('quizEvent', function(event,data){
@@ -49,7 +49,8 @@
             scormService.setSuspend(suspend);
             quizService.updateTabQ(suspend);
             if(quizService.checkScore()){
-                scormService.setScore(quizService.getQuizScorePercent);
+                console.log("quizScorePercent : " + quizService.getQuizScorePercent());
+                scormService.setScore(quizService.getQuizScorePercent());
             }
         });
 
