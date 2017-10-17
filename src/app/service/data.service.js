@@ -23,6 +23,8 @@
                 var suspendObj = scormService.getSuspend();
                 var isEmpty = angular.equals(suspendObj, {});
 
+                var qId = 0;
+
                 for(var i=0; i<service.currentData.section.length; i++){
                     var currentObj = service.currentData.section[i];
                     currentObj.id = String(i);
@@ -30,7 +32,12 @@
 
                     for(var j=0; j<currentObj.item.length; j++){
                         currentObj.item[j].id = String(j);
-                        currentObj.item[j].read = isEmpty ? false : suspendObj.section[i].item[j].read; 
+                        currentObj.item[j].read = isEmpty ? false : suspendObj.section[i].item[j].read;
+                        //est-ce une interaction qui compte pour la note finale ?
+                        if(currentObj.item[j].evaluated){
+                            currentObj.item[j].questionId = qId;
+                            qId++;
+                        }
                     }
                 }
                 
