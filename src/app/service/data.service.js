@@ -37,7 +37,10 @@
                 //si vide, on initialise l'objet suspend avec les données du module
                 if(isEmpty)
                 {
+                    console.log("# dataService : Appel de createSuspend !");
                     scormService.existingSuspend = scormService.createSuspend(service.currentData);
+                    console.log("# dataService : Existing suspend est maintenant égal à : ");
+                    console.log(scormService.existingSuspend);
                 }
 
                 return service.currentData;

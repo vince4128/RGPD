@@ -168,18 +168,29 @@
             }
         }
 
+        //booléen pour savoir si suspend est récupéré
+        var suspendLoaded = false;
         //méthode de récupération du suspend brut
         function getSuspend() {
-            var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
-            if (success) {
-                console.log("# scormSerice : Suspend récupéré avec la valeur : " + success);
-                existingSuspend = angular.fromJson(success);
+            if(!suspendLoaded){
+                var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
+                if (success) {
+                    console.log("# scormService : Suspend récupéré avec la valeur : " + success);
+                    var result = angular.fromJson(success);
+                    //console.log("# Tu chies dans la colle ? " + angular.toJson(result));
+                    suspendLoaded = true;
+                    return result;
+                } else {
+                    //écrire le code pour scorm 2004 a supp une fois OK
+                    console.log("# scormService : getSuspend failed");
+                    return {};
+                }
+            }else{
+                console.log("# scormService getSuspend retourne existingSuspend");
+                console.log(existingSuspend);
                 return existingSuspend;
-            } else {
-                //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : getSuspend failed");
-                return {};
             }
+            
         }
 
         //méthode pour envoyer le suspend brut
@@ -313,6 +324,8 @@
                 }
             }
 
+            suspendLoaded = true;//pour éviter que getSuspend ne passe une requête
+            existingSuspend = result;
             return result;
         }
 

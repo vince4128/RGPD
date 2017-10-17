@@ -33,6 +33,11 @@
                 resolve: {
                     _section: ['dataService', '$stateParams', function (dataService, $stateParams) {
                         return dataService.getSection($stateParams.sectionId);
+                    }],
+                    _suspend: ['scormService', function(scormService){
+                        console.log("# récupération de existingSuspend dans le resolve !" );
+                        console.log(scormService.getSuspend());
+                        return scormService.getSuspend();
                     }]
                 }
             });

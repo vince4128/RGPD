@@ -5,8 +5,8 @@
         .module('app.home')
         .controller('SectionCtrl', SectionCtrl);
 
-    SectionCtrl.$inject = ["$log", "$stateParams", "_section", "$scope", "scormService"];
-    function SectionCtrl($log, $stateParams, _section, $scope, scormService) {
+    SectionCtrl.$inject = ["$log", "$stateParams", "_section","_suspend", "$scope", "scormService"];
+    function SectionCtrl($log, $stateParams, _section, _suspend, $scope, scormService) {
         var vm = this;
         vm.class = 'SectionCtrl';
 
@@ -15,7 +15,7 @@
         vm.currentItemId = parseInt($stateParams.itemId);
 
         //récupérer l'item en cours dans le suspend
-        var suspend = scormService.existingSuspend;
+        var suspend = _suspend;
 
         activate();
         
