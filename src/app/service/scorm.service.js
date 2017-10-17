@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('scormService', scormService)
 
-    scormService.$inject = ['scormWrapper'];
+    scormService.$inject = ['scormWrapper', 'quizService'];
 
-    function scormService(scormWrapper) {
+    function scormService(scormWrapper, quizService) {
         //retourne un objet dans lequel on expose les méthodes et variables "publics"
         var service = {
             //initialisation et clôture
@@ -306,7 +306,11 @@
             existingSuspend = getSuspend();
 
             //a supp une fois OK
-            console.log("# scormService : !!! LE SUSPEND est " + existingSuspend);
+            if(!angular.equals(existingSuspend, {})){
+                console.log("suspend existe " + existingSuspend);
+                quizService.setTabQ(existingSuspend);
+            }
+
         }
 
         //on initialise l'objet suspend avec les données du module
@@ -320,12 +324,14 @@
 
                 for (var j = 0; j < currentObj.item.length; j++) {
                     var currentItem = currentObj.item[j];
-                    result.section[i].item[j] = new Item(currentItem.id);
+                    result.section[i].item[j] = new Item(currentItem.id, currentItem.evaluated);
                 }
             }
 
             suspendLoaded = true;//pour éviter que getSuspend ne passe une requête
             existingSuspend = result;
+            quizService.setTabQ(result);
+
             return result;
         }
 
@@ -335,10 +341,16 @@
             this.item = [];
         }
 
-        function Item(id) {
+        var qId = 0;
+
+        function Item(id,evaluated,qId) {
             this.id = id;
             this.read = false;
-            this.data = "";
+            //on ajoute une propriété pour les items qui doivent être pris en compte dans la note
+            if(evaluated){
+                this.evaluated = true;
+            }
         }
+
     }
 })();

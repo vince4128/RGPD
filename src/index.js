@@ -20,6 +20,8 @@ require("./app/template/text/text.html");
 require("./app/template/clicktosee/clicktosee.html");
 require("./app/template/qsimple/qsimple.html");
 require("./app/template/textimg/textimg.html");
+require("./app/template/quiz/introquiz.html");
+require("./app/template/quiz/resultquiz.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -48,10 +50,13 @@ require("./app/directive/text.directive.js");
 require("./app/directive/clicktosee.directive.js");
 require("./app/directive/qsimple.directive.js");
 require("./app/directive/textimg.directive.js");
+require("./app/directive/introquiz.directive.js");
+require("./app/directive/resultquiz.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");
 require("./app/service/scorm.service.js");
+require("./app/service/quiz.service.js");
 
 /* Angular - routes */
 require('./app/home/home.route.js');
