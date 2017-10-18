@@ -1,1 +1,3 @@
 <h1>resultquiz</h1>
+<h1>Score : {{vm.score}}</h1>
+<p ng-repeat="feedback in vm.item.content.quizFeedback" ng-if="vm.score > feedback.seuil[1] && vm.score <= feedback.seuil[0]">{{feedback.text}}</p>

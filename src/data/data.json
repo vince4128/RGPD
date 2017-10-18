@@ -455,13 +455,26 @@
             }
           },
           {
-            "code": "quiz_intro",
+            "code": "quiz_result",
             "type": "resultquiz",
-            "title": "quiz.quiz_intro.title",
-            "sound": "quiz.quiz_intro.fileName",
-            "instruction": "quiz.quiz_intro.instruction",
+            "title": "quiz.quiz_result.title",
+            "sound": "quiz.quiz_result.fileName",
+            "instruction": "quiz.quiz_result.instruction",
             "content": {
-              "introcontent": "introcontent"
+              "quizFeedback":{
+                "high":{
+                  "seuil":[100,80],
+                  "text":"quiz.quiz_result.content.quizFeedback.high.text"
+                },
+                "middle":{
+                  "seuil":[80,50],
+                  "text":"quiz.quiz_result.content.quizFeedback.middle.text"
+                },
+                "low":{
+                  "seuil":[50,0],
+                  "text":"quiz.quiz_result.content.quizFeedback.low.text"
+                }
+              }
             }
           }
         ]

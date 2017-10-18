@@ -5,9 +5,9 @@
         .module ('app.directive')
         .directive ('resultquiz', resultquiz);
 
-    resultquiz.$inject = ['$window'];
+    resultquiz.$inject = ['$window','quizService'];
 
-    function resultquiz($window) {
+    function resultquiz($window, quizService) {
         // Usage:
         //     <directive></directive>
         // Creates:
@@ -29,12 +29,14 @@
         }
     }
 
-    //resultquizController.$inject = [];
+    resultquizController.$inject = ['quizService'];
 
-    function resultquizController(){
+    function resultquizController(quizService){
 
         var vm = this;
         //////////////
+
+        vm.score = quizService.getQuizScorePercent();
 
     }
 

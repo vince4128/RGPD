@@ -36,7 +36,6 @@
         });
 
         $scope.$on('itemChange', function(event, data) {
-            //trop dense pour le suspend
             data = angular.isUndefined(data) ? "0" : data;
             scormService.setLocation(vm.sectionId, data);
         });
