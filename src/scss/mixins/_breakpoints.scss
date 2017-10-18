@@ -1,0 +1,65 @@
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1368px,
+    "extra-wide": 1440px,
+    "ultra-wide": 1680px,
+    "xxx-wide": 1920px,
+);
+
+//breakpoint width
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+//breakpoint height
+@mixin mqh($height, $type: min) {
+    @if map_has_key($breakpoints, $height) {
+        $height: map_get($breakpoints, $height);
+        @if $type == max {
+            $height: $height - 1px;
+        }
+        @media only screen and (#{$type}-height: $height) {
+            @content;
+        }
+    }
+}
+
+//breakpoint height and width
+@mixin mqwh($width, $height, $type: min){
+  @if map_has_key($breakpoints, $width) and map_has_key($breakpoints, $height){
+    $width: map_get($breakpoints, $width);
+    $height: map_get($breakpoints, $height);
+    @if $type == max {
+        $height: $height - 1px;
+        $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) and (#{$type}-height: $height) {
+        @content;
+    }
+  }
+}
+
+/* usage
+* .site-header {
+*     padding: 2rem;
+*     font-size: 1.8rem;
+*     @include mq('tablet-wide') {
+*         padding-top: 4rem;
+*         font-size: 2.4rem;
+*     }
+* }
+*/
