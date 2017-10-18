@@ -42,9 +42,12 @@
         });
 
         $scope.$on('sectionEnd', function(event, data) {
-            vm.section.read = true;
-            suspend.section[vm.sectionId].read = true;
-            scormService.setSuspend(suspend);
+            if(data > vm.section.id)
+            {
+                vm.section.read = true;
+                suspend.section[vm.sectionId].read = true;
+                scormService.setSuspend(suspend);
+            }
         });
 
         $scope.$on('quizEvent', function(event,data){
