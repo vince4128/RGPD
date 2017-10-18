@@ -17,7 +17,7 @@
             restrict: 'A',
             templateUrl: './app/template/didacticiel/didacticiel.html',
             scope:{
-
+                item: '='
             },
             controller: didacticielController,
             controllerAs: 'vm',
@@ -29,12 +29,30 @@
         }
     }
 
-    //didacticielController.$inject = [''];
+    didacticielController.$inject = ['$scope'];
 
-    function didacticielController(){
+    function didacticielController($scope){
 
         var vm = this;
         //////////////
+
+        vm.currentItem = null;
+        vm.checkReadEvent = checkReadEvent;
+        //////////////
+
+        function checkReadEvent(){
+            var allSeen = false;
+            for(var i=0; i<vm.item.content.pointers.length; i++){
+                if(!vm.item.content.pointers[i].seen){
+                    return;
+                }else{
+                    allSeen = true;
+                }
+            }
+            if(allSeen){
+                $scope.$emit('readevent',true);
+            }
+        }
 
     }
 
