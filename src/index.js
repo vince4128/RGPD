@@ -3,6 +3,10 @@
 //fichiers de langues
 require("./app/lang/fr.json");
 
+/* img */
+require("../assets/img/screen1.jpg");
+require("../assets/img/screen2.jpg");
+
 /*  styles  */
 require("./scss/style.scss");
 
