@@ -56,7 +56,7 @@
 
         function emitSectionEnd(goForward){
             var newIndex = goForward ? parseInt(vm.currentSectionIndex)+1 : parseInt(vm.currentSectionIndex)-1;
-            $scope.$emit('sectionEnd', newIndex);
+            $scope.$emit('sectionEnd', {index:newIndex, direction:goForward});
         }
 
         //à déclencher la première fois que l'on se rend sur un item ( rechargé au changement de section )

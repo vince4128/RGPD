@@ -16,10 +16,11 @@
 
         //reroutage à la sortie d'une section
         $scope.$on('sectionEnd', function(event, data) {
-            var isOk = vm.data.section.length > data && data >= 0;
+            var isOk = vm.data.section.length > data.index && data.index >= 0;
             if(isOk && !$rootScope.returnToHomeAtSectionEnd)
             {
-                $state.go('home.section', {sectionId:data, itemId:0});
+                var newItemId = data.direction ? 0 : vm.data.section[data.index].item.length - 1;
+                $state.go('home.section', {sectionId:data.index, itemId:newItemId});
             }
             else
             {

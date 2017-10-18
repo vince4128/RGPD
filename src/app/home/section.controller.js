@@ -42,7 +42,7 @@
         });
 
         $scope.$on('sectionEnd', function(event, data) {
-            if(data > vm.section.id)
+            if(data.direction)
             {
                 vm.section.read = true;
                 suspend.section[vm.sectionId].read = true;
