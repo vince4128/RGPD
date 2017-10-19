@@ -22,6 +22,7 @@ require("./app/template/qsimple/qsimple.html");
 require("./app/template/textimg/textimg.html");
 require("./app/template/quiz/introquiz.html");
 require("./app/template/quiz/resultquiz.html");
+require("./app/template/completionbar/completionbar.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -52,6 +53,7 @@ require("./app/directive/qsimple.directive.js");
 require("./app/directive/textimg.directive.js");
 require("./app/directive/introquiz.directive.js");
 require("./app/directive/resultquiz.directive.js");
+require("./app/directive/completionbar.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");

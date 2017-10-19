@@ -187,7 +187,7 @@
                 }
             }else{
                 console.log("# scormService getSuspend retourne existingSuspend");
-                console.log(existingSuspend);
+                //console.log(existingSuspend);
                 return existingSuspend;
             }
             
