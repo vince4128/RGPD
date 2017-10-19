@@ -3,7 +3,7 @@
     <ul>
         <li ng-repeat="section in vm.data.section">
             <a ng-style="{ color: section.read ? 'green' : 'black' }" 
-               data-ui-sref="home.section({ sectionId: section.id })">{{section.title}}</a>
+               data-ui-sref="home.section({ sectionId: section.id, itemId: 0 })">{{section.title}}</a>
         </li>
     </ul>
 </div>
