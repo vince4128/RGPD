@@ -3,6 +3,10 @@
 //fichiers de langues
 require("./app/lang/fr.json");
 
+/* img */
+require("../assets/img/screen1.jpg");
+require("../assets/img/screen2.jpg");
+
 /*  styles  */
 require("./scss/style.scss");
 
@@ -23,6 +27,7 @@ require("./app/template/textimg/textimg.html");
 require("./app/template/quiz/introquiz.html");
 require("./app/template/quiz/resultquiz.html");
 require("./app/template/completionbar/completionbar.html");
+require("./app/template/didacticiel/didacticiel.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -54,6 +59,7 @@ require("./app/directive/textimg.directive.js");
 require("./app/directive/introquiz.directive.js");
 require("./app/directive/resultquiz.directive.js");
 require("./app/directive/completionbar.directive.js");
+require("./app/directive/didacticiel.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");

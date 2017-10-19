@@ -196,28 +196,87 @@
         ]
       },
       {
+        "code": "course_2",
+        "type": "course",
+        "title": "course_2.title",
+        "item": [
+          {
+            "code": "page_1",
+            "type": "didacticiel",
+            "title": "course_2.page_1.title",
+            "sound": "course_2.page_1.fileName",
+            "instruction": "course_2.page_1.instruction",
+            "content": {
+              "text": "course_2.page_1.content.text",
+              "ratio": "16-9",
+              "img": "screen1.jpg",
+              "pointers": [
+                {
+                  "code": "item_0",
+                  "width": 60,
+                  "height": 12,
+                  "top": 20,
+                  "left": 12,
+                  "text":"course2.page_1.pointers.item_0.text"
+                },
+                {
+                  "code": "item_1",
+                  "width": 60,
+                  "height": 34,
+                  "top": 43,
+                  "left": 12,
+                  "text":"course2.page_1.pointers.item_1.text"
+                }
+              ]
+            }
+          },
+          {
+            "code": "page_2",
+            "type": "didacticiel",
+            "title": "course_2.page_2.title",
+            "sound": "course_2.page_2.fileName",
+            "instruction": "course_2.page_2.instruction",
+            "content": {
+              "text": "course_2.page_2.content.text",
+              "ratio": "16-9",
+              "img": "screen2.jpg",
+              "pointers": [
+                {
+                  "code": "item_0",
+                  "width": 43.5,
+                  "height": 69,
+                  "top": 7,
+                  "left": 0,
+                  "text":"course2.page_2.pointers.item_0.text"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
         "code": "quiz",
         "type": "quiz",
         "title": "quiz.title",
         "item": [
           {
-            "code":"quiz_intro",
-            "type":"introquiz",
-            "title":"quiz.quiz_intro.title",
-            "sound":"quiz.quiz_intro.fileName",
-            "instruction":"quiz.quiz_intro.instruction",
-            "content":{
-              "introcontent":"introcontent"
+            "code": "quiz_intro",
+            "type": "introquiz",
+            "title": "quiz.quiz_intro.title",
+            "sound": "quiz.quiz_intro.fileName",
+            "instruction": "quiz.quiz_intro.instruction",
+            "content": {
+              "introcontent": "introcontent"
             }
           },
           {
-            "code":"question_1",
-            "type":"qsimple",
-            "title":"quiz.question_1.title",
-            "sound":"quiz.question_1.fileName",
-            "instruction":"quiz.question_1.instruction",
-            "evaluated":true,
-            "content":{
+            "code": "question_1",
+            "type": "qsimple",
+            "title": "quiz.question_1.title",
+            "sound": "quiz.question_1.fileName",
+            "instruction": "quiz.question_1.instruction",
+            "evaluated": true,
+            "content": {
               "question": "quiz.question_1.content.question",
               "proposal": [
                 {
@@ -248,13 +307,13 @@
             }
           },
           {
-            "code":"question_2",
-            "type":"qsimple",
-            "title":"quiz.question_2.title",
-            "sound":"quiz.question_2.fileName",
-            "instruction":"quiz.question_2.instruction",
-            "evaluated":true,
-            "content":{
+            "code": "question_2",
+            "type": "qsimple",
+            "title": "quiz.question_2.title",
+            "sound": "quiz.question_2.fileName",
+            "instruction": "quiz.question_2.instruction",
+            "evaluated": true,
+            "content": {
               "question": "quiz.question_2.content.question",
               "proposal": [
                 {
@@ -285,13 +344,13 @@
             }
           },
           {
-            "code":"question_3",
-            "type":"qsimple",
-            "title":"quiz.question_3.title",
-            "sound":"quiz.question_3.fileName",
-            "instruction":"quiz.question_3.instruction",
-            "evaluated":true,
-            "content":{
+            "code": "question_3",
+            "type": "qsimple",
+            "title": "quiz.question_3.title",
+            "sound": "quiz.question_3.fileName",
+            "instruction": "quiz.question_3.instruction",
+            "evaluated": true,
+            "content": {
               "question": "quiz.question_3.content.question",
               "proposal": [
                 {
@@ -322,13 +381,13 @@
             }
           },
           {
-            "code":"question_4",
-            "type":"qsimple",
-            "title":"quiz.question_4.title",
-            "sound":"quiz.question_4.fileName",
-            "instruction":"quiz.question_4.instruction",
-            "evaluated":true,
-            "content":{
+            "code": "question_4",
+            "type": "qsimple",
+            "title": "quiz.question_4.title",
+            "sound": "quiz.question_4.fileName",
+            "instruction": "quiz.question_4.instruction",
+            "evaluated": true,
+            "content": {
               "question": "quiz.question_4.content.question",
               "proposal": [
                 {
@@ -359,13 +418,13 @@
             }
           },
           {
-            "code":"question_5",
-            "type":"qsimple",
-            "title":"quiz.question_5.title",
-            "sound":"quiz.question_5.fileName",
-            "instruction":"quiz.question_5.instruction",
-            "evaluated":true,
-            "content":{
+            "code": "question_5",
+            "type": "qsimple",
+            "title": "quiz.question_5.title",
+            "sound": "quiz.question_5.fileName",
+            "instruction": "quiz.question_5.instruction",
+            "evaluated": true,
+            "content": {
               "question": "quiz.question_5.content.question",
               "proposal": [
                 {
@@ -396,13 +455,26 @@
             }
           },
           {
-            "code":"quiz_intro",
-            "type":"resultquiz",
-            "title":"quiz.quiz_intro.title",
-            "sound":"quiz.quiz_intro.fileName",
-            "instruction":"quiz.quiz_intro.instruction",
-            "content":{
-              "introcontent":"introcontent"
+            "code": "quiz_result",
+            "type": "resultquiz",
+            "title": "quiz.quiz_result.title",
+            "sound": "quiz.quiz_result.fileName",
+            "instruction": "quiz.quiz_result.instruction",
+            "content": {
+              "quizFeedback":{
+                "high":{
+                  "seuil":[100,80],
+                  "text":"quiz.quiz_result.content.quizFeedback.high.text"
+                },
+                "middle":{
+                  "seuil":[80,50],
+                  "text":"quiz.quiz_result.content.quizFeedback.middle.text"
+                },
+                "low":{
+                  "seuil":[50,0],
+                  "text":"quiz.quiz_result.content.quizFeedback.low.text"
+                }
+              }
             }
           }
         ]
