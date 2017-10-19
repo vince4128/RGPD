@@ -255,8 +255,6 @@
           {
             "code": "page_3",
             "type": "video",
-            "title": "course_2.page_3.title",
-            "sound": "course_2.page_3.fileName",
             "instruction": "course_2.page_3.instruction",
             "content": {
               "title": "course_2.page_3.content.title",
@@ -274,8 +272,6 @@
           {
             "code": "page_3",
             "type": "video",
-            "title": "course_2.page_3.title",
-            "sound": "course_2.page_3.fileName",
             "instruction": "course_2.page_3.instruction",
             "content": {
               "title": "course_2.page_3.content.title",
