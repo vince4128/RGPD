@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('dataService', dataService)
 
-    dataService.$inject = ['$http', 'scormService'];
+    dataService.$inject = ['$http', 'scormService', 'orderByFilter'];
 
-    function dataService($http, scormService) {
+    function dataService($http, scormService, orderBy) {
         var service = {
             getData: getData,
             getSection: getSection,
@@ -19,6 +19,16 @@
         function getData() {
             return $http.get('data/data.json', { cache: true }).then(function (resp) {
                 service.currentData = resp.data.module;
+
+                //////// SORT BY INDEX
+
+                service.currentData.section = orderBy(service.currentData.section, 'index', false);
+                
+                for(var i=0;i<service.currentData.section.length;i++){
+                    service.currentData.section[i].item = orderBy(service.currentData.section[i].item,'index');
+                }
+
+                ///////
                 
                 var suspendObj = scormService.getSuspend();
                 var isEmpty = angular.equals(suspendObj, {});
@@ -29,7 +39,6 @@
 
                 for(var i=0; i<service.currentData.section.length; i++){
                     var currentObj = service.currentData.section[i];
-                    //TODO: define index in JSON and then sort with orderBy on index. // à faire avant cette boucle
                     currentObj.id = String(i); 
                     currentObj.uid = String(uid);
                     currentObj.read = isEmpty ? false : suspendObj.section[i].read;
