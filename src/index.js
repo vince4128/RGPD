@@ -7,6 +7,11 @@ require("./app/lang/fr.json");
 require("../assets/img/screen1.jpg");
 require("../assets/img/screen2.jpg");
 
+/* video */
+require("../assets/video/videotest.mp4");
+require("../assets/video/videotest.ogv");
+require("../assets/video/videotest.webm");
+
 /*  styles  */
 require("./scss/style.scss");
 
@@ -27,6 +32,7 @@ require("./app/template/textimg/textimg.html");
 require("./app/template/quiz/introquiz.html");
 require("./app/template/quiz/resultquiz.html");
 require("./app/template/didacticiel/didacticiel.html");
+require("./app/template/video/video.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -58,6 +64,7 @@ require("./app/directive/textimg.directive.js");
 require("./app/directive/introquiz.directive.js");
 require("./app/directive/resultquiz.directive.js");
 require("./app/directive/didacticiel.directive.js");
+require("./app/directive/video.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");

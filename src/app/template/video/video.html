@@ -1,0 +1,11 @@
+<p>{{vm.item.content.title}}</p>
+<p>{{vm.item.content.description}}</p>
+
+
+<div class="c-video--wrapper--16--9">
+    <div class="content">
+        <video ng-poster="img/{{vm.item.content.poster}}" class="c-hero__bg" playsinline controls id="video">
+            <source ng-repeat="video in vm.item.content.format" ng-src="video/{{vm.item.content.videoFile}}.{{video}}" ng-type="video/{{video}}">
+        </video>
+    </div>
+</div>
