@@ -64,25 +64,39 @@
 
         ///////////////////////////
 
+        var actionRequiredTypes = ["qsimple", "clicktosee", "video", "didacticiel", "introquiz"];
+
         function nextItem(){
-            if(vm.currentItemIndex < vm.items.length-1){
-                if(vm.items[vm.currentItemIndex].type === "text"){
-                    vm.emitstatus(true);
-                    vm.currentItemIndex++;
-                } else {
-                    if(vm.items[vm.currentItemIndex].read){
-                        vm.currentItemIndex++;
-                    }else{
-                        alert('une action est nécessaire');
-                        return false;
-                    }
+            
+            //est-ce que j'attends une action de l'utilisateur ?
+            if(actionRequiredTypes.indexOf(vm.items[vm.currentItemIndex].type) != -1)
+            {
+                //est-ce que cette action a été résolue ?
+                if(!vm.items[vm.currentItemIndex].read)
+                {
+                    //si non on stoppe ici
+                    alert('une action est nécessaire');
+                    return false;
                 }
-                return true;
             }
             else
             {
+                //je n'attends pas d'action, je signale que l'item a été vu
+                vm.emitstatus(true);
+            }
+
+            //suis-je à la fin de la section ?
+            if(vm.currentItemIndex == vm.items.length-1)
+            {
+                //si oui je n'essaye pas d'aller plus loin
                 vm.emitSectionEnd(true);
                 return false;
+            }
+            else
+            {
+                //sinon on avance
+                vm.currentItemIndex++;
+                return true;
             }
         }
 
