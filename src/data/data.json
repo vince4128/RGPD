@@ -251,6 +251,44 @@
                 }
               ]
             }
+          },
+          {
+            "code": "page_3",
+            "type": "video",
+            "title": "course_2.page_3.title",
+            "sound": "course_2.page_3.fileName",
+            "instruction": "course_2.page_3.instruction",
+            "content": {
+              "title": "course_2.page_3.content.title",
+              "description":"course_2.page_3.content.description",
+              "ratio": "16-9",
+              "poster":"videotest.jpg",
+              "videoFile": "videotest",
+              "format":[
+                "mp4",
+                "ogv",
+                "webm"
+              ]
+            }
+          },
+          {
+            "code": "page_3",
+            "type": "video",
+            "title": "course_2.page_3.title",
+            "sound": "course_2.page_3.fileName",
+            "instruction": "course_2.page_3.instruction",
+            "content": {
+              "title": "course_2.page_3.content.title",
+              "description":"course_2.page_3.content.description",
+              "ratio": "16-9",
+              "poster":"videotest.jpg",
+              "videoFile": "videotest",
+              "format":[
+                "mp4",
+                "ogv",
+                "webm"
+              ]
+            }
           }
         ]
       },
