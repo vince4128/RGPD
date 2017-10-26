@@ -59,6 +59,7 @@ require("./app/core/config.js");
 /* Angular - components */
 require("./app/component/completionbar.component.js");
 require("./app/component/text.component.js");
+require("./app/component/textimg.component.js");
 
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");
