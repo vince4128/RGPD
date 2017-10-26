@@ -31,7 +31,7 @@ require("./app/template/qsimple/qsimple.html");
 require("./app/template/textimg/textimg.html");
 require("./app/template/quiz/introquiz.html");
 require("./app/template/quiz/resultquiz.html");
-require("./app/template/completionbar/completionbar.html");
+require("./app/template/completionbar/completion_bar.html");
 require("./app/template/didacticiel/didacticiel.html");
 require("./app/template/video/video.html");
 
@@ -47,12 +47,17 @@ require('../node_modules/viewport-units-buggyfill/viewport-units-buggyfill.js').
 require("./app/app.module.js");
 require("./app/core/core.module.js");
 require("../lib/angularjs-scorm-wrapper/angularjs-scorm-wrapper.min.js");
+require("./app/component/component.module.js");
 require("./app/directive/directive.module.js");
+
 //
 require("./app/home/home.module.js");
 
 /* Angular - config */
 require("./app/core/config.js");
+
+/* Angular - components */
+require("./app/component/completionbar.component.js");
 
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");
@@ -64,7 +69,6 @@ require("./app/directive/qsimple.directive.js");
 require("./app/directive/textimg.directive.js");
 require("./app/directive/introquiz.directive.js");
 require("./app/directive/resultquiz.directive.js");
-require("./app/directive/completionbar.directive.js");
 require("./app/directive/didacticiel.directive.js");
 require("./app/directive/video.directive.js");
 

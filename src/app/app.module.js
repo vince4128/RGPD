@@ -5,6 +5,7 @@
         //angular modules 
         'app.core',
         //modules développés
+        'app.component',
         'app.directive',
         'app.home'
     ])
