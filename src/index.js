@@ -63,6 +63,7 @@ require("./app/component/textimg.component.js");
 require("./app/component/clicktosee.component.js");
 require("./app/component/qsimple.component.js");
 require("./app/component/introquiz.component.js");
+require("./app/component/resultquiz.component.js");
 
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");
