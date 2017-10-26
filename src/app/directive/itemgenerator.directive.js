@@ -22,7 +22,7 @@
         return directive;
 
         function link(scope, element, attrs) {
-            var generatedTemplate = '<div data-' + scope.item.type + ' ' + 'item="item"' + '></div>';
+            var generatedTemplate = '<!--directive--><div data-' + scope.item.type + ' ' + 'item="item"' + '></div><!--composant--><'+ scope.item.type + ' ' + 'item="item"' + '>';
             element.append($compile(generatedTemplate)(scope));
         }
     }
