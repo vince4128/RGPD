@@ -1,14 +1,14 @@
-<h1>Directive clicktosee {{vm.item.read}}</h1>
+<h1>Directive clicktosee {{$ctrl.item.read}}</h1>
 <hr>
 
 <ul>
-    <li ng-repeat="item in vm.item.content.clickableitem">
-        <a href="" ng-click="item.seen = true; vm.currentItem=$index; vm.checkReadEvent()">cliquer ici pour révéler {{item.img}} 
+    <li ng-repeat="item in $ctrl.item.content.clickableitem">
+        <a href="" ng-click="item.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()">cliquer ici pour révéler {{item.img}} 
             <span ng-if="item.seen">vu !</span>
         </a>
     </li>
 </ul>
 
 <ul>
-    <li ng-repeat="item in vm.item.content.clickableitem" ng-if="vm.currentItem == $index">{{item.text}}</li>
+    <li ng-repeat="item in $ctrl.item.content.clickableitem" ng-if="$ctrl.currentItem == $index">{{item.text}}</li>
 </ul>
