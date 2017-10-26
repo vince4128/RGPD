@@ -68,16 +68,8 @@ require("./app/component/didacticiel.component.js");
 require("./app/component/prevandnext.component.js");
 
 /* Angular - directives */
-require("./app/directive/prevandnext.directive.js");
 require("./app/directive/emitstatus.directive.js");
 require("./app/directive/itemgenerator.directive.js");
-require("./app/directive/text.directive.js");
-require("./app/directive/clicktosee.directive.js");
-require("./app/directive/qsimple.directive.js");
-require("./app/directive/textimg.directive.js");
-require("./app/directive/introquiz.directive.js");
-require("./app/directive/resultquiz.directive.js");
-require("./app/directive/didacticiel.directive.js");
 require("./app/directive/video.directive.js");
 
 /* Angular - services */
