@@ -64,6 +64,7 @@ require("./app/component/clicktosee.component.js");
 require("./app/component/qsimple.component.js");
 require("./app/component/introquiz.component.js");
 require("./app/component/resultquiz.component.js");
+require("./app/component/didacticiel.component.js");
 
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");

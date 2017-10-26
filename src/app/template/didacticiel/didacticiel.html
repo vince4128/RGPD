@@ -1,9 +1,9 @@
-<div ng-repeat="item in vm.item.content.pointers" ng-if="vm.currentItem == $index">{{item.text}}</div>
+<div ng-repeat="item in $ctrl.item.content.pointers" ng-if="$ctrl.currentItem == $index">{{item.text}}</div>
 
 
 <div class="c-didacticiel--wrapper--16--9">
     <div class="content">
-        <img ng-src="img/{{vm.item.content.img}}" alt="">
-        <span ng-repeat="pointer in vm.item.content.pointers" ng-click="pointer.seen = true; vm.currentItem=$index; vm.checkReadEvent()"class="c-didacticiel__pointer notclicked" ng-class="{clicked:pointer.seen}" ng-attr-style="top:{{pointer.top}}%;left:{{pointer.left}}%;width:{{pointer.width}}%;height:{{pointer.height}}%"></span>
+        <img ng-src="img/{{$ctrl.item.content.img}}" alt="">
+        <span ng-repeat="pointer in $ctrl.item.content.pointers" ng-click="pointer.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()"class="c-didacticiel__pointer notclicked" ng-class="{clicked:pointer.seen}" ng-attr-style="top:{{pointer.top}}%;left:{{pointer.left}}%;width:{{pointer.width}}%;height:{{pointer.height}}%"></span>
     </div>
 </div>
