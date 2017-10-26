@@ -1,19 +1,19 @@
 <h1>qsimple directive</h1>
 
 <!--enonce-->
-<p>{{vm.item.content.question}}</p>
+<p>{{$ctrl.item.content.question}}</p>
 
 <!--proposition-->
 <ul>
-    <li ng-repeat="p in vm.item.content.proposal">
-        <input type="radio" id="{{'radio' + $index}}" ng-value="$index" ng-model="vm.radio.checked" ng-disabled="vm.item.read"/>
+    <li ng-repeat="p in $ctrl.item.content.proposal">
+        <input type="radio" id="{{'radio' + $index}}" ng-value="$index" ng-model="$ctrl.radio.checked" ng-disabled="$ctrl.item.read"/>
         <label for="{{'radio' + $index}}">{{p.text}}</label>
     </li>
 </ul>
 
 <!--feedback-->
-<p ng-if="vm.item.read && vm.feedback.feedOk">{{vm.item.content.feedback.ok}} {{vm.feedback.feedOk}}</p>
-<p ng-if="vm.item.read && !vm.feedback.feedOk">{{vm.item.content.feedback.ko}} {{vm.feedback.feedOk}}</p>
+<p ng-if="$ctrl.item.read && $ctrl.feedback.feedOk">{{$ctrl.item.content.feedback.ok}} {{$ctrl.feedback.feedOk}}</p>
+<p ng-if="$ctrl.item.read && !$ctrl.feedback.feedOk">{{$ctrl.item.content.feedback.ko}} {{$ctrl.feedback.feedOk}}</p>
 
 <!--bouton-->
-<button ng-click="vm.check()" ng-disabled="vm.item.read">valider</button>
+<button ng-click="$ctrl.check()" ng-disabled="$ctrl.item.read">valider</button>

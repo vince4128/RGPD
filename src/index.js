@@ -61,6 +61,7 @@ require("./app/component/completionbar.component.js");
 require("./app/component/text.component.js");
 require("./app/component/textimg.component.js");
 require("./app/component/clicktosee.component.js");
+require("./app/component/qsimple.component.js");
 
 /* Angular - directives */
 require("./app/directive/prevandnext.directive.js");
