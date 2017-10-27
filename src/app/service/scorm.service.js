@@ -176,8 +176,19 @@
                 var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
                 if (success) {
                     console.log("# scormService : Suspend récupéré avec la valeur : " + success);
+                    /*
+                    //success should return '1,1|2,1|3,0...'
+                    
+                    var tempArr = success.split('|'); // ['1,1','2,1','3,0'...]
+                    var tempResult = [];
+                    for(var i = 0; i<tempArr.length; i++)
+                    {
+                        var _itemValues = tempArr[i].split(','); // ['1','1'] ['2','1'] ['3','0']...
+                        var _item = {uid: _itemValues[0], read:_itemValues[1]};
+                        tempResult.push(_item);
+                    }
+                    */
                     var result = angular.fromJson(success);
-                    //console.log("# Tu chies dans la colle ? " + angular.toJson(result));
                     suspendLoaded = true;
                     return result;
                 } else {
@@ -195,7 +206,7 @@
 
         //méthode pour envoyer le suspend brut
         function setSuspend(_suspend) {
-            //TODO : vérifier taille de l'objet envoyé ( SPM: 4096 )
+            //TODO : vérifier taille de l'objet envoyé ( 4096 caractères max )
             var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, angular.toJson(_suspend));
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));

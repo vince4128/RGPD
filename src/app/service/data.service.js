@@ -30,7 +30,7 @@
 
                 ///////
                 
-                var suspendObj = scormService.getSuspend();
+                var suspendObj = scormService.getSuspend(); //[{uid:"1", read:'1'}, {uid:"2",read:'1'}, ...]
                 var isEmpty = angular.equals(suspendObj, {});
 
                 var qId = 0;
@@ -41,19 +41,33 @@
                     var currentObj = service.currentData.section[i];
                     currentObj.id = String(i); 
                     currentObj.uid = String(uid);
-                    currentObj.read = isEmpty ? false : suspendObj.section[i].read;
+                    currentObj.read = isEmpty ? false : suspendObj.section[i].read; // : getSuspendValue(suspendObj, uid);
+                    /*
+                    if(isEmpty)
+                    {
+                        var sectionObj = {uid:String(uid), read:false};
+                        suspendObj.push(sectionObj);
+                    }
+                    */
                     uid++;
 
                     for(var j=0; j<currentObj.item.length; j++){
                         currentObj.item[j].id = String(j);
                         currentObj.item[j].uid = String(uid);
                         currentObj.item[j].page = count;
-                        currentObj.item[j].read = isEmpty ? false : suspendObj.section[i].item[j].read;
+                        currentObj.item[j].read = isEmpty ? false : suspendObj.section[i].item[j].read; // : getSuspendValue(suspendObj, uid);
                         //est-ce une interaction qui compte pour la note finale ?
                         if(currentObj.item[j].evaluated){
                             currentObj.item[j].questionId = qId;
                             qId++;
                         }
+                        /*
+                        if(isEmpty)
+                        {
+                            var itemObj = {uid:String(uid), read:false};
+                            suspendObj.push(itemObj);
+                        }
+                        */
                         uid++;
                         count++;
                     }
@@ -68,6 +82,31 @@
                 return service.currentData;
             });
         };
+        
+        /*
+        function getSuspendValue(obj, key) {
+            for(var i=0; i<obj.length; i++)
+            {
+                if(obj[i].uid === key)
+                {
+                    return !!parseInt(obj[i].read);
+                }
+            }
+            return false;
+        };
+
+        function setSuspendValue(key, value) {
+            var obj = scormService.getSuspend();
+            for(var i=0; i<obj.length; i++)
+            {
+                if(obj[i].uid === key)
+                {
+                   obj[i].read = value;
+                }
+            }
+        }
+
+        */
 
         function getSection(id) {
             function sectionMatchesParam(section) {
