@@ -177,7 +177,8 @@
                 if (success) {
                     console.log("# scormService : Suspend récupéré avec la valeur : " + success);
                     /*
-                    //success should return '1,1|2,1|3,0...'
+                    //success should return '1,1|2,1|3,0...' or '1,1,1,2|2,1,0,1' if evaluated = true
+                    // 'uid, read, answerValue, answer' // 'identifiant unique, lu ou non lu, bien répondu ou non, réponse donnée'
                     
                     var tempArr = success.split('|'); // ['1,1','2,1','3,0'...]
                     var tempResult = [];
@@ -185,10 +186,15 @@
                     {
                         var _itemValues = tempArr[i].split(','); // ['1','1'] ['2','1'] ['3','0']...
                         var _item = {uid: _itemValues[0], read:_itemValues[1]};
+                        if(_itemValues.length==4)
+                        {
+                            _item.answerValue = _itemValues[2];
+                            _item.answer = _itemValues[3];
+                        }
                         tempResult.push(_item);
                     }
                     */
-                    var result = angular.fromJson(success);
+                    var result = angular.fromJson(success); // à supprimer
                     suspendLoaded = true;
                     return result;
                 } else {
@@ -206,7 +212,29 @@
 
         //méthode pour envoyer le suspend brut
         function setSuspend(_suspend) {
-            //TODO : vérifier taille de l'objet envoyé ( 4096 caractères max )
+            /*
+            //ici _suspend = [{uid:"1", read:false}, ...]
+            var _flattenSuspend = "";
+            for(var i = 0; i<_suspend.length; i++)
+            {
+                var string = ""
+                string += _suspend[i].uid + "," + _suspend[i].read;
+                if(_suspend[i].hasOwnProperty('answer'))
+                {
+                    string += "," + _suspend[i].answerValue + "," + _suspend[i].answer;
+                }
+                if(i != _suspend.length-1)
+                {
+                    string += "|";
+                }
+                _flattenSuspend += string;
+            }
+            if(_flattenSuspend.length > 4096)
+            {
+                console.log("# scormService : suspend value too long");
+            }
+            var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, _suspend);
+            */
             var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, angular.toJson(_suspend));
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));

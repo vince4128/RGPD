@@ -101,10 +101,18 @@
             {
                 if(obj[i].uid === key)
                 {
-                   obj[i].read = value;
+                    if(angular.isObject(value))
+                    {
+                        obj[i].answerValue = value.value;
+                        obj[i].answer = value.answer;
+                    }
+                    else
+                    {
+                        obj[i].read = value;
+                    }
                 }
             }
-        }
+        };
 
         */
 

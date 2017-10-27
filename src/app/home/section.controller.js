@@ -29,7 +29,9 @@
             vm.section.item[vm.currentItemId].read = data;
 
             //mettre à jour l'item en cours dans le suspend
-            suspend.section[vm.sectionId].item[vm.currentItemId].read = data; //dataService.setSuspendValue(data);
+            suspend.section[vm.sectionId].item[vm.currentItemId].read = data; 
+            //var currentUID = suspend.section[vm.sectionId].item[vm.currentItemId].uid;
+            //dataService.setSuspendValue(currentUID, data);
             scormService.setSuspend(suspend);
         });
 
@@ -75,6 +77,8 @@
         });
 
         $scope.$on('quizEvent', function(event,data){
+            //var currentUID = suspend.section[vm.sectionId].item[vm.currentItemId].uid;
+            //dataService.setSuspendValue(currentUID, data);
             suspend.section[vm.sectionId].item[vm.currentItemId].answerValue = data.value;
             suspend.section[vm.sectionId].item[vm.currentItemId].answer = data.answer;
             //mettre à jour dans le tableau de quizService
