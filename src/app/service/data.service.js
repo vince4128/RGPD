@@ -5,20 +5,24 @@
         .module('app.core')
         .factory('dataService', dataService)
 
-    dataService.$inject = ['$http', 'scormService', 'orderByFilter'];
+    dataService.$inject = ['$http', 'scormService', 'orderByFilter', '$translate'];
 
-    function dataService($http, scormService, orderBy) {
+    function dataService($http, scormService, orderBy, $translate) {
         var service = {
             getData: getData,
             getSection: getSection,
             getSuspendValue: getSuspendValue,
             setSuspendValue: setSuspendValue,
-            currentData: []
+            getTranslatableData: getTranslatableData,
+            setTranslations : setTranslations,
+            currentData: [],
+            translatableData : []
         };
 
         return service;
 
-        function getData() {
+        //_doMapSuspend : booléen indiquant s'il faut ajouter les propriétés issues du suspend
+        function getData(_doMapSuspend) {
             return $http.get('data/data.json', { cache: true }).then(function (resp) {
                 service.currentData = resp.data.module;
 
@@ -122,6 +126,83 @@
                     break;
                 }
             }
+        }
+
+        function getTranslatableData(){
+            return $http.get('data/data.json', { cache: true }).then(function (resp) {
+                service.translatableData = resp.data.module;
+
+                var _header = service.translatableData.header;
+                _header.title = new TranslatableText(_header.title, $translate.instant(_header.title));
+                _header.description = new TranslatableText(_header.description, $translate.instant(_header.description));
+                
+                for(var i=0; i<service.translatableData.section.length; i++){
+                    var currentObj = service.translatableData.section[i];
+                    currentObj.id = String(i);
+                    currentObj.title = new TranslatableText(currentObj.title, $translate.instant(currentObj.title));
+                    
+                    for(var j=0; j<currentObj.item.length; j++){
+                        currentObj.item[j].id = String(j);
+                        currentObj.item[j].title = new TranslatableText(currentObj.item[j].title, $translate.instant(currentObj.item[j].title));
+                        currentObj.item[j].instruction = new TranslatableText(currentObj.item[j].instruction, $translate.instant(currentObj.item[j].instruction));
+                        if(currentObj.item[j].type == 'text')
+                        {
+                            currentObj.item[j].content.text = new TranslatableText(currentObj.item[j].content.text, $translate.instant(currentObj.item[j].content.text));
+                        }
+                    }
+                }
+
+                return service.translatableData;
+            });
+        }
+
+        function setTranslations()
+        {
+            var log = getObject(service.translatableData);
+            console.log(log);
+        }
+
+        function getObject(theObject) {
+            var result = [];
+            if(theObject instanceof Array) {
+                for(var i = 0; i < theObject.length; i++) {
+                    result.push(getObject(theObject[i]));
+                }
+            }
+            else
+            {
+                for(var prop in theObject) {
+                    if(prop == 'key') {
+                        var key = theObject['key'];
+                        var newObj = { [key]:theObject['value'] };
+                        result.push(newObj);
+                    }
+                    if(theObject[prop] instanceof Object || theObject[prop] instanceof Array) {
+                        result.push(getObject(theObject[prop]));
+                    }
+                }
+            }
+            return flattenObject(result);
+        };
+
+        function flattenObject(ob) {
+            var toReturn = {};
+            
+            for (var i in ob) {
+                if (!ob.hasOwnProperty(i)) continue;
+                
+                if ((typeof ob[i]) == 'object') {
+                    var flatObject = flattenObject(ob[i]);
+                    for (var x in flatObject) {
+                        if (!flatObject.hasOwnProperty(x)) continue;
+                        toReturn[x] = flatObject[x];
+                        //toReturn[i + '.' + x] = flatObject[x];
+                    }
+                } else {
+                    toReturn[i] = ob[i];
+                }
+            }
+            return toReturn;
         };
 
         function getSection(id) {
@@ -142,6 +223,10 @@
             }
             return id;
         }
+    }
 
+    function TranslatableText(key, value){
+        this.key = key;
+        this.value = value; 
     }
 })();

@@ -83,6 +83,7 @@ require('./app/home/home.route.js');
 /* Angular - controllers */
 require('./app/home/HomeController.js');
 require('./app/home/section.controller.js');
+require('./app/edition/edition.controller.js');
 
 /* Data */
 require('./data/data.json');

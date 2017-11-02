@@ -7,7 +7,8 @@
         //modules développés
         'app.component',
         'app.directive',
-        'app.home'
+        'app.home',
+        'app.edition'
     ])
         .config(configuration)
         .run(runApp);

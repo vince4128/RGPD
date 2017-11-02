@@ -1,2 +1,8 @@
 {
+    "module.title": "Titre du module",
+    "module.description": "Ceci est un module !",
+    "intro.title": "Introduction",
+    "intro.page_1.title": "Introduction - page 1",
+    "course_1.title": "Cours 1",
+    "intro.page_1.instruction": "Bonjour"
 }
