@@ -271,6 +271,7 @@
             "index": 2,
             "code": "page_3",
             "type": "video",
+            "title": "course_2.page_3.title",
             "instruction": "course_2.page_3.instruction",
             "content": {
               "title": "course_2.page_3.content.title",
@@ -287,12 +288,13 @@
           },
           {
             "index": 3,
-            "code": "page_3",
+            "code": "page_4",
             "type": "video",
-            "instruction": "course_2.page_3.instruction",
+            "title": "course_2.page_4.title",
+            "instruction": "course_2.page_4.instruction",
             "content": {
-              "title": "course_2.page_3.content.title",
-              "description":"course_2.page_3.content.description",
+              "title": "course_2.page_4.content.title",
+              "description":"course_2.page_4.content.description",
               "ratio": "16-9",
               "poster":"videotest.jpg",
               "videoFile": "videotest",

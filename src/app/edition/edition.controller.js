@@ -39,6 +39,7 @@
         vm.itemtypes.push(new ItemType("clicktosee", "Cliquer pour lire"));
         vm.itemtypes.push(new ItemType("qsimple", "Question"));
         vm.itemtypes.push(new ItemType("textimg", "Texte et image"));
+        vm.itemtypes.push(new ItemType("video", "Film"));
 
         activate();
 

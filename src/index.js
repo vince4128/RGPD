@@ -49,6 +49,7 @@ require("./app/core/core.module.js");
 require("../lib/angularjs-scorm-wrapper/angularjs-scorm-wrapper.min.js");
 require("./app/component/component.module.js");
 require("./app/directive/directive.module.js");
+require("./app/edition/edition.module.js");
 
 //
 require("./app/home/home.module.js");

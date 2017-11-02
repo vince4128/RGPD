@@ -26,7 +26,7 @@
                 url: '/{sectionId}',
                 params: {
                     itemId: 0
-                  },
+                },
                 templateUrl: 'app/view/home/section.html',
                 controller: 'SectionCtrl',
                 controllerAs: 'vm',
@@ -34,10 +34,22 @@
                     _section: ['dataService', '$stateParams', function (dataService, $stateParams) {
                         return dataService.getSection($stateParams.sectionId);
                     }],
-                    _suspend: ['scormService', function(scormService){
-                        console.log("[HOME.ROUTE] récupération de existingSuspend dans le resolve !" );
+                    _suspend: ['scormService', function (scormService) {
+                        console.log("[HOME.ROUTE] récupération de existingSuspend dans le resolve !");
                         //console.log(scormService.getSuspend());
                         return scormService.getSuspend();
+                    }]
+                }
+            });
+        $stateProvider
+            .state('edition', {
+                url: '/edit',
+                templateUrl: 'app/view/edition/edition.html',
+                controller: 'EditionCtrl',
+                controllerAs: 'vm',
+                resolve: {
+                    _data: ['dataService', function (dataService) {
+                        return dataService.getTranslatableData();
                     }]
                 }
             });
