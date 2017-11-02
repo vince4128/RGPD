@@ -34,12 +34,10 @@
                 console.log("quizService attention le suspend est undefined pour quizService !");
                 return;
             }
-            for (var i = 0; i < _data.section.length; i++) {
-                var currentObj = _data.section[i];
-                for (var j = 0; j < currentObj.item.length; j++) {
-                    if (currentObj.item[j].evaluated) {
-                        tabQ.push(currentObj.item[j]);
-                    }
+            for (var i = 0; i < _data.length; i++) {
+                var currentObj = _data[i];
+                if (currentObj.length > 2) {
+                    tabQ.push(currentObj);
                 }
             }
         }

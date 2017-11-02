@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module ('app.component')
-        .component ('qsimple', {
+        .module('app.component')
+        .component('qsimple', {
             bindings: {
                 item: '<'
             },
@@ -11,26 +11,36 @@
             controller: qsimpleController
         });
 
-    qsimpleController.$inject = ['$scope','quizService'];
+    qsimpleController.$inject = ['$scope', 'quizService', 'dataService'];
 
-    function qsimpleController($scope,quizService){
+    function qsimpleController($scope, quizService, dataService) {
 
         var ctrl = this;
         ////////////////
 
-        ctrl.radio = { checked:null };
-        ctrl.feedback = {display: false, feedOk: null};
+        ctrl.radio = { checked: null };
+        ctrl.feedback = { display: false, feedOk: null };
 
         ctrl.check = check;
         ctrl.reset = reset;
         ctrl.answerValue = null;
+
         ////////////////////////
 
+        ctrl.$onInit = function () {
+            //ici nous avons accès aux valeurs de nos bindings
+            var itemUID = ctrl.item.uid;
+
+            // init avec les valeurs du suspend
+            ctrl.radio = { checked: dataService.getSuspendValue(itemUID, 'answer') };
+            ctrl.answerValue = dataService.getSuspendValue(itemUID, 'answerValue');
+        };
+
         function check() {
-            if(ctrl.radio.checked || ctrl.radio.checked === 0){
-                $scope.$emit('readevent',true);
+            if (ctrl.radio.checked || ctrl.radio.checked === 0) {
+                $scope.$emit('readevent', true);
                 //checker la rep
-                if(ctrl.item.content.proposal[ctrl.radio.checked].value) {
+                if (ctrl.item.content.proposal[ctrl.radio.checked].value) {
                     //la réponse est bonne
                     ctrl.feedback.feedOk = true;
                     ctrl.answerValue = true;
@@ -40,19 +50,20 @@
                     ctrl.answerValue = false;
                 }
                 $scope.$emit('dataEvent', ctrl.item.content);
-                if(ctrl.item.content.evaluated){
-                    quizService.setAnswerValue(ctrl.item.questionId,ctrl.answerValue,ctrl.radio.checked);
+                if (ctrl.item.content.evaluated) 
+                {
+                    quizService.setAnswerValue(ctrl.item.questionId, ctrl.answerValue, ctrl.radio.checked);
                 }
-                $scope.$emit('quizEvent', {answer:ctrl.radio.checked,value:ctrl.answerValue});
+                $scope.$emit('quizEvent', { answer: ctrl.radio.checked, value: ctrl.answerValue });
             } else {
                 alert('veuillez sélectionner une réponse');
             }
         }
 
-        function reset(){
+        function reset() {
             ctrl.radio.checked = null;
         }
 
     }
 
-} ());
+}());
