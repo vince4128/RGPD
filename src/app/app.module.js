@@ -6,6 +6,7 @@
         'app.core',
         //modules développés
         'app.directive',
+        'app.edition',
         'app.newmodule'
     ])
         .config(configuration)

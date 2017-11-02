@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.newmodule')
+        .module('app.edition')
         .controller('EditionCtrl', EditionCtrl)
 
     EditionCtrl.$inject = ['_data', 'dataService'];
