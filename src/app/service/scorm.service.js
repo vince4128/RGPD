@@ -172,48 +172,45 @@
         var suspendLoaded = false;
         //méthode de récupération du suspend brut
         function getSuspend() {
-            if(!suspendLoaded){
+            if (!suspendLoaded) {
                 var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
                 if (success) {
                     console.log("# scormService : Suspend récupéré avec la valeur : " + success);
-                    /*
-                    //success should return '1,1|2,1|3,0...' or '1,1,1,2|2,1,0,1' if evaluated = true
+
+                    //success devrait renvoyer '1,1|2,1|3,0...' or '1,1,1,2|2,1,0,1' si evaluated = true
                     // 'uid, read, answerValue, answer' // 'identifiant unique, lu ou non lu, bien répondu ou non, réponse donnée'
-                    
                     var tempArr = success.split('|'); // ['1,1','2,1','3,0'...]
-                    var tempResult = [];
-                    for(var i = 0; i<tempArr.length; i++)
-                    {
+                    var result = [];
+                    for (var i = 0; i < tempArr.length; i++) {
                         var _itemValues = tempArr[i].split(','); // ['1','1'] ['2','1'] ['3','0']...
-                        var _item = {uid: _itemValues[0], read:_itemValues[1]};
-                        if(_itemValues.length==4)
-                        {
+                        var _item = { uid: _itemValues[0], read: _itemValues[1] };
+                        // si évaluation
+                        if (_itemValues.length == 4) {
                             _item.answerValue = _itemValues[2];
                             _item.answer = _itemValues[3];
                         }
-                        tempResult.push(_item);
+                        result.push(_item);
                     }
-                    */
-                    var result = angular.fromJson(success); // à supprimer
+
+                    //var result = angular.fromJson(success); // à supprimer
                     suspendLoaded = true;
                     return result;
                 } else {
                     //écrire le code pour scorm 2004 a supp une fois OK
                     console.log("# scormService : getSuspend failed");
-                    return {};
+                    return [];
                 }
-            }else{
+            } else {
                 console.log("# scormService getSuspend retourne existingSuspend");
                 //console.log(existingSuspend);
                 return existingSuspend;
             }
-            
+
         }
 
         //méthode pour envoyer le suspend brut
         function setSuspend(_suspend) {
-            /*
-            //ici _suspend = [{uid:"1", read:false}, ...]
+            //exemple : _suspend = [{uid:"7", read:"1", answer:"1", answerValue:"1"}, ...]
             var _flattenSuspend = "";
             for(var i = 0; i<_suspend.length; i++)
             {
@@ -234,8 +231,7 @@
                 console.log("# scormService : suspend value too long");
             }
             var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, _suspend);
-            */
-            var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, angular.toJson(_suspend));
+            
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));
             } else {
@@ -245,10 +241,10 @@
 
         //méthode d'envoi du location
         function setLocation(_section, _item) {
-            var _location = _section+","+_item;
+            var _location = _section + "," + _item;
 
             console.log("# scormService : envoi du location :" + _location);
-            
+
             var success = scormWrapper.doLMSSetValue(LOCATION(), _location);
             if (success) {
                 console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LOCATION()));
@@ -345,7 +341,7 @@
             existingSuspend = getSuspend();
 
             //a supp une fois OK
-            if(!angular.equals(existingSuspend, {})){
+            if (!angular.equals(existingSuspend, {})) {
                 console.log("suspend existe " + existingSuspend);
                 quizService.setTabQ(existingSuspend);
             }
@@ -354,16 +350,15 @@
 
         //on initialise l'objet suspend avec les données du module
         function createSuspend(_data) {
-            var result = {};
-            result.section = [];
+            var result = [];
 
             for (var i = 0; i < _data.section.length; i++) {
                 var currentObj = _data.section[i];
-                result.section[i] = new Section(currentObj.id);
+                result.push(new SuspendItem(currentObj.uid));
 
                 for (var j = 0; j < currentObj.item.length; j++) {
                     var currentItem = currentObj.item[j];
-                    result.section[i].item[j] = new Item(currentItem.id, currentItem.evaluated);
+                    result.push(new SuspendItem(currentItem.uid));
                 }
             }
 
@@ -374,6 +369,11 @@
             return result;
         }
 
+        function SuspendItem(uid) {
+            this.uid = uid;
+            this.read = false;
+        }
+
         function Section(id) {
             this.id = id;
             this.read = false;
@@ -382,11 +382,11 @@
 
         var qId = 0;
 
-        function Item(id,evaluated,qId) {
+        function Item(id, evaluated, qId) {
             this.id = id;
             this.read = false;
             //on ajoute une propriété pour les items qui doivent être pris en compte dans la note
-            if(evaluated){
+            if (evaluated) {
                 this.evaluated = true;
             }
         }
