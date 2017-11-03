@@ -358,7 +358,12 @@
 
                 for (var j = 0; j < currentObj.item.length; j++) {
                     var currentItem = currentObj.item[j];
-                    result.push(new SuspendItem(currentItem.uid));
+                    var suspendItem = new SuspendItem(currentItem.uid);
+                    if(currentItem.evaluated){
+                        suspendItem.answer = null;
+                        suspendItem.answerValue = 0;
+                    }
+                    result.push(suspendItem);
                 }
             }
 
