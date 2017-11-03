@@ -31,15 +31,15 @@
         function setTabQ(_data) {
             //au cas ou _data est undefined
             if(!_data){
-                console.log("quizService attention le suspend est undefined pour quizService !");
                 return;
             }
             for (var i = 0; i < _data.length; i++) {
                 var currentObj = _data[i];
-                if (currentObj.length > 2) {
+                if (currentObj.hasOwnProperty('answer')) {
                     tabQ.push(currentObj);
                 }
             }
+
         }
 
         function updateTabQ(_data){
