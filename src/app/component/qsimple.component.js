@@ -50,10 +50,6 @@
                     ctrl.answerValue = false;
                 }
                 $scope.$emit('dataEvent', ctrl.item.content);
-                if (ctrl.item.content.evaluated) 
-                {
-                    quizService.setAnswerValue(ctrl.item.questionId, ctrl.answerValue, ctrl.radio.checked);
-                }
                 $scope.$emit('quizEvent', { answer: ctrl.radio.checked, value: ctrl.answerValue });
             } else {
                 alert('veuillez sélectionner une réponse');
