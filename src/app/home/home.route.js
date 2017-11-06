@@ -36,20 +36,7 @@
                     }],
                     _suspend: ['scormService', function (scormService) {
                         console.log("[HOME.ROUTE] récupération de existingSuspend dans le resolve !");
-                        //console.log(scormService.getSuspend());
                         return scormService.getSuspend();
-                    }]
-                }
-            });
-        $stateProvider
-            .state('edition', {
-                url: '/edit',
-                templateUrl: 'app/view/edition/edition.html',
-                controller: 'EditionCtrl',
-                controllerAs: 'vm',
-                resolve: {
-                    _data: ['dataService', function (dataService) {
-                        return dataService.getTranslatableData();
                     }]
                 }
             });

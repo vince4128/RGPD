@@ -21,6 +21,8 @@ require("./scss/style.scss");
 require("./app/view/layout/layout.html");
 require("./app/view/home/home.html");
 require("./app/view/home/section.html");
+require("./app/view/edition/edition.view.html");
+
 
 //template
 require("./app/template/prevandnext/prevandnext.html");
@@ -49,7 +51,14 @@ require("./app/core/core.module.js");
 require("../lib/angularjs-scorm-wrapper/angularjs-scorm-wrapper.min.js");
 require("./app/component/component.module.js");
 require("./app/directive/directive.module.js");
+
+/* Edition */
 require("./app/edition/edition.module.js");
+require("./app/edition/edition.route.js");
+require("./app/edition/edition.controller.js");
+require("./app/edition/module.controller.js");
+require("./app/edition/chapterlist.controller.js");
+require("./app/edition/pagelist.controller.js");
 
 //
 require("./app/home/home.module.js");
