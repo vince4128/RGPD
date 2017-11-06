@@ -36,6 +36,7 @@ require("./app/template/quiz/resultquiz.html");
 require("./app/template/completionbar/completion_bar.html");
 require("./app/template/didacticiel/didacticiel.html");
 require("./app/template/video/video.html");
+require("./app/template/editablefield/editableField.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -77,6 +78,7 @@ require("./app/component/introquiz.component.js");
 require("./app/component/resultquiz.component.js");
 require("./app/component/didacticiel.component.js");
 require("./app/component/prevandnext.component.js");
+require("./app/component/editableField.component.js");
 
 /* Angular - directives */
 require("./app/directive/emitstatus.directive.js");
