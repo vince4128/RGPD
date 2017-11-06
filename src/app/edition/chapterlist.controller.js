@@ -26,7 +26,7 @@
         }
         
         function createSection() {
-            vm.data.push(editionFactory.createSection(vm.data.length));
+            vm.data.push(editionFactory.createSection());
         }
     }
 

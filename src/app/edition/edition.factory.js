@@ -34,13 +34,13 @@
 
         return factory;
 
-        function createSection(index) {
-            var _code = "course_" + parseInt(index); // length = mauvaise idée en cas de suppression d'une section
+        function createSection() {
+            var _code = "course_" + guID2(4);// parseInt(index); // length = mauvaise idée en cas de suppression d'une section
             return new Section("course", _code);
         };
 
-        function createItem(index, sectionCode) {
-            var _name = "page_" + parseInt(index); // length = mauvaise idée en cas de suppression d'un item
+        function createItem(sectionCode) {
+            var _name = "page_" + guID2(4);//  + parseInt(index); // length = mauvaise idée en cas de suppression d'un item
             return new Item("text", _name, sectionCode);
         };
         

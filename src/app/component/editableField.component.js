@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.components')
+        .module('app.component')
         .component('editableField', {
             templateUrl: './app/template/editablefield/editableField.html',
             controller: EditableFieldController,

@@ -15,7 +15,7 @@
         vm.createItem = createItem;
 
         function createItem() {
-            vm.currentSection.item.push(editionFactory.createItem(vm.currentSection.item.length, $stateParams.chapterGUID));
+            vm.currentSection.item.push(editionFactory.createItem($stateParams.chapterGUID));
         }
     }
 
