@@ -7,12 +7,14 @@
     "section": [
       {
         "index": 1,
+        "guid": "czNK",
         "code": "intro",
         "type": "course",
         "title": "intro.title",
         "item": [
           {
             "index": 1,
+            "guid": "VJuK",
             "code": "page_1",
             "type": "text",
             "title": "intro.page_1.title",
@@ -24,6 +26,7 @@
           },
           {
             "index": 0,
+            "guid": "hi4B",
             "code": "page_2",
             "type": "text",
             "title": "intro.page_2.title",
@@ -35,6 +38,7 @@
           },
           {
             "index": 2,
+            "guid": "YeHS",
             "code": "page_3",
             "type": "clicktosee",
             "title": "intro.page_3.title",
@@ -62,6 +66,7 @@
           },
           {
             "index": 3,
+            "guid": "RsRW",
             "code": "page_4",
             "type": "qsimple",
             "title": "intro.page_4.title",
@@ -94,6 +99,7 @@
           },
           {
             "index": 4,
+            "guid": "KO11",
             "code": "page_5",
             "type": "textimg",
             "title": "intro.page_5.title",
@@ -108,12 +114,14 @@
       },
       {
         "index": 0,
+        "guid": "HVgS",
         "code": "course_1",
         "type": "course",
         "title": "course_1.title",
         "item": [
           {
             "index": 0,
+            "guid": "heRb",
             "code": "page_1",
             "type": "text",
             "title": "course_1.page_1.title",
@@ -125,6 +133,7 @@
           },
           {
             "index": 1,
+            "guid": "7rqA",
             "code": "page_2",
             "type": "text",
             "title": "course_1.page_2.title",
@@ -136,6 +145,7 @@
           },
           {
             "index": 2,
+            "guid": "XsZl",
             "code": "page_3",
             "type": "clicktosee",
             "title": "course_1.page_3.title",
@@ -158,6 +168,7 @@
           },
           {
             "index": 3,
+            "guid": "I8l7",
             "code": "page_4",
             "type": "qsimple",
             "title": "course_1.page_4.title",
@@ -195,6 +206,7 @@
           },
           {
             "index": 4,
+            "guid": "hexe",
             "code": "page_5",
             "type": "textimg",
             "title": "course_1.page_5.title",
@@ -209,12 +221,14 @@
       },
       {
         "index": 2,
+        "guid": "JiYO",
         "code": "course_2",
         "type": "course",
         "title": "course_2.title",
         "item": [
           {
             "index": 0,
+            "guid": "tKxF",
             "code": "page_1",
             "type": "didacticiel",
             "title": "course_2.page_1.title",
@@ -246,6 +260,7 @@
           },
           {
             "index": 1,
+            "guid": "Sy7y",
             "code": "page_2",
             "type": "didacticiel",
             "title": "course_2.page_2.title",
@@ -269,6 +284,7 @@
           },
           {
             "index": 2,
+            "guid": "wz3X",
             "code": "page_3",
             "type": "video",
             "title": "course_2.page_3.title",
@@ -288,6 +304,7 @@
           },
           {
             "index": 3,
+            "guid": "HRWX",
             "code": "page_4",
             "type": "video",
             "title": "course_2.page_4.title",
@@ -309,12 +326,14 @@
       },
       {
         "index": 3,
+        "guid": "dPcw",
         "code": "quiz",
         "type": "quiz",
         "title": "quiz.title",
         "item": [
           {
             "index": 0,
+            "guid": "",
             "code": "quiz_intro",
             "type": "introquiz",
             "title": "quiz.quiz_intro.title",
@@ -326,6 +345,7 @@
           },
           {
             "index": 1,
+            "guid": "hFvm",
             "code": "question_1",
             "type": "qsimple",
             "title": "quiz.question_1.title",
@@ -364,6 +384,7 @@
           },
           {
             "index": 2,
+            "guid": "GLy4",
             "code": "question_2",
             "type": "qsimple",
             "title": "quiz.question_2.title",
@@ -402,6 +423,7 @@
           },
           {
             "index": 3,
+            "guid": "Yct5",
             "code": "question_3",
             "type": "qsimple",
             "title": "quiz.question_3.title",
@@ -440,6 +462,7 @@
           },
           {
             "index": 4,
+            "guid": "afhK",
             "code": "question_4",
             "type": "qsimple",
             "title": "quiz.question_4.title",
@@ -478,6 +501,7 @@
           },
           {
             "index": 5,
+            "guid": "1DM8",
             "code": "question_5",
             "type": "qsimple",
             "title": "quiz.question_5.title",
@@ -516,6 +540,7 @@
           },
           {
             "index": 6,
+            "guid": "5Lu9",
             "code": "quiz_result",
             "type": "resultquiz",
             "title": "quiz.quiz_result.title",

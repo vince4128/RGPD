@@ -1,11 +1,17 @@
-<!--
-<div>Liste des chapitres</div>
-<ul>
-    <li ui-sref="edition.chapterlist.pages"><a>Voir la page</a></li>
-</ul>
-<div ui-view></div>
--->
-<div>Liste des chapitres</div>
-<ul>
-    <li><a ng-click="vm.gotoPage()">Voir la page</a></li>
-</ul>
+<div style="padding:10px;">
+    <h3>Liste des chapitres</h3>
+    <button ng-click="vm.createSection()">Ajouter un chapitre</button>
+    <ul style="list-style:none; padding-left:0">
+        <li ng-repeat="section in vm.data">
+            <div style="border:1px solid #7f8c8d; margin-bottom:8px; padding:6px;">
+                <p>Titre du chapitre : {{section.title.value}}</p>
+                <p>Code : {{section.code}}</p>
+                <select ng-model="section.type">
+                    <option ng-repeat="sectiontype in vm.sectionTypes" value="{{sectiontype.code}}">{{sectiontype.description}}</option>
+                </select>
+                <br>
+                <button ng-click="vm.gotoPage(section.guid)">Consulter les pages</button>
+            </div>
+        </li>
+    </ul>
+</div>

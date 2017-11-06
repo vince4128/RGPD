@@ -5,9 +5,9 @@
         .module('app.edition')
         .controller('EditionCtrl', EditionCtrl)
 
-    EditionCtrl.$inject = ['_data', 'dataService'];
+    EditionCtrl.$inject = ['_data', 'dataService', 'editionFactory'];
 
-    function EditionCtrl(_data, dataService) {
+    function EditionCtrl(_data, dataService, editionFactory) {
         var vm = this;
 
         /**
@@ -54,13 +54,11 @@
         function createSection() {
             var _code = "course_" + parseInt(vm.data.section.length); // length = mauvaise idée en cas de suppression d'une section
             vm.data.section.push(new Section("course", _code));
-            //console.log(vm.data);
         }
 
         function createItem() {
             var _name = "page_" + parseInt(vm.currentSection.item.length); // length = mauvaise idée en cas de suppression d'un item
             vm.currentSection.item.push(new Item("text", _name, vm.currentSection.code));
-            //console.log(vm.data);
         }
 
         function test(data) {

@@ -5,11 +5,12 @@
         .module('app.edition')
         .controller('ModuleCtrl', ModuleCtrl)
 
-    ModuleCtrl.$inject = [];
+    ModuleCtrl.$inject = ['editionFactory'];
 
-    function ModuleCtrl($state) {
+    function ModuleCtrl(editionFactory) {
         var vm = this;
 
+        vm.data = editionFactory.translatableData.header;
     }
 
 }());

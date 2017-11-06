@@ -59,6 +59,7 @@ require("./app/edition/edition.controller.js");
 require("./app/edition/module.controller.js");
 require("./app/edition/chapterlist.controller.js");
 require("./app/edition/pagelist.controller.js");
+require("./app/edition/edition.factory.js");
 
 //
 require("./app/home/home.module.js");

@@ -1,4 +1,25 @@
-<div>Liste des pages</div>
-<ul>
-    <li></li>
-</ul>
+<div style="padding:10px;">
+    <h3>Liste des pages</h3>
+    <button ng-click="vm.createItem()">Ajouter une page</button>
+    <ul style="list-style:none; padding-left:0">
+        <li ng-repeat="item in vm.currentSection.item">
+            <div style="border:1px solid #7f8c8d; margin-bottom:8px; padding:6px;">
+                <p>Titre : {{item.title.value}}</p>
+                <p>Code : {{item.code}}</p>
+                <select ng-model="item.type">
+                    <option ng-repeat="itemType in vm.itemTypes" value="{{itemType.code}}">{{itemType.description}}</option>
+                </select>
+                <p>Instruction : <input type="text" name="instruction" value="{{item.instruction.value}}" ng-model="item.instruction.value"></p>
+                <p>Fichier sonore : <input type="text" name="sound" value="{{item.sound}}" ng-model="item.sound">.mp3</p>
+
+                <div ng-if="item.type == 'text'">
+                    <p>Contenu texte :</p>
+                    <textarea rows="4" cols="50">{{item.content.text.value}}</textarea>
+                </div>
+                <div ng-if="item.type == 'textimg'">
+                    <p>Texte : {{item.content.text}} + image URL : {{item.content.img}}</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

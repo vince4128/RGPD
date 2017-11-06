@@ -8,8 +8,6 @@
     editionConfig.$inject = ['$stateProvider'];
 
     function editionConfig($stateProvider) {
-
-        /// Edition du DATA.JSON + Traduction
         $stateProvider
             .state('edition', {
                 url: '/edition',
@@ -17,8 +15,8 @@
                 controller: 'EditionCtrl',
                 controllerAs: 'vm',
                 resolve: {
-                    _data: ['dataService', function (dataService) {
-                        return dataService.getTranslatableData();
+                    _data: ['editionFactory', function (editionFactory) {
+                        return editionFactory.getTranslatableData();
                     }]
                 }
             });
@@ -38,7 +36,7 @@
             });
         $stateProvider
             .state('edition.pages', {
-                url: '/pages', //{chapterId}
+                url: '/pages/{chapterGUID}',
                 templateUrl: 'app/view/edition/edition.pagelist.html',
                 controller: 'PageCtrl',
                 controllerAs: 'vm',
