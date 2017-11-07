@@ -36,7 +36,7 @@ require("./app/template/quiz/resultquiz.html");
 require("./app/template/completionbar/completion_bar.html");
 require("./app/template/didacticiel/didacticiel.html");
 require("./app/template/video/video.html");
-require("./app/template/editablefield/editableField.html");
+require("./app/template/editablefield/editable_field.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers

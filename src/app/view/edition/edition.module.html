@@ -1,7 +1,8 @@
 <div style="padding:10px;">
-    <h3>Titre : <input type="text" name="title" 
-        ng-value="vm.data.title.value" 
-        ng-model="vm.data.title.value">
+    <h3>Titre : 
+        <editable-field field-value="vm.data.title.value" field-type="text" on-update="vm.onUpdate(vm.data, 'title', value)"></editable-field>
     </h3>
-    <p>Description : <input type="text" name="description" value="{{vm.data.description.value}}" ng-model="vm.data.description.value"></p>
+    <p>Description : 
+        <editable-field field-value="vm.data.description.value" field-type="text" on-update="vm.onUpdate(vm.data, 'description', value)"></editable-field>
+    </p>
 </div>

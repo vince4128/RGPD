@@ -4,7 +4,7 @@
     angular
         .module('app.component')
         .component('editableField', {
-            templateUrl: './app/template/editablefield/editableField.html',
+            templateUrl: './app/template/editablefield/editable_field.html',
             controller: EditableFieldController,
             bindings: {
                 fieldValue: '<',
@@ -40,4 +40,4 @@
             }
         };
     }
-}());
+})();

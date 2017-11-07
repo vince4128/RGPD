@@ -17,7 +17,6 @@
 
         ctrl.$onInit = function () {
             //ici nous avons accès aux valeurs de nos bindings
-            //console.log("completionBar - onInit", ctrl.list);
         };
 
     }

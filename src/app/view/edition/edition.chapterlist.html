@@ -1,16 +1,25 @@
 <div style="padding:10px;">
-    <h3>Liste des chapitres</h3>
+    <h3><a ui-sref="edition.module">Module</a> > Contenu</h3>
     <button ng-click="vm.createSection()">Ajouter un chapitre</button>
-    <ul style="list-style:none; padding-left:0">
+    <ul style="list-style:none; padding-left:0;">
         <li ng-repeat="section in vm.data">
-            <div style="border:1px solid #7f8c8d; margin-bottom:8px; padding:6px;">
-                <p>Titre du chapitre : {{section.title.value}}</p>
-                <p>Code : {{section.code}}</p>
-                <select ng-model="section.type">
-                    <option ng-repeat="sectiontype in vm.sectionTypes" value="{{sectiontype.code}}">{{sectiontype.description}}</option>
-                </select>
-                <br>
-                <button ng-click="vm.gotoPage(section.guid)">Consulter les pages</button>
+            <div style="border:1px solid #7f8c8d; margin-bottom:8px; padding:6px; width:100%;">
+                <div style="display:inline-block;">
+                    <p>Titre du chapitre : 
+                        <editable-field field-value="section.title.value" field-type="text" on-update="vm.onUpdate(section, 'title', value)"></editable-field>
+                    </p>
+                    <p>Code : {{section.code}}</p>
+                    <select ng-model="section.type" ng-disabled="true" style="margin-bottom:6px;">
+                        <option ng-repeat="sectiontype in vm.sectionTypes" value="{{sectiontype.code}}">{{sectiontype.description}}</option>
+                    </select>
+                    <br>
+                    <button ng-click="vm.gotoPage(section.guid)">Consulter les pages</button>
+                </div>
+                <div style="float:right;">
+                    <button>Déplacer vers le haut</button>
+                    <button>Déplacer vers le bas</button>
+                    <button>Supprimer</button>
+                </div>
             </div>
         </li>
     </ul>
