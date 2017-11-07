@@ -32,7 +32,7 @@
 
         function onUpdate(obj, prop, value) {
             obj[prop].value = value;
-            console.log(prop + ' ' + obj[prop], obj);
+            //console.log(prop + ' ' + obj[prop], obj);
         };
     }
 
