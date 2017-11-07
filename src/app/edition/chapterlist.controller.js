@@ -48,8 +48,11 @@
             });
 
             dialog.closePromise.then(function (data){
-                var returnObj = data.value;
-                vm.data.push(editionFactory.createSection(returnObj.title, returnObj.type));
+                if(data.value && data.value != 0)
+                {
+                    var returnObj = data.value;
+                    vm.data.push(editionFactory.createSection(returnObj.title, returnObj.type));
+                }
                 //console.log(vm.data);
             });
         }

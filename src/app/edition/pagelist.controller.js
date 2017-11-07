@@ -42,8 +42,11 @@
             });
 
             dialog.closePromise.then(function (data){
-                var returnObj = data.value;
-                vm.currentSection.item.push(editionFactory.createItem($stateParams.chapterGUID, returnObj.title, returnObj.type));
+                if(data.value && data.value != 0)
+                {
+                    var returnObj = data.value;
+                    vm.currentSection.item.push(editionFactory.createItem($stateParams.chapterGUID, returnObj.title, returnObj.type));
+                }
                 //console.log(vm.currentSection.item);
             });
         }
