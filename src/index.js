@@ -22,7 +22,10 @@ require("./app/view/layout/layout.html");
 require("./app/view/home/home.html");
 require("./app/view/home/section.html");
 require("./app/view/edition/edition.view.html");
-
+require("./app/view/edition/edition.module.html");
+require("./app/view/edition/edition.chapterlist.html");
+require("./app/view/edition/edition.pagelist.html");
+require("./app/view/edition/popup.html");
 
 //template
 require("./app/template/prevandnext/prevandnext.html");

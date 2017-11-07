@@ -34,16 +34,22 @@
 
         return factory;
 
-        function createSection() {
-            var _code = "course_" + guID2(4);// parseInt(index); // length = mauvaise idée en cas de suppression d'une section
-            return new Section("course", _code);
+        function createSection(title, type) {
+            var _code = type == 'course' ? "course_" : "quiz_";
+            _code += guID2(4);
+            return new Section(type, _code, title);
         };
 
-        function createItem(sectionCode) {
-            var _name = "page_" + guID2(4);//  + parseInt(index); // length = mauvaise idée en cas de suppression d'un item
-            return new Item("text", _name, sectionCode);
+        function createItem(sectionCode, title, type) {
+            var _code = "page_" + guID2(4);
+            if (!type){
+                type = "text";
+            }
+            return new Item(type, _code, sectionCode);
         };
         
+        ///////////////////
+
         function getSection(guid) {
             function sectionMatchesParam(section) {
                 return section.guid === guid;
@@ -153,11 +159,11 @@
         this.description = description;
     }
 
-    function Section(type, code) {
+    function Section(type, code, title) {
         this.guid = guID2(4);
         this.code = code;
         this.type = type;
-        this.title = new TranslatableText(code, null, 'title');
+        this.title = new TranslatableText(code, title, 'title');
         this.item = [new Item('text', "page_0", code)];
         this.index;
     }

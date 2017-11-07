@@ -1,0 +1,12 @@
+<div class="dialog-contents">
+    <p>Titre :</p>
+    <input type="text" ng-model="vm.returnObj.title" />
+    <p>Type : </p>
+    <select ng-model="vm.returnObj.type" style="margin-bottom:6px;">
+        <option ng-repeat="type in vm.types" value="{{type.code}}">{{type.description}}</option>
+    </select>
+    <div style="width:100%; text-align:right;">
+        <input type="button" value="OK" ng-click="vm.checkInput() && closeThisDialog(vm.returnObj)" />
+        <input type="button" value="Cancel" ng-click="closeThisDialog(0)" />
+    </div>
+</div>
