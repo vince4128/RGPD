@@ -1,0 +1,36 @@
+.item {
+    border:1px solid #999;
+    margin-top:15px;
+    padding:15px;
+    border-radius:4px;
+}
+
+.item.ng-enter {
+    animation: enter 1s linear;
+}
+
+@keyframes enter {
+    0% {background-color: green; opacity: 0;}
+    25% {background-color: green; opacity: 1;}
+    100% {opacity: 1;}
+}
+
+.item.ng-leave {
+    animation: leave 1s linear;
+}
+
+@keyframes leave {
+    0% {opacity: 1;}
+    25% {background-color: red; opacity: 1;}
+    100% {background-color: red; opacity: 0;}
+}
+
+.item.ng-move {
+    animation: move 1s linear;
+}
+
+@keyframes move {
+    0% {background-color: white;}
+    25% {background-color: blue;}
+    100% {background-color: white;}
+}

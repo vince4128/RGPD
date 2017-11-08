@@ -34,18 +34,18 @@
 
         return factory;
 
-        function createSection(title, type) {
+        function createSection(title, type, index) {
             var _code = type == 'course' ? "course_" : "quiz_";
             _code += guID2(4);
-            return new Section(type, _code, title);
+            return new Section(type, _code, title, index);
         };
 
-        function createItem(sectionCode, title, type) {
+        function createItem(sectionCode, title, type, index) {
             var _code = "page_" + guID2(4);
             if (!type){
                 type = "text";
             }
-            return new Item(type, _code, sectionCode);
+            return new Item(type, _code, sectionCode, index);
         };
         
         ///////////////////
@@ -94,8 +94,8 @@
         };
 
         function setTranslations() {
+            //TODO: objet à écrire dans {lang}.json //appel fonction PHP ou fileSaver
             var log = getObject(factory.translatableData);
-            console.log(log);
         };
 
         //////
@@ -159,23 +159,23 @@
         this.description = description;
     }
 
-    function Section(type, code, title) {
+    function Section(type, code, title, index) {
         this.guid = guID2(4);
         this.code = code;
         this.type = type;
         this.title = new TranslatableText(code, title, 'title');
         this.item = [new Item('text', "page_0", code)];
-        this.index;
+        this.index = index;
     }
 
-    function Item(type, code, parentCode) {
+    function Item(type, code, parentCode, index) {
         this.guid = guID2(4);
         this.code = code;
         this.type = type;
         this.title = new TranslatableText(generateKey(code, [parentCode]), null, 'title');
         this.instruction = new TranslatableText(generateKey(code, [parentCode]), null, 'instruction');
         this.content = createContentObj(type, code, parentCode);
-        this.index;
+        this.index = index;
     }
 
     function ClickableItem(code, parentCode, rootCode) {

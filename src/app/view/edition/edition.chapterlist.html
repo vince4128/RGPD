@@ -2,8 +2,8 @@
     <h3><a ui-sref="edition.module">Module</a> > Contenu</h3>
     <button ng-click="vm.createSection()">Ajouter un chapitre</button>
     <ul style="list-style:none; padding-left:0;">
-        <li ng-repeat="section in vm.data">
-            <div style="border:1px solid #7f8c8d; margin-bottom:8px; padding:6px; width:100%;">
+        <li ng-repeat="section in vm.data" class="item">
+            <div>
                 <div style="display:inline-block;">
                     <p>Titre du chapitre : 
                         <editable-field field-value="section.title.value" field-type="text" on-update="vm.onUpdate(section, 'title', value)"></editable-field>
@@ -15,10 +15,11 @@
                     <br>
                     <button ng-click="vm.gotoPage(section.guid)">Consulter les pages</button>
                 </div>
+                <!-- TODO : transformer en component -->
                 <div style="float:right;">
-                    <button>Déplacer vers le haut</button>
-                    <button>Déplacer vers le bas</button>
-                    <button>Supprimer</button>
+                    <button ng-disabled="$index == 0" ng-click="vm.move(section, -1)">Déplacer vers le haut</button>
+                    <button ng-disabled="$index == vm.data.length-1" ng-click="vm.move(section, 1)">Déplacer vers le bas</button>
+                    <button ng-click="vm.onDelete(section)">Supprimer</button>
                 </div>
             </div>
         </li>

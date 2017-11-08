@@ -7,7 +7,7 @@
 
     dataService.$inject = ['$http', 'scormService', 'orderByFilter'];
 
-    function dataService($http, scormService, orderBy, $translate) {
+    function dataService($http, scormService, orderBy) {
         var service = {
             getData: getData,
             getSection: getSection,

@@ -2,10 +2,10 @@
     <h3><a ui-sref="edition.module">Module</a> > <a ui-sref="edition.chapterlist">Contenu</a> > {{vm.currentSection.title.value}}</h3>
     <button ng-click="vm.createItem()">Ajouter une page</button>
     <ul style="list-style:none; padding-left:0">
-        <li ng-repeat="item in vm.currentSection.item">
-            <div style="border:1px solid #7f8c8d; margin-bottom:8px; padding:6px;">
+        <li ng-repeat="item in vm.currentSection.item" class="item">
+            <div>
                 <div style="display:inline-block;">
-                    <p>Titre : 
+                    <p>Titre :
                         <editable-field field-value="item.title.value" field-type="text" on-update="vm.onUpdate(item, 'title', value)"></editable-field>
                     </p>
                     <p>Code : {{item.code}}</p>
@@ -23,10 +23,11 @@
                         <p>Texte : {{item.content.text.value}} + image URL : {{item.content.img}}</p>
                     </div>
                 </div>
+                <!-- TODO : transformer en component -->
                 <div style="float:right;">
-                    <button>Déplacer vers le haut</button>
-                    <button>Déplacer vers le bas</button>
-                    <button>Supprimer</button>
+                    <button ng-click="vm.move(item, -1)">Déplacer vers le haut</button>
+                    <button ng-click="vm.move(item, 1)">Déplacer vers le bas</button>
+                    <button ng-click="vm.onDelete(item)">Supprimer</button>
                 </div>
             </div>
         </li>
