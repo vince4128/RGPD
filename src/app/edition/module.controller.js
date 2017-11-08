@@ -5,9 +5,9 @@
         .module('app.edition')
         .controller('ModuleCtrl', ModuleCtrl)
 
-    ModuleCtrl.$inject = ['editionFactory'];
+    ModuleCtrl.$inject = ['editionFactory', '$scope'];
 
-    function ModuleCtrl(editionFactory) {
+    function ModuleCtrl(editionFactory, $scope) {
         var vm = this;
 
         vm.data = editionFactory.translatableData.header;
@@ -15,7 +15,8 @@
 
         function onUpdate(obj, prop, value) {
             obj[prop].value = value;
-            //console.log(prop + ' ' + obj[prop], obj);
+
+            $scope.$emit('tradChange');
         };
     }
 

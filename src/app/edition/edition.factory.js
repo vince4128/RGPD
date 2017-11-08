@@ -20,6 +20,7 @@
         itemTypes.push(new ItemType("qsimple", "Question"));
         itemTypes.push(new ItemType("textimg", "Texte et image"));
         itemTypes.push(new ItemType("video", "Film"));
+        itemTypes.push(new ItemType("didacticiel", "Tutoriel"));
 
         var factory = {
             getTranslatableData: getTranslatableData,
@@ -42,12 +43,12 @@
 
         function createItem(sectionCode, title, type, index) {
             var _code = "page_" + guID2(4);
-            if (!type){
+            if (!type) {
                 type = "text";
             }
             return new Item(type, _code, sectionCode, index);
         };
-        
+
         ///////////////////
 
         function getSection(guid) {
@@ -83,7 +84,7 @@
                         currentObj.item[j].id = String(j);
                         currentObj.item[j].title = new TranslatableText(currentObj.item[j].title, $translate.instant(currentObj.item[j].title));
                         currentObj.item[j].instruction = new TranslatableText(currentObj.item[j].instruction, $translate.instant(currentObj.item[j].instruction));
-                        if (currentObj.item[j].type == 'text') {
+                        if (currentObj.item[j].type == 'text' || currentObj.item[j].type == 'textimg') {
                             currentObj.item[j].content.text = new TranslatableText(currentObj.item[j].content.text, $translate.instant(currentObj.item[j].content.text));
                         }
                     }
@@ -93,10 +94,42 @@
             });
         };
 
-        function setTranslations() {
-            //TODO: objet à écrire dans {lang}.json //appel fonction PHP ou fileSaver
+        /** 
+         * Génère le fichier de traduction de base
+         * - lang: code langue du fichier de trad dans lequel le module est rédigé.
+         **/
+        function setTranslations(lang) {
+            //TODO: objet à écrire dans {lang}.json -> appel fonction PHP ou fileSaver
             var log = getObject(factory.translatableData);
         };
+
+        /** 
+         * Génère le fichier data.json sans les objets de trad 
+         * - newData : objet modifié par le user dans la GUI
+         */
+        function setData(newData) {
+            //TODO: objet à écrire dans data.json et/ou BDD -> appel fonction PHP
+            var result = angular.copy(newData);
+
+            var _header = result.header;
+            _header.title = _header.title.key;
+            _header.description = _header.description.key;
+
+            for (var i = 0; i < result.section.length; i++) {
+                var currentObj = result.section[i];
+                currentObj.title = currentObj.title.key;
+
+                for (var j = 0; j < currentObj.item.length; j++) {
+                    currentObj.item[j].title = currentObj.item[j].title.key;
+                    currentObj.item[j].instruction = currentObj.item[j].instruction.key;
+                    if (currentObj.item[j].type == 'text' || currentObj.item[j].type == 'textimg') {
+                        currentObj.item[j].content.text = currentObj.item[j].content.text.key;
+                    }
+                }
+            }
+
+            return result;
+        }
 
         //////
 

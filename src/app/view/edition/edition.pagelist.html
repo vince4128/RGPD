@@ -15,18 +15,29 @@
                     <p>Instruction : <input type="text" name="instruction" value="{{item.instruction.value}}" ng-model="item.instruction.value"></p>
                     <p>Fichier sonore : <input type="text" name="sound" value="{{item.sound}}" ng-model="item.sound">.mp3</p>
 
+                    <div ng-if="item.type == 'didacticiel'">
+                        <p>Image : <input type="text" name="didacticiel" value="{{item.content.img}}" ng-model="item.content.img"></p>
+                    </div>
+
+                    <div ng-if="item.type == 'video'">
+                        <p>Fichier vidéo : <input type="text" name="video" value="{{item.content.videoFile}}" ng-model="item.content.videoFile"></p>
+                    </div>
+
                     <div ng-if="item.type == 'text'">
                         <p>Contenu texte :</p>
                         <textarea rows="4" cols="50">{{item.content.text.value}}</textarea>
                     </div>
+
                     <div ng-if="item.type == 'textimg'">
-                        <p>Texte : {{item.content.text.value}} + image URL : {{item.content.img}}</p>
+                        <p>Image : <input type="text" name="textimg" value="{{item.content.img}}" ng-model="item.content.img"></p>
+                        <p>Texte : </p>
+                        <textarea rows="4" cols="50">{{item.content.text.value}}</textarea>
                     </div>
                 </div>
                 <!-- TODO : transformer en component -->
                 <div style="float:right;">
-                    <button ng-click="vm.move(item, -1)">Déplacer vers le haut</button>
-                    <button ng-click="vm.move(item, 1)">Déplacer vers le bas</button>
+                    <button ng-disabled="$index == 0" ng-click="vm.move(item, -1)">Déplacer vers le haut</button>
+                    <button ng-disabled="$index == vm.currentSection.item.length-1" ng-click="vm.move(item, 1)">Déplacer vers le bas</button>
                     <button ng-click="vm.onDelete(item)">Supprimer</button>
                 </div>
             </div>

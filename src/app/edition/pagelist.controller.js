@@ -5,14 +5,16 @@
         .module('app.edition')
         .controller('PageCtrl', PageCtrl)
 
-    PageCtrl.$inject = ['editionFactory', '$stateParams', 'ngDialog', 'orderByFilter'];
+    PageCtrl.$inject = ['editionFactory', '$stateParams', 'ngDialog', 'orderByFilter', '$scope'];
 
-    function PageCtrl(editionFactory, $stateParams, ngDialog, orderBy) {
+    function PageCtrl(editionFactory, $stateParams, ngDialog, orderBy, $scope) {
         var vm = this;
 
         vm.itemTypes = editionFactory.itemTypes;
         vm.currentSection = editionFactory.getSection($stateParams.chapterGUID);
         vm.createItem = createItem;
+        vm.onUpdate = onUpdate;
+        vm.onDelete = onDelete;
         vm.move = move;
 
         //TODO : à factoriser dans un composant flèches haut/bas + btn suppr
@@ -22,6 +24,7 @@
             item.index += direction;
             vm.currentSection.item[newIndex].index = oldIndex;
             vm.currentSection.item = orderBy(vm.currentSection.item, 'index', false);
+            $scope.$emit('modelChange');
         }
 
         function createItem() {
@@ -33,12 +36,11 @@
                     var vm = this;
                     vm.checkInput = checkInput;
                     vm.types = types;
-                    vm.returnObj = {};
+                    vm.returnObj = {title:'', type:''};
 
                     function checkInput() {
-                        var test = false;
-                        if (test) {
-                            alert('Il manque des informations');
+                        if (!vm.returnObj.title || !vm.returnObj.type) {
+                            alert("Toutes les informations n'ont pas été renseignées.");
                             return false;
                         }
                         return true;
@@ -55,16 +57,22 @@
                 if (data.value && data.value != 0) {
                     var returnObj = data.value;
                     vm.currentSection.item.push(editionFactory.createItem($stateParams.chapterGUID, returnObj.title, returnObj.type, vm.currentSection.item.length));
+                    $scope.$emit('modelChange');
                 }
             });
         }
 
         function onUpdate(obj, prop, value) {
-            obj[prop].value = value;
+            if(obj[prop].value != value)
+            {
+                obj[prop].value = value; //won't work if prop is like 'content.text'
+                $scope.$emit('tradChange');
+            }
         };
 
-        function onDelete(section){
-            var index = vm.currentSection.item.indexOf(section); //indexOf non compatible avec IE<9
+        function onDelete(item){
+            console.log(item);
+            var index = vm.currentSection.item.indexOf(item); //indexOf non compatible avec IE<9
             if (index > -1) {
                 vm.currentSection.item.splice(index, 1);
             }
@@ -76,6 +84,8 @@
                 obj.index = indexCount;
                 indexCount++;
             }
+
+            $scope.$emit('modelChange');
         };
     }
 

@@ -36,7 +36,7 @@
             });
         $stateProvider
             .state('edition.pages', {
-                url: '/pages/{chapterGUID}',
+                url: '/{chapterGUID}',
                 templateUrl: 'app/view/edition/edition.pagelist.html',
                 controller: 'PageCtrl',
                 controllerAs: 'vm',
