@@ -17,6 +17,9 @@ require("./scss/style.scss");
 
 /*  html    */
 
+/* ressources php */
+require("./app/edition/save.php");
+
 //view
 require("./app/view/layout/layout.html");
 require("./app/view/home/home.html");
