@@ -86,7 +86,7 @@
         };
 
         function getSuspendValue(key, value) {
-            var obj = scormService.existingSuspend;
+            var obj = scormService.getSuspend();
             for (var i = 0; i < obj.length; i++) {
                 if (obj[i].uid === key) {
                     switch(value)
@@ -109,7 +109,7 @@
         };
 
         function setSuspendValue(key, value) {
-            var obj = scormService.existingSuspend;
+            var obj = scormService.getSuspend();
             for (var i = 0; i < obj.length; i++) {
                 if (obj[i].uid == key) {
                     //si value est un objet ( à recoder si on décide d'envoyer plus d'infos avec read )
