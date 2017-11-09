@@ -179,6 +179,19 @@ let config = {
                     }
                 ],
                 exclude: path.join(__dirname, 'src/index.html')//on exclue index.html car on utilise HtmlWebpackPlugin
+            },
+            {
+                test: /\.(php)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            //useRelativePath: true,
+                            context: './src',
+                        }
+                    }
+                ]
             }
         ]
 
