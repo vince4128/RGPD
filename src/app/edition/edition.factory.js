@@ -25,6 +25,7 @@
         var factory = {
             getTranslatableData: getTranslatableData,
             setTranslations: setTranslations,
+            setData:setData,
             sectionTypes: sectionTypes,
             itemTypes: itemTypes,
             createSection: createSection,
@@ -98,9 +99,32 @@
          * Génère le fichier de traduction de base
          * - lang: code langue du fichier de trad dans lequel le module est rédigé.
          **/
-        function setTranslations(lang) {
+        function setTranslations(lang, country) {
             //TODO: objet à écrire dans {lang}.json -> appel fonction PHP ou fileSaver
             var log = getObject(factory.translatableData);
+            
+            //envoyer les données à traiter par php
+            var config = {
+                headers : {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }
+
+            //temporaire
+            country = 'fr';
+
+            $http.post('save.php',{type:'lang', data : angular.toJson(log), lang:country}, config)
+                .then(
+                    function(response){
+                        alert('requete passee ' + response);
+                    },
+                    function(response){
+                        alert('requete echouée ' + response);
+                    }
+                );
+
+            return log;
+
         };
 
         /** 
@@ -108,6 +132,7 @@
          * - newData : objet modifié par le user dans la GUI
          */
         function setData(newData) {
+
             //TODO: objet à écrire dans data.json et/ou BDD -> appel fonction PHP
             var result = angular.copy(newData);
 
@@ -127,6 +152,25 @@
                     }
                 }
             }
+
+            //envoyer les données à traiter par php
+            var config = {
+                headers : {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }
+
+            var dataString = "{\"module\":"+angular.toJson(result)+"}";
+
+            $http.post('save.php',{type:'data', data : dataString}, config)
+                .then(
+                    function(response){
+                        alert('requete passee ' + response);
+                    },
+                    function(response){
+                        alert('requete echouée ' + response);
+                    }
+                );
 
             return result;
         }
