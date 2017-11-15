@@ -31,6 +31,7 @@
             //mettre à jour l'item en cours dans le suspend
             var currentUID = vm.section.item[vm.currentItemId].uid;
             dataService.setSuspendValue(currentUID, data);
+            //[OPTIM] : stocker la donnée dans scomrService, et ne faire un set que lorsque l'on quitte l'appli
             scormService.setSuspend(suspend);
         });
 
@@ -45,7 +46,8 @@
 
             // autre possibilité : stocker la progression dans le location, on note l'endroit le plus loin où l'on est allé. Mais ça ne marche que si la lecture du module n'est pas libre.
             data = angular.isUndefined(data) ? "0" : data;
-            scormService.setLocation(vm.sectionId, data);
+            //[OPTIM] : stocker la donnée dans scormService, et ne faire un set que lorsque l'on quitte l'appli
+            scormService.setLocation(vm.sectionId, data); 
 
             // met à jour la CompletionBar
             vm.currentPageIndex = vm.section.item[data].page;
@@ -69,6 +71,7 @@
                 
                 var currentUID = vm.section.item[vm.currentItemId].uid;
                 dataService.setSuspendValue(currentUID, data);
+                //[OPTIM] : stocker la donnée dans scormService, et ne faire un set que lorsque l'on quitte l'appli
                 scormService.setSuspend(suspend);
             }
         });
@@ -82,6 +85,7 @@
             quizService.updateTabQ(suspend);
             if (quizService.checkScore()) {
                 console.log("quizScorePercent : " + quizService.getQuizScorePercent());
+                //[OPTIM] : stocker la donnée dans scormService, et ne faire un set que lorsque l'on quitte l'appli
                 scormService.setScore(quizService.getQuizScorePercent());
             }
         });

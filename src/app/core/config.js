@@ -12,9 +12,10 @@
 
         $translateProvider
             .registerAvailableLanguageKeys(
-            ['fr'],
+            ['fr', 'en'],
             {
                 'fr*': 'fr',
+                'en*': 'en',
                 '*': 'fr' // doit être en dernier (fallback "bricolé").
             }
             )

@@ -43,6 +43,7 @@ require("./app/template/completionbar/completion_bar.html");
 require("./app/template/didacticiel/didacticiel.html");
 require("./app/template/video/video.html");
 require("./app/template/editablefield/editable_field.html");
+require("./app/template/langdropdown/langdropdown.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -85,6 +86,7 @@ require("./app/component/resultquiz.component.js");
 require("./app/component/didacticiel.component.js");
 require("./app/component/prevandnext.component.js");
 require("./app/component/editableField.component.js");
+require("./app/component/langdropdown.component.js");
 
 /* Angular - directives */
 require("./app/directive/emitstatus.directive.js");
@@ -95,6 +97,7 @@ require("./app/directive/video.directive.js");
 require("./app/service/data.service.js");
 require("./app/service/scorm.service.js");
 require("./app/service/quiz.service.js");
+require("./app/service/locale.service.js");
 
 /* Angular - routes */
 require('./app/home/home.route.js');
