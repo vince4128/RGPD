@@ -5,7 +5,7 @@
             /*
             *   Angular module
             */
-            'ui.router','ngTouch','ngAnimate','ngSanitize','ui-notification','ngDialog','pascalprecht.translate', 'tmh.dynamicLocale',
+            'ui.router','ngTouch','ngAnimate','ngSanitize','ui-notification','ngDialog','pascalprecht.translate',
             /*
             *   Scorm Wrapper
             */
