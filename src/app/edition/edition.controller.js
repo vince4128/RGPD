@@ -5,9 +5,9 @@
         .module('app.edition')
         .controller('EditionCtrl', EditionCtrl)
 
-    EditionCtrl.$inject = ['_data', 'editionFactory', '$scope'];
+    EditionCtrl.$inject = ['_data', 'editionFactory', '$scope', '$rootScope', '$state'];
 
-    function EditionCtrl(_data, editionFactory, $scope) {
+    function EditionCtrl(_data, editionFactory, $scope, $rootScope, $state) {
         var vm = this;
         vm.data = _data;
         vm.doSave = doSave;
@@ -35,5 +35,11 @@
                 vm.modelChanged = false;
             }
         }
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            //TODO : demander d'enregistrer les modifs en cours
+            vm.data = editionFactory.getTranslatableData();
+            $state.reload();
+        });
     }
 })();

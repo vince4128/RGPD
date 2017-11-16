@@ -8,19 +8,25 @@
             controller: langController
         });
 
-    langController.$inject = ['$scope', 'localeService'];
+    langController.$inject = ['$scope', 'localeService', '$translate'];
 
-    function langController($scope, localeService) {
+    function langController($scope, localeService, $translate) {
         var ctrl = this;
         ctrl.changeLanguage = changeLanguage;
-        
-        ctrl.currentLocaleDisplayName = localeService.getLocaleDisplayName();
-        ctrl.localesDisplayNames = localeService.getLocalesDisplayNames();
-        ctrl.visible = ctrl.localesDisplayNames && ctrl.localesDisplayNames.length > 1;
 
         function changeLanguage(locale) {
-            localeService.setLocaleByDisplayName(locale);
+            localeService.setLocaleByDisplayName(locale.key);
         };
+        
+        ctrl.$onInit = function () {
+            ctrl.localesDisplayNames = localeService.getLocalesDisplayNames();
+            ctrl.visible = ctrl.localesDisplayNames && ctrl.localesDisplayNames.length > 1;
+            ctrl.currentLocaleDisplayName = ctrl.localesDisplayNames.find(getCurrentLocale);
+        }
+
+        function getCurrentLocale(element){
+            return element.key === $translate.use();// langue en cours d'utilisation
+        }
     };
 
 })();

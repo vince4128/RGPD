@@ -6,9 +6,9 @@
         .module('app.edition')
         .factory('editionFactory', editionFactory)
 
-    editionFactory.$inject = ['$http', '$translate', 'orderByFilter'];
+    editionFactory.$inject = ['$http', '$translate', 'orderByFilter', 'localeService'];
 
-    function editionFactory($http, $translate, orderBy) {
+    function editionFactory($http, $translate, orderBy, localeService) {
 
         var sectionTypes = [];
         sectionTypes.push(new SectionType("course", "Cours"));
@@ -110,8 +110,7 @@
                 }
             }
 
-            //temporaire
-            country = 'fr';
+            country = localeService.getCurrentLocale();
 
             $http.post('save.php',{type:'lang', data : angular.toJson(log), lang:country}, config)
                 .then(

@@ -1,9 +1,8 @@
 <div class="language-select" ng-if="$ctrl.visible">
-    <label>
-<!--        {{"directives.language-select.Language" | translate}}: -->
-        <select ng-model="$ctrl.currentLocaleDisplayName"
-            ng-options="localesDisplayName for localesDisplayName in $ctrl.localesDisplayNames"
-            ng-change="$ctrl.changeLanguage($ctrl.currentLocaleDisplayName)">
-        </select>
-    </label>
+    <label for="singleSelect">Langue : </label>
+    <select id="singleSelect" 
+        ng-model="$ctrl.currentLocaleDisplayName"
+        ng-change="$ctrl.changeLanguage($ctrl.currentLocaleDisplayName)">
+        <option ng-repeat="localesDisplayName in $ctrl.localesDisplayNames" ng-value="localesDisplayName">{{localesDisplayName.value}}</option>
+    </select>
 </div>

@@ -21,7 +21,8 @@
         }
         var _LOCALES_DISPLAY_NAMES = [];
         _LOCALES.forEach(function (locale) {
-            _LOCALES_DISPLAY_NAMES.push(localesObj[locale]);
+            var _localeObj = {"key": locale, "value":localesObj[locale]};
+            _LOCALES_DISPLAY_NAMES.push(_localeObj);//localesObj[locale]);
         });
 
         // STORING CURRENT LOCALE
@@ -29,10 +30,12 @@
 
         // METHODS
         var checkLocaleIsValid = function (locale) {
+            console.log("checkLocaleIsValid", locale);
             return _LOCALES.indexOf(locale) !== -1;
         };
 
         var setLocale = function (locale) {
+            console.log("setLocale", locale);
             if (!checkLocaleIsValid(locale)) {
                 console.error('Locale name "' + locale + '" is invalid');
                 return;
@@ -57,14 +60,13 @@
                 return localesObj[currentLocale];
             },
             setLocaleByDisplayName: function (localeDisplayName) {
-                setLocale(
-                    _LOCALES[
-                    _LOCALES_DISPLAY_NAMES.indexOf(localeDisplayName)// get locale index
-                    ]
-                );
+                setLocale(localeDisplayName);
             },
             getLocalesDisplayNames: function () {
                 return _LOCALES_DISPLAY_NAMES;
+            },
+            getCurrentLocale: function(){
+                return currentLocale;
             }
         };
 
