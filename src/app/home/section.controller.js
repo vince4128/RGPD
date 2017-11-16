@@ -31,14 +31,14 @@
             //mettre à jour l'item en cours dans le suspend
             var currentUID = vm.section.item[vm.currentItemId].uid;
             dataService.setSuspendValue(currentUID, data);
-            //[OPTIM] : stocker la donnée dans scomrService, et ne faire un set que lorsque l'on quitte l'appli
-            scormService.setSuspend(suspend);
+            //stockage du suspend
+            scormService.setCurrentSuspend(suspend);
         });
 
         $scope.$on('dataEvent', function (event, data) {
             //trop dense pour le suspend
             /*suspend.section[vm.sectionId].item[vm.currentItemId].data = data;
-            scormService.setSuspend(suspend);*/
+            scormService.setCurrentSuspend(suspend);*/
         });
 
         $scope.$on('itemChange', function (event, data) {
@@ -46,8 +46,8 @@
 
             // autre possibilité : stocker la progression dans le location, on note l'endroit le plus loin où l'on est allé. Mais ça ne marche que si la lecture du module n'est pas libre.
             data = angular.isUndefined(data) ? "0" : data;
-            //[OPTIM] : stocker la donnée dans scormService, et ne faire un set que lorsque l'on quitte l'appli
-            scormService.setLocation(vm.sectionId, data); 
+            //stockage du location
+            scormService.setCurrentLocation(vm.sectionId, data); 
 
             // met à jour la CompletionBar
             vm.currentPageIndex = vm.section.item[data].page;
@@ -71,8 +71,8 @@
                 
                 var currentUID = vm.section.item[vm.currentItemId].uid;
                 dataService.setSuspendValue(currentUID, data);
-                //[OPTIM] : stocker la donnée dans scormService, et ne faire un set que lorsque l'on quitte l'appli
-                scormService.setSuspend(suspend);
+                //stockage du suspend
+                scormService.setCurrentSuspend(suspend);
             }
         });
 
@@ -81,7 +81,7 @@
             dataService.setSuspendValue(currentUID, data);
             
             //mettre à jour dans le tableau de quizService
-            scormService.setSuspend(suspend);
+            scormService.setCurrentSuspend(suspend);
             quizService.updateTabQ(suspend);
             if (quizService.checkScore()) {
                 console.log("quizScorePercent : " + quizService.getQuizScorePercent());

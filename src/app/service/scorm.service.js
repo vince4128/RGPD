@@ -27,7 +27,9 @@
             setSessionTime: setSessionTime,
             setScore: setScore,
             setStatus: setStatus,
-            setLocation: setLocation
+            setLocation: setLocation,
+            setCurrentLocation: setCurrentLocation,
+            setCurrentSuspend: setCurrentSuspend
         };
 
         //variable ici (avant le return sinon elles sont undefined)
@@ -95,15 +97,13 @@
 
         //méthode de clôture de la sessison scorm
         function endScorm() {
-
-            //a supp une fois ok
-            console.log("# scormService : ça va couper !");
-
             //on envoie le temps
             setSessionTime();
+            //on envoie le suspend et le location
+            setSCORMValues();
+
             scormWrapper.doLMSCommit();
             scormWrapper.doLMSFinish();
-
         }
 
         /**
@@ -212,26 +212,22 @@
         function setSuspend(_suspend) {
             //exemple : _suspend = [{uid:"7", read:"1", answer:"1", answerValue:"1"}, ...]
             var _flattenSuspend = "";
-            for(var i = 0; i<_suspend.length; i++)
-            {
+            for (var i = 0; i < _suspend.length; i++) {
                 var string = ""
                 string += _suspend[i].uid + "," + _suspend[i].read;
-                if(_suspend[i].hasOwnProperty('answer'))
-                {
+                if (_suspend[i].hasOwnProperty('answer')) {
                     string += "," + _suspend[i].answerValue + "," + _suspend[i].answer;
                 }
-                if(i != _suspend.length-1)
-                {
+                if (i != _suspend.length - 1) {
                     string += "|";
                 }
                 _flattenSuspend += string;
             }
-            if(_flattenSuspend.length > 4096)
-            {
+            if (_flattenSuspend.length > 4096) {
                 console.log("# scormService : suspend value too long");
             }
             var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, _suspend);
-            
+
             if (success) {
                 console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));
             } else {
@@ -269,9 +265,31 @@
             }
         }
 
+        //// méthodes pour sauvegarder l'état du module, sans faire d'appel SCORM
+        var _currentLocation;
+        var _currentSuspend;
+
+        function setCurrentLocation(_section, _item) {
+            _currentLocation = { "section": _section, "item": _item };
+        }
+
+        function setCurrentSuspend(_suspend) {
+            _currentSuspend = existingSuspend = _suspend;
+        }
+
         /**
          * Méthodes privées (non exposées)
          */
+
+        function setSCORMValues() {
+            if (angular.isObject(_currentLocation)) {
+                setLocation(_currentLocation.section, _currentLocation.item);
+            }
+            if(angular.isObject(_currentSuspend)) {
+                setCurrentSuspend(_currentSuspend);
+            }
+            
+        }
 
         //méthode privée d'initialisation du service
         function activate() {
@@ -359,7 +377,7 @@
                 for (var j = 0; j < currentObj.item.length; j++) {
                     var currentItem = currentObj.item[j];
                     var suspendItem = new SuspendItem(currentItem.uid);
-                    if(currentItem.evaluated){
+                    if (currentItem.evaluated) {
                         suspendItem.answer = null;
                         suspendItem.answerValue = 0;
                     }
