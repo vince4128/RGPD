@@ -1,8 +1,9 @@
 {
     "module.title": "Formation Title",
     "module.description": "This is a module !",
-    "intro.title": "Introduction",
-    "intro.page_1.title": "Introduction - page 1",
+    "intro.title": "First Part",
+    "intro.page_1.title": "First Part - First page",
     "course_1.title": "Lesson 1",
-    "intro.page_1.instruction": "Hello"
+    "intro.page_1.instruction": "Hello",
+    "course_1.page_1.title": "Title"
 }

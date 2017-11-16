@@ -4,7 +4,7 @@
 
 <div>
     <ul>
-        <li ng-repeat="item in vm.section.item" ng-if="$index === vm.currentItemId"><a>{{item.title}} {{item.read}}</a>
+        <li ng-repeat="item in vm.section.item" ng-if="$index === vm.currentItemId"><a>{{item.title | translate}} {{item.read}}</a>
             <!--<div data-emitstatus>
             </div>-->
             <div itemgenerator item="item"></div>
