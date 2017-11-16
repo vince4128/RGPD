@@ -29,7 +29,8 @@
             setStatus: setStatus,
             setLocation: setLocation,
             setCurrentLocation: setCurrentLocation,
-            setCurrentSuspend: setCurrentSuspend
+            setCurrentSuspend: setCurrentSuspend,
+            setCurrentScore: setCurrentScore
         };
 
         //variable ici (avant le return sinon elles sont undefined)
@@ -268,6 +269,7 @@
         //// méthodes pour sauvegarder l'état du module, sans faire d'appel SCORM
         var _currentLocation;
         var _currentSuspend;
+        var _currentScore;
 
         function setCurrentLocation(_section, _item) {
             _currentLocation = { "section": _section, "item": _item };
@@ -275,6 +277,10 @@
 
         function setCurrentSuspend(_suspend) {
             _currentSuspend = existingSuspend = _suspend;
+        }
+
+        function setCurrentScore(_score) {
+            _currentScore = _score;
         }
 
         /**
@@ -286,9 +292,11 @@
                 setLocation(_currentLocation.section, _currentLocation.item);
             }
             if(angular.isObject(_currentSuspend)) {
-                setCurrentSuspend(_currentSuspend);
+                setSuspend(_currentSuspend);
             }
-            
+            if(angular.isObject(_currentScore)) {
+                setScore(_currentScore);
+            }
         }
 
         //méthode privée d'initialisation du service
