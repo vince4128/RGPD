@@ -44,6 +44,8 @@ require("./app/template/didacticiel/didacticiel.html");
 require("./app/template/video/video.html");
 require("./app/template/editablefield/editable_field.html");
 require("./app/template/langdropdown/langdropdown.html");
+require("./app/template/orderlist/orderlist.html");
+require("./app/template/orderlist/orderitem.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -87,6 +89,8 @@ require("./app/component/didacticiel.component.js");
 require("./app/component/prevandnext.component.js");
 require("./app/component/editableField.component.js");
 require("./app/component/langdropdown.component.js");
+require("./app/component/orderlist.component.js");
+require("./app/component/orderitem.component.js");
 
 /* Angular - directives */
 require("./app/directive/emitstatus.directive.js");

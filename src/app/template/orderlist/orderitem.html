@@ -1,0 +1,5 @@
+<div id="orderitem" ng-style="{top: (($ctrl.item.index * 50) + 'px')}">
+    <button ng-click="$ctrl.move(-1)" ng-disabled="$ctrl.item.index == 0">HAUT</button>
+    <p>{{$ctrl.item.index}} - {{$ctrl.item.text | translate}}</p>
+    <button ng-click="$ctrl.move(1)" ng-disabled="$ctrl.item.index == $ctrl.max - 1">BAS</button>
+</div>

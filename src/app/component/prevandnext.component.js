@@ -45,7 +45,7 @@
 
         ///////////////////////////
 
-        var actionRequiredTypes = ["qsimple", "clicktosee", "video", "didacticiel", "introquiz"];
+        var actionRequiredTypes = ["qsimple", "clicktosee", "video", "didacticiel", "introquiz", "orderlist"];
 
         function nextItem(){
             

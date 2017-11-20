@@ -1,0 +1,5 @@
+<div id="orderlist" >
+    <!-- ng-style="{height: (($ctrl.shuffledItems.length * 50) + 'px')}" -->
+    <order-item ng-repeat="item in $ctrl.shuffledItems" item="item" max="$ctrl.shuffledItems.length" update-list="$ctrl.update(item, oldIndex, newIndex)"></order-item>
+</div>
+<button ng-click="$ctrl.validate()">Valider</button>
