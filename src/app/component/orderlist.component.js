@@ -11,14 +11,13 @@
             controller: orderlistController
         });
 
-    orderlistController.$inject = ['orderByFilter'];
-    function orderlistController(orderBy) {
+    orderlistController.$inject = ['orderByFilter', '$scope'];
+    function orderlistController(orderBy, $scope) {
         var ctrl = this;
         ctrl.shuffledItems = [];
+        ctrl.correctionBtnVisible = false;
 
         ctrl.$onInit = function () {
-            //TODO : test si déjà fait (read)
-
             //console.log("orderitems", ctrl.item.content.orderitems);
 
             //make a copy of items so the shuffling may never return the original order
@@ -34,9 +33,11 @@
             //create index property on list items, and set it shuffledIndices
             for (var i = 0; i < ctrl.item.content.orderitems.length; i++) {
                 ctrl.shuffledItems[i].index = shuffledIndices[i];
+                ctrl.shuffledItems[i].valid = false;
+                ctrl.shuffledItems[i].done = ctrl.item.read;
             }
 
-            //sort shuffled indices
+            //sort by shuffled indices
             ctrl.shuffledItems = orderBy(ctrl.shuffledItems, 'index', false);
 
             //console.log("shuffledItems", ctrl.shuffledItems);
@@ -52,11 +53,28 @@
 
         ctrl.validate = function () {
             //compare item index property with item order property
-            $scope.$emit('readevent', true);
+            var result = 0;
+            angular.forEach(ctrl.shuffledItems, function (value, key) {
+                value.done = true;
+                if(value.index === value.order) {
+                    //ok
+                    value.valid = true;
+                    result++;
+                }
+            });
+            //console.log(ctrl.shuffledItems);
+            if(result === ctrl.shuffledItems.length) {
+                //gagné
+                $scope.$emit('readevent', true);
+            }
+            else {
+                ctrl.correctionBtnVisible = true;
+            }
         };
 
         ctrl.correction = function () {
             //orderBy on order property
+            $scope.$emit('readevent', true);
         };
     }
 

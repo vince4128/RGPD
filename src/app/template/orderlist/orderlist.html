@@ -2,4 +2,5 @@
     <!-- ng-style="{height: (($ctrl.shuffledItems.length * 50) + 'px')}" -->
     <order-item ng-repeat="item in $ctrl.shuffledItems" item="item" max="$ctrl.shuffledItems.length" update-list="$ctrl.update(item, oldIndex, newIndex)"></order-item>
 </div>
-<button ng-click="$ctrl.validate()">Valider</button>
+<button ng-click="$ctrl.validate()" ng-hide="$ctrl.correctionBtnVisible" ng-disabled="$ctrl.item.read">Valider</button>
+<button ng-click="$ctrl.correction()" ng-show="$ctrl.correctionBtnVisible" ng-disabled="$ctrl.item.read">Corriger</button>
