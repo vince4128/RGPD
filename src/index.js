@@ -46,6 +46,7 @@ require("./app/template/editablefield/editable_field.html");
 require("./app/template/langdropdown/langdropdown.html");
 require("./app/template/orderlist/orderlist.html");
 require("./app/template/orderlist/orderitem.html");
+require("./app/template/popup/reprisePopup.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers

@@ -10,5 +10,8 @@
     "quiz.title": "Quiz",
     "intro.page_2.content.item_0.text": "One",
     "intro.page_2.content.item_1.text": "Two",
-    "intro.page_2.content.item_2.text": "Three"
+    "intro.page_2.content.item_2.text": "Three",
+    "alert.location": "Do you wish to start where you left last time ?",
+    "label.yes": "Yes",
+    "label.no": "No"
 }

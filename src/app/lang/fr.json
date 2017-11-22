@@ -10,5 +10,8 @@
     "quiz.title": "Evaluation",
     "intro.page_2.content.item_0.text": "Un",
     "intro.page_2.content.item_1.text": "Deux",
-    "intro.page_2.content.item_2.text": "Trois"
+    "intro.page_2.content.item_2.text": "Trois",
+    "alert.location": "Voulez-vous reprendre là où vous vous êtes arrêté ?",
+    "label.yes": "Oui",
+    "label.no": "Non"
 }

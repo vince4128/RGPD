@@ -5,9 +5,9 @@
         .module('app.home')
         .controller('homeCtrl', homeCtrl)
 
-    homeCtrl.$inject = ['_data', 'scormService', '$state', '$rootScope', "$scope"];
+    homeCtrl.$inject = ['_data', 'scormService', '$state', '$rootScope', '$scope', 'ngDialog'];
 
-    function homeCtrl(_data, scormService, $state, $rootScope, $scope) {
+    function homeCtrl(_data, scormService, $state, $rootScope, $scope, ngDialog) {
         /* jshint validthis:true */
         var vm = this;
 
@@ -32,13 +32,22 @@
         activate();
 
         function activate() { 
-            //si on a un location on se rend tout de suite sur la bonne page
+            //si on a un location on demande à l'utilisateur s'il veut revenir là où il s'est arrêté
             var _location = scormService.getLocation();
             if(_location && !$rootScope.locationRead)
             {
-                $rootScope.locationRead = true;
-                var _locationValues = _location.split(",");
-                $state.go("home.section", {sectionId:_locationValues[0], itemId:_locationValues[1]});
+                var dialog = ngDialog.open({
+                    template: "./app/template/popup/reprisePopup.html",
+                    showClose: false
+                });
+    
+                dialog.closePromise.then(function (data) {
+                    if (data.value && data.value != 0) {
+                        $rootScope.locationRead = true;
+                        var _locationValues = _location.split(",");
+                        $state.go("home.section", {sectionId:_locationValues[0], itemId:_locationValues[1]});
+                    }
+                });
             }
         }
     }
