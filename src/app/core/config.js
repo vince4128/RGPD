@@ -25,7 +25,7 @@
                 prefix: './app/lang/',
                 suffix: '.json'
             })
-            //.useSanitizeValueStrategy('sanitize'); //cf. https://github.com/angular-translate/angular-translate/issues/1101
+            .useSanitizeValueStrategy(null); //cf. https://github.com/angular-translate/angular-translate/issues/1101
 
     }
 
