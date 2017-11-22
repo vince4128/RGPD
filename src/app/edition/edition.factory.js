@@ -21,6 +21,7 @@
         itemTypes.push(new ItemType("textimg", "Texte et image"));
         itemTypes.push(new ItemType("video", "Film"));
         itemTypes.push(new ItemType("didacticiel", "Tutoriel"));
+        itemTypes.push(new ItemType("orderlist", "Remettre les éléments dans l'ordre"));
 
         var factory = {
             getTranslatableData: getTranslatableData,
