@@ -42,8 +42,8 @@
                 });
     
                 dialog.closePromise.then(function (data) {
+                    $rootScope.locationRead = true;
                     if (data.value && data.value != 0) {
-                        $rootScope.locationRead = true;
                         var _locationValues = _location.split(",");
                         $state.go("home.section", {sectionId:_locationValues[0], itemId:_locationValues[1]});
                     }
