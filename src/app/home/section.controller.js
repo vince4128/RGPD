@@ -85,7 +85,7 @@
             quizService.updateTabQ(suspend);
             if (quizService.checkScore()) {
                 console.log("quizScorePercent : " + quizService.getQuizScorePercent());
-                //[OPTIM] : stocker la donnée dans scormService, et ne faire un set que lorsque l'on quitte l'appli
+                //stockage du score
                 scormService.setCurrentScore(quizService.getQuizScorePercent());
             }
         });
