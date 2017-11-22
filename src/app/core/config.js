@@ -25,7 +25,7 @@
                 prefix: './app/lang/',
                 suffix: '.json'
             })
-            .useSanitizeValueStrategy('sanitize');
+            //.useSanitizeValueStrategy('sanitize');
 
     }
 
