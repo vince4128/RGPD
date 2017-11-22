@@ -4,6 +4,11 @@
     "intro.title": "First Part",
     "intro.page_1.title": "First Part - First page",
     "course_1.title": "Lesson 1",
+    "course_2.title": "Lesson 2",
     "intro.page_1.instruction": "Hello",
-    "course_1.page_1.title": "Title"
+    "course_1.page_1.title": "Title",
+    "quiz.title": "Quiz",
+    "intro.page_2.content.item_0.text": "One",
+    "intro.page_2.content.item_1.text": "Two",
+    "intro.page_2.content.item_2.text": "Three"
 }

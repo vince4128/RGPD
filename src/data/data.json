@@ -28,12 +28,29 @@
             "index": 0,
             "guid": "hi4B",
             "code": "page_2",
-            "type": "text",
+            "type": "orderlist",
             "title": "intro.page_2.title",
             "sound": "intro.page_2.fileName",
             "instruction": "intro.page_2.instruction",
             "content": {
-              "text": "intro.page_2.content.text"
+              "text": "intro.page_2.content.text",
+              "orderitems": [
+                {
+                  "code": "item_0",
+                  "text": "intro.page_2.content.item_0.text",
+                  "order": 0
+                },
+                {
+                  "code": "item_1",
+                  "text": "intro.page_2.content.item_1.text",
+                  "order": 1
+                },
+                {
+                  "code": "item_2",
+                  "text": "intro.page_2.content.item_2.text",
+                  "order": 2
+                }
+              ]
             }
           },
           {
