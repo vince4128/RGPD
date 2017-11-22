@@ -13,7 +13,7 @@
 
         // données récupérées du resolve dans le state
         vm.data = _data;
-        console.log(vm.data);
+        //console.log(vm.data);
 
         //reroutage à la sortie d'une section
         $scope.$on('sectionEnd', function(event, data) {
