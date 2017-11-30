@@ -13,5 +13,7 @@
     "intro.page_2.content.item_2.text": "Trois",
     "alert.location": "Voulez-vous reprendre là où vous vous êtes arrêté ?",
     "label.yes": "Oui",
-    "label.no": "Non"
+    "label.no": "Non",
+    "course2.page_1.pointers.item_0.text": "Cliquez d'abord ici",
+    "course2.page_1.pointers.item_1.text": "Et puis ici"
 }

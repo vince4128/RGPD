@@ -1,9 +1,19 @@
 <div ng-repeat="item in $ctrl.item.content.pointers" ng-if="$ctrl.currentItem == $index">{{item.text}}</div>
 
-
 <div class="c-didacticiel--wrapper--16--9">
     <div class="content">
         <img ng-src="img/{{$ctrl.item.content.img}}" alt="">
-        <span ng-repeat="pointer in $ctrl.item.content.pointers" ng-click="pointer.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()"class="c-didacticiel__pointer notclicked" ng-class="{clicked:pointer.seen}" ng-attr-style="top:{{pointer.top}}%;left:{{pointer.left}}%;width:{{pointer.width}}%;height:{{pointer.height}}%"></span>
+        <div ng-repeat="pointer in $ctrl.item.content.pointers" >
+            <div ng-dropover="{{ 'myDropover' + $index }}" ng-dropover-options="{'position':'bottom-center','triggerEvent':'none','staticOptions':false}">-->
+                <span ng-click="pointer.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()" 
+                    class="c-didacticiel__pointer notclicked" 
+                    ng-class="{clicked:pointer.seen}" 
+                    ng-attr-style="top:{{pointer.top}}%; left:{{pointer.left}}%; width:{{pointer.width}}%; height:{{pointer.height}}%;">
+                </span>
+                <div ng-dropover-contents>
+                    <div>{{pointer.text | translate}}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
