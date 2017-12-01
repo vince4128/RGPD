@@ -1,19 +1,26 @@
 <div ng-repeat="item in $ctrl.item.content.pointers" ng-if="$ctrl.currentItem == $index">{{item.text}}</div>
 
+<!--<button ng-dropover-trigger="{'triggerEvent':'click', 'targetId':'myDropover0'}" ng-click="$ctrl.test()">test</button>-->
+
 <div class="c-didacticiel--wrapper--16--9">
     <div class="content">
         <img ng-src="img/{{$ctrl.item.content.img}}" alt="">
-        <div ng-repeat="pointer in $ctrl.item.content.pointers" >
-            <div ng-dropover="{{ 'myDropover' + $index }}" ng-dropover-options="{'position':'bottom-center','triggerEvent':'none','staticOptions':false}">-->
-                <span ng-click="pointer.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()" 
-                    class="c-didacticiel__pointer notclicked" 
-                    ng-class="{clicked:pointer.seen}" 
-                    ng-attr-style="top:{{pointer.top}}%; left:{{pointer.left}}%; width:{{pointer.width}}%; height:{{pointer.height}}%;">
-                </span>
-                <div ng-dropover-contents>
+        <div ng-repeat="pointer in $ctrl.item.content.pointers">
+            <!--  <span ng-click="pointer.seen = true; $ctrl.checkReadEvent()"  -->
+            <span ng-click="pointer.seen = true; $ctrl.checkReadEvent()" 
+                class="c-didacticiel__pointer notclicked" 
+                ng-show="$ctrl.currentItem == $index"
+                ng-class="{clicked:pointer.seen}" 
+                ng-attr-style="top:{{pointer.top}}%; left:{{pointer.left}}%; width:{{pointer.width}}%; height:{{pointer.height}}%;"
+                id="{{ 'myDropover' + $index }}"
+                ng-dropover="{{ 'myDropover' + $index }}" 
+                ng-dropover-options="{'position': 'bottom-left', 'triggerEvent': 'none', 'verticalOffset': 10, 'closeOnClickOff': false}">
+                <div ng-dropover-contents class="arrowed">
+                    <h5>Instruction</h5>
                     <div>{{pointer.text | translate}}</div>
+                    <button ng-click="$ctrl.close($index)" ng-dropover-trigger="{'triggerEvent':'click', 'targetId':'myDropover'+$index+1 }">Ok</button>
                 </div>
-            </div>
+            </span>
         </div>
     </div>
 </div>

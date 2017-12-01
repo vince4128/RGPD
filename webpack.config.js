@@ -41,7 +41,7 @@ let VENDOR_LIBS = [
     'angular-touch/angular-touch',
     'angular-ui-notification/dist/angular-ui-notification',
     'ng-dialog/js/ngDialog',
-	'ngdropover/dist/ngdropover.min.js',
+	'ngdropover/dist/ngdropover.js',
     'angular-translate/dist/angular-translate',
     'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files',
     'angular-i18n/angular-locale_fr',
