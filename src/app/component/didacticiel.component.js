@@ -23,19 +23,12 @@
         ctrl.close = close;
         ctrl.currentOpened = false;
 
-        ctrl.doOptions = {
-            closeWhenClickOff: false,
-            position: 'bottom-left',
-            verticalOffset: 10,
-            triggerEvent: 'none'
-          };
-
         /////////////////////////////////////
 
         function checkReadEvent() {
             var allSeen = false;
-            for (var i = 0; i < ctrl.item.content.pointers.length; i++) {
-                if (!ctrl.item.content.pointers[i].seen) {
+            for (var i = 0; i < ctrl.internalItem.content.pointers.length; i++) {
+                if (!ctrl.internalItem.content.pointers[i].seen) {
                     return;
                 } else {
                     allSeen = true;
@@ -50,6 +43,10 @@
             var currentDropover = 'myDropover'+index;
             $rootScope.$emit('ngDropover.close', currentDropover);
         }
+
+        ctrl.$onInit = function (){
+            ctrl.internalItem = angular.copy(ctrl.item);
+        }
         
         ctrl.$doCheck = function () {
             var currentDropover = 'myDropover'+ctrl.currentItem;
@@ -63,20 +60,18 @@
             }
         };
 
-        $rootScope.$on('ngDropover.closing', function(event, dropObj) {
+        $scope.$on('ngDropover.closing', function(event, dropObj) {
             ctrl.currentItem++;
-            ctrl.currentOpened = false;
-
-            if(ctrl.currentItem >= ctrl.item.content.pointers.length) {
+            if(ctrl.currentOpened && ctrl.currentItem >= ctrl.internalItem.content.pointers.length) {
                 alert("Terminé !");
                 // Do something
             }
-            //console.log('closing', dropObj.id);
+            
+            ctrl.currentOpened = false;
         });
 
-        $rootScope.$on('ngDropover.opening', function(event, dropObj) {
-            // Do something
-            //console.log('opening', dropObj.id);
+        $scope.$on('ngDropover.opening', function(event, dropObj) {
+            ctrl.currentOpened = true;
         });
 
     }
