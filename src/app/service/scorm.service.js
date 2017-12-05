@@ -70,29 +70,29 @@
         //méthode d'initialisation de scorm
         function initScorm() {
             //Quelle version de scorm ?//
-            console.log('# scormService lance setAPIVersion #');
+            //console.log('# scormService lance setAPIVersion #');
             scormWrapper.setAPIVersion("Auto");
             //Initialiser le scorm
             scormWrapper.doLMSInitialize();
             var success = scormWrapper.isAvailable();
-            console.log("# scormService Scorm init status : " + success);
+            //console.log("# scormService Scorm init status : " + success);
             if (success) {
-                console.log("# scormService : connexion scorm initialisé");
+                //console.log("# scormService : connexion scorm initialisé");
                 scormApiVersion = scormWrapper.getAPIVersion();
-                console.log("# scormService : version de scorm : " + scormApiVersion);
+                //console.log("# scormService : version de scorm : " + scormApiVersion);
                 //On va initialiser le statut à incomplet pour surcharger le comportement des LMS
                 var success = scormWrapper.doLMSSetValue(LESSON_STATUS(), INCOMPLETE);
-                console.log("# scormService : LESSON_STATUS() " + LESSON_STATUS() + " " + INCOMPLETE);
+                //console.log("# scormService : LESSON_STATUS() " + LESSON_STATUS() + " " + INCOMPLETE);
                 if (success) {
-                    console.log("# scormService : statut changé à " + scormWrapper.doLMSGetValue(LESSON_STATUS()));
+                    //console.log("# scormService : statut changé à " + scormWrapper.doLMSGetValue(LESSON_STATUS()));
 
                 } else {
-                    console.log("# scormService set LESSON_STATUS() failed");
+                    //console.log("# scormService set LESSON_STATUS() failed");
                 }
                 //initialiser le suspend
                 initSuspend();
             } else {
-                console.log("# scormService : connexion scorm pas initialisée");
+                //console.log("# scormService : connexion scorm pas initialisée");
             }
         }
 
@@ -113,52 +113,52 @@
 
         //méthode d'envoi du score
         function setScore(_score) {
-            console.log("# scormService : envoi du score");
+            //console.log("# scormService : envoi du score");
             var success = scormWrapper.doLMSSetValue(SCORE(), _score);
             if (success) {
-                console.log("# scormService : Le score à été envoyé " + scormWrapper.doLMSGetValue(SCORE()));
+                //console.log("# scormService : Le score à été envoyé " + scormWrapper.doLMSGetValue(SCORE()));
 
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService setScore failed");
+                //console.log("# scormService setScore failed");
             }
         }
 
         //méthode pour récupérer le score
         function getScore() {
-            console.log("# récupération du score ");
+            //console.log("# récupération du score ");
             var success = scormWrapper.doLMSGetValue(SCORE());
             if (success) {
-                console.log("# scormService : le score a bien été récupéré " + success);
+                //console.log("# scormService : le score a bien été récupéré " + success);
                 return success;
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : getScore failed");
+                //console.log("# scormService : getScore failed");
             }
         }
 
         //méthode d'envoi du status
         function setStatus(_status) {
-            console.log("# scormService : envoi du statut");
+            //console.log("# scormService : envoi du statut");
             var success = scormWrapper.doLMSSetValue(LESSON_STATUS(), _status);
             if (success) {
-                console.log("# scormService : Le status a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LESSON_STATUS()));
+                //console.log("# scormService : Le status a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LESSON_STATUS()));
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : setStatus failed");
+                //console.log("# scormService : setStatus failed");
             }
         }
 
         //méthode pour récupérer le statut
         function getStatus() {
-            console.log("# récupération du statut");
+            //console.log("# récupération du statut");
             var success = scormWrapper.doLMSGetValue(LESSON_STATUS());
             if (success) {
-                console.log("# scormService : le statut a bien été récupéré " + success);
+                //console.log("# scormService : le statut a bien été récupéré " + success);
                 return success;
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : getStatus failed");
+                //console.log("# scormService : getStatus failed");
             }
         }
 
@@ -176,7 +176,7 @@
             if (!suspendLoaded) {
                 var success = scormWrapper.doLMSGetValue(SUSPEND_DATA);
                 if (success) {
-                    console.log("# scormService : Suspend récupéré avec la valeur : " + success);
+                    //console.log("# scormService : Suspend récupéré avec la valeur : " + success);
 
                     //success devrait renvoyer '1,1|2,1|3,0...' or '1,1,1,2|2,1,0,1' si evaluated = true
                     // 'uid, read, answerValue, answer' // 'identifiant unique, lu ou non lu, bien répondu ou non, réponse donnée'
@@ -198,12 +198,12 @@
                     return result;
                 } else {
                     //écrire le code pour scorm 2004 a supp une fois OK
-                    console.log("# scormService : getSuspend failed");
+                    //console.log("# scormService : getSuspend failed");
                     return [];
                 }
             } else {
-                console.log("# scormService getSuspend retourne existingSuspend");
-                //console.log(existingSuspend);
+                //console.log("# scormService getSuspend retourne existingSuspend");
+                ////console.log(existingSuspend);
                 return existingSuspend;
             }
 
@@ -225,14 +225,14 @@
                 _flattenSuspend += string;
             }
             if (_flattenSuspend.length > 4096) {
-                console.log("# scormService : suspend value too long");
+                //console.log("# scormService : suspend value too long");
             }
             var success = scormWrapper.doLMSSetValue(SUSPEND_DATA, _suspend);
 
             if (success) {
-                console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));
+                //console.log("# scormService : Suspend mis à jour avec la valeur : " + scormWrapper.doLMSGetValue(SUSPEND_DATA));
             } else {
-                console.log("# scormService : setSuspend failed");
+                //console.log("# scormService : setSuspend failed");
             }
         }
 
@@ -240,28 +240,28 @@
         function setLocation(_section, _item) {
             var _location = _section + "," + _item;
 
-            console.log("# scormService : envoi du location :" + _location);
+            //console.log("# scormService : envoi du location :" + _location);
 
             var success = scormWrapper.doLMSSetValue(LOCATION(), _location);
             if (success) {
-                console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LOCATION()));
+                //console.log("# scormService : Le location a été mis à jour avec la valeur " + scormWrapper.doLMSGetValue(LOCATION()));
             } else {
                 //écrire le code pour scorm 2004 a supp une fois OK
-                console.log("# scormService : set location failed");
+                //console.log("# scormService : set location failed");
             }
         }
 
         //méthode pour récupérer le location
         function getLocation() {
-            console.log("# récupération du location ");
+            //console.log("# récupération du location ");
 
             var success = scormWrapper.doLMSGetValue(LOCATION());
             if (success) {
-                console.log("# scormService : le location a bien été récupéré " + success);
+                //console.log("# scormService : le location a bien été récupéré " + success);
                 return success;
             }
             else {
-                console.log("# scormService : le location n'a pas été récupéré ");
+                //console.log("# scormService : le location n'a pas été récupéré ");
                 return "";
             }
         }
@@ -313,9 +313,9 @@
 
             var success = scormWrapper.doLMSSetValue(SESSION_TIME(), convertTime(milliSecondsElapsed));
             if (success) {
-                console.log("# scormService : set sessionTime worked");
+                //console.log("# scormService : set sessionTime worked");
             } else {
-                console.log("# scormService : set sessionTime failed");
+                //console.log("# scormService : set sessionTime failed");
             }
 
         }
@@ -324,7 +324,7 @@
         function convertTime(_milliSecondsElapsed) {
 
             //a supp une fois OK
-            console.log("# scormService : conversion du temps pour du Scorm " + scormApiVersion);
+            //console.log("# scormService : conversion du temps pour du Scorm " + scormApiVersion);
 
             var hms;
 
@@ -352,12 +352,12 @@
                 hms = "PT" + nbHours.substr(nbHours.length - 4) + "H" + nbMinutes.substr(nbMinutes.length - 2) + "M" + nbSeconds.substr(nbSeconds.length - 2) + "S";
             }
             else {
-                console.log("# scormService : convertTime failed");
+                //console.log("# scormService : convertTime failed");
                 return;
             }
 
             //a supp une fois OK
-            console.log("# scormService : convertTime => " + hms);
+            //console.log("# scormService : convertTime => " + hms);
 
             return hms;
         }
@@ -368,7 +368,7 @@
 
             //a supp une fois OK
             if (!angular.equals(existingSuspend, {})) {
-                console.log("suspend existe " + existingSuspend);
+                //console.log("suspend existe " + existingSuspend);
                 quizService.setTabQ(existingSuspend);
             }
 
