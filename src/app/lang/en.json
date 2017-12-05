@@ -14,6 +14,8 @@
     "alert.location": "Do you wish to start where you left last time ?",
     "label.yes": "Yes",
     "label.no": "No",
+    "label.ok": "OK",
+    "label.cancel" : "Cancel",
     "course2.page_1.pointers.item_0.text": "Click here first",
     "course2.page_1.pointers.item_1.text": "Then here"
 }
