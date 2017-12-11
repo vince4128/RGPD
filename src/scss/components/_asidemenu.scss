@@ -1,0 +1,85 @@
+.menu--open{
+    //display:block;
+    //left:0;
+    .c-menu-aside{
+        //display:none;
+        left:0;
+    }
+
+    .menu-retour .fa{
+        animation-duration: .6s;
+        animation-delay: .2s;
+        animation-name: rotateIn;
+      }
+}
+
+.c-menu-aside{
+    background:$color2;
+    position:fixed;
+    width:$asideWidth;
+    height:100%;
+    top:0;
+    left:-$asideWidth;
+    z-index:99;
+    -webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    @include mq('tablet-wide','max') {
+        width:$asideWidthMd;
+        left:-$asideWidthMd;
+    }
+
+    @include mq('phablet','max') {
+        width:$asideWidthSm;
+        left:-$asideWidthSm;
+    }
+    
+    h3{
+        display:block;
+        color:#fff;
+        font-size:1.9em;
+        padding:1em;
+        margin:0;
+        height:75px;
+        font-weight:300;
+        background-color:$color1;
+        cursor:pointer; 
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a{
+        display:block;
+        color:#fff;
+        font-size:1.1em;
+        text-decoration: none;
+        border-bottom: 1px solid lighten($color2, 5%);
+        padding:1em;
+        cursor: pointer;
+        &:hover{
+            background-color: lighten($color2, 5%);
+        }
+        &:active{
+            background-color: #fff;
+            color: $color1;
+        }
+    }
+
+    .menu-retour{
+        position:absolute;
+        top:0;
+        right:0;
+        width:75px;
+        height:75px;
+        line-height: 75px;
+        text-align: center;
+        background-color: #fff;
+        color:$color1;
+        cursor: pointer;
+    }
+}

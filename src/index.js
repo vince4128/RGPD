@@ -97,6 +97,7 @@ require("./app/component/orderitem.component.js");
 require("./app/directive/emitstatus.directive.js");
 require("./app/directive/itemgenerator.directive.js");
 require("./app/directive/video.directive.js");
+require("./app/directive/asideMenu.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");
