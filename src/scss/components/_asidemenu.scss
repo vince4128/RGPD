@@ -14,7 +14,7 @@
 }
 
 .c-menu-aside{
-    background:$color2;
+    background:$color1;
     position:fixed;
     width:$asideWidth;
     height:100%;
@@ -43,7 +43,7 @@
         margin:0;
         height:75px;
         font-weight:300;
-        background-color:$color1;
+        background-color:$color2;
         cursor:pointer; 
     }
 
@@ -58,11 +58,11 @@
         color:#fff;
         font-size:1.1em;
         text-decoration: none;
-        border-bottom: 1px solid lighten($color2, 5%);
+        border-bottom: 1px solid lighten($color1, 5%);
         padding:1em;
         cursor: pointer;
         &:hover{
-            background-color: lighten($color2, 5%);
+            background-color: lighten($color1, 5%);
         }
         &:active{
             background-color: #fff;
@@ -79,7 +79,7 @@
         line-height: 75px;
         text-align: center;
         background-color: #fff;
-        color:$color1;
+        color:$color2;
         cursor: pointer;
     }
 }
