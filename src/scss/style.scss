@@ -12,8 +12,17 @@ $fa-font-path: "~node_modules/font-awesome/fonts" !default;
 //ANIMATION
 @import "~node_modules/animate.css/animate.min.css";
 
+//BOOTSTRAP
+@import "~node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+//VARIABLE
+@import "variables/variables";
+
 //MIXINS
 @import "mixins/mixins";
+
+//TYPOGRAPHY
+@import "typography/typography";
 
 //COMPONENTS
 @import "components/components";

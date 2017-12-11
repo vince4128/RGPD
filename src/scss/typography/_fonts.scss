@@ -1,0 +1,14 @@
+h1,h2,h3,h4,h5{
+    font-family: 'lato-light',sans-serif;
+}
+
+body{
+    font-family: 'lato-regular',sans-serif;
+    //color:#fff;
+}
+
+// Imports
+@include font-face('lato-regular', '~node_modules/lato-webfont/fonts/Lato-Regular');
+@include font-face('lato-light', '~node_modules/lato-webfont/fonts/Lato-Light');
+@include font-face('lato-bold', '~node_modules/lato-webfont/fonts/Lato-Bold');
+@include font-face('lato-semibold-italic', '~node_modules/lato-webfont/fonts/Lato-SemiBoldItalic');
