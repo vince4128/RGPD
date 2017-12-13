@@ -44,7 +44,7 @@ let VENDOR_LIBS = [
 	'ngdropover/dist/ngdropover.js',
     'angular-translate/dist/angular-translate',
     'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files',
-    'angular-i18n/angular-locale_fr',
+    'angular-i18n/angular-locale_fr'
 ]
 
 
@@ -63,7 +63,7 @@ if (!dev) {
         'ng-dialog/js/ngDialog.min',
         'angular-translate/dist/angular-translate.min',
         'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min',
-        'angular-i18n/angular-locale_fr',
+        'angular-i18n/angular-locale_fr'
     ];
 
     //si on est pas en dev on ajoute postcss-loader et autoprefixer
