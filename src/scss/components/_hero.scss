@@ -1,0 +1,52 @@
+.c-hero,
+.c-hero--home{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    background-color: rgba(1,44,64,0.5);;
+    min-height:200px;
+    height:50vh;
+    width:100%;
+    overflow:hidden;
+
+    .hero__title{
+        position:absolute;
+        text-align: center;
+        top:50%;
+        width:100%;
+        padding:1em;
+        transform:translateY(-50%);
+        color:#fff;
+        font-weight: 100;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        .hero__description{
+            text-transform: none;
+            letter-spacing: auto;
+            img{
+                max-width: 10rem;
+            }
+        }
+    }
+}
+
+.c-hero--home{
+    height:100vh;
+}
+
+.c-hero--question{
+    height: 40vh;
+}
+
+.c-hero__bg{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width:auto;
+    height:auto;
+    z-index: -100;
+    transform: translate(-50%,-50%);
+}
