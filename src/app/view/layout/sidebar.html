@@ -5,7 +5,10 @@
     </span>
 </div>
 <ul>
-    <li><a href="" data-ui-sref="home">Home</a></li>
+    <li data-aside><a href="" data-ui-sref="home">Home</a></li>
+    <li data-aside ng-repeat="section in vm.data.section">
+       <a href=""  data-ui-sref="home.section({ sectionId: section.id, itemId: 0 })">{{section.title | translate}}</a>
+    </li>
     <li>
             <langdropdown></langdropdown>
     </li>
