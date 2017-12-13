@@ -1,10 +1,34 @@
-<p>Sélectionnez un chapitre</p>
-<div>
+<!--<div>
     <ul>
         <li ng-repeat="section in vm.data.section">
             <a ng-style="{ color: section.read ? 'green' : 'black' }" 
                data-ui-sref="home.section({ sectionId: section.id, itemId: 0 })">{{section.title | translate}}</a>
         </li>
     </ul>
-</div>
+</div>-->
+
+<!--<section class="c-hero--home">
+    <script>
+        particlesJS.load('particles-js', 'data/particles.json', function() {
+            console.log('callback - particles-js config loaded');
+        });
+    </script>
+    <div>
+        <img src="" alt="" class="c-hero__bg">
+    </div>
+</section>-->
+
+<section ng-if="!vm.inExo" ng-repeat="section in vm.data.section" class="">
+    <a ui-sref="home.section({ sectionId: section.id, itemId: 0 })">
+        <div class="">
+            <header ng-translate="{{section.title}}">{{section.title}}</header>
+            <p></p>
+        </div>
+    </a>
+</section>
+
+<h1>{{vm.inExo}}</h1>
+
+<div style="position:absolute;top:0;left:0;" data-particles></div>
+
 <div data-ui-view id="sectionview"></div>

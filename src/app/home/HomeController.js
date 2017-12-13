@@ -13,6 +13,8 @@
 
         // données récupérées du resolve dans le state
         vm.data = _data;
+
+        vm.inExo = false;
         //console.log(vm.data);
 
         //reroutage à la sortie d'une section
@@ -25,7 +27,19 @@
             }
             else
             {
+                vm.inExo = false;
                 $state.go('home');
+            }
+        });
+
+        //observation des stateParams
+        $scope.$watchCollection(function(){
+            return $state.params;
+        }, function(){
+            if($state.params.sectionId){
+                vm.inExo = true;
+            }else{
+                vm.inExo = false;
             }
         });
 
