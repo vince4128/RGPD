@@ -8,7 +8,8 @@
         'app.component',
         'app.directive',
         'app.home',
-        'app.edition'
+        'app.edition',
+        'app.layout'
     ])
         .config(configuration)
         .run(runApp);
