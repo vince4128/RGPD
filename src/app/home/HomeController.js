@@ -15,6 +15,7 @@
         vm.data = _data;
 
         vm.inExo = false;
+        vm.checkAvailability = checkAvailability;
         //console.log(vm.data);
 
         //reroutage à la sortie d'une section
@@ -63,6 +64,14 @@
                     }
                 });
             }
+        }
+
+        function checkAvailability(id){
+            if(id == 0){
+                return 'home.section({ sectionId: section.id, itemId: 0 })';
+            }else{
+                return vm.data.section[id-1].read ? 'home.section({ sectionId: section.id, itemId: 0 })' : '-';
+            }            
         }
     }
 })();

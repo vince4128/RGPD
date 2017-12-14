@@ -17,18 +17,34 @@
         <img src="" alt="" class="c-hero__bg">
     </div>
 </section>-->
-
-<section ng-if="!vm.inExo" ng-repeat="section in vm.data.section" class="">
-    <a ui-sref="home.section({ sectionId: section.id, itemId: 0 })">
-        <div class="">
-            <header ng-translate="{{section.title}}">{{section.title}}</header>
-            <p></p>
+<span ng-if="!vm.inExo">
+<div class="c-hero--home animated fadeIn"></div>
+<section class="c-menu-card__wrapper animated fadeInUp">
+    <article class="c-menu-header">
+        <h1 translate="{{vm.data.header.title}}">{{vm.data.header.title}}</h1>
+        <h4 translate="{{vm.data.module.description}}">{{vm.data.header.description}}</h4>
+    </article>
+    <!--<article ui-sref="home.section({ sectionId: section.id, itemId: 0 })" class="c-menu-card" ng-repeat="section in vm.data.section" class="">-->
+    <article ui-sref="{{vm.checkAvailability($index)}}" class="c-menu-card" ng-repeat="section in vm.data.section" class="">
+        <div>
+            <div class="c-menu-card__img">
+                    <img ng-src="img/{{section.thumbnail}}" alt="">
+                    <!--<img ng-src="img/{{$ctrl.internalItem.content.img}}" alt="">-->
+            </div>
+            <div class="c-menu-card__txt">
+                <header translate="{{section.title}}">{{section.title}}</header>
+                <p translate>{{section.description}}</p>
+            </div>
+            <div class="c-menu-card__icon" ng-class="{ 'c-menu-card__icon--lock': !section.read && section.id != 0, 'c-menu-card__icon--seen': section.read || section.id == 0, 'c-menu-card__icon--available': !section.read && vm.data.section[$index-1].read}">
+                <i ng-if="!section.read && !vm.data.section[$index-1].read && section.id != 0" class="fa fa-lock" aria-hidden="true"></i>
+                <i ng-if="section.read" class="fa fa-check" aria-hidden="true"></i>
+                <i ng-if="!section.read && vm.data.section[$index-1].read || section.id == 0" class="fa fa-flag" aria-hidden="true"></i>                
+            </div>
         </div>
-    </a>
+    </article>
 </section>
+</span>
 
-<h1>{{vm.inExo}}</h1>
-
-<div style="position:absolute;top:0;left:0;" data-particles></div>
+<div class="c-particles" data-particles></div>
 
 <div data-ui-view id="sectionview"></div>
