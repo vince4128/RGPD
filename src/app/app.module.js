@@ -33,7 +33,7 @@ function runApp($window, scormService, $rootScope) {
     $rootScope.locationRead = false;
 
     //booléen indiquant si l'on revient au menu à la fin d'une section, ou si l'on passe à la suite
-    $rootScope.returnToHomeAtSectionEnd = false;
+    $rootScope.returnToHomeAtSectionEnd = true;
 
     scormService.initScorm();
 
