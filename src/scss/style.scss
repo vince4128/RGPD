@@ -18,6 +18,9 @@ $fa-font-path: "~node_modules/font-awesome/fonts" !default;
 //VARIABLE
 @import "variables/variables";
 
+//OVERFLOW
+@import "override/override";
+
 //MIXINS
 @import "mixins/mixins";
 
