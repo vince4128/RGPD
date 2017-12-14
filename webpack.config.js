@@ -149,7 +149,7 @@ let config = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192,
+                            limit: 2048,
                             name: 'img/[name].[ext]'
                         }
                     }
