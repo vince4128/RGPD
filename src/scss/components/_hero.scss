@@ -3,7 +3,7 @@
     position:relative;
     display:block;
     overflow:hidden;
-    background-color: rgba(1,44,64,0.5);;
+    background-color: rgba(1,44,64,0.75);
     min-height:200px;
     height:50vh;
     width:100%;
@@ -32,7 +32,11 @@
 }
 
 .c-hero--home{
-    height:100vh;
+    height:35vh;
+    position:fixed;
+    min-height:200px;
+    top:0;
+    left:0;
 }
 
 .c-hero--question{
