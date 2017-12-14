@@ -6,11 +6,13 @@
     },
     "section": [
       {
-        "index": 1,
+        "index": 0,
         "guid": "czNK",
         "code": "intro",
         "type": "course",
         "title": "intro.title",
+        "description":"intro.description",
+        "thumbnail":"vignette_cours7.png",
         "item": [
           {
             "index": 1,
@@ -130,11 +132,13 @@
         ]
       },
       {
-        "index": 0,
+        "index": 1,
         "guid": "HVgS",
         "code": "course_1",
         "type": "course",
         "title": "course_1.title",
+        "description":"course_1.description",
+        "thumbnail":"vignette_cours1.png",
         "item": [
           {
             "index": 0,
@@ -242,6 +246,8 @@
         "code": "course_2",
         "type": "course",
         "title": "course_2.title",
+        "description":"course_2.description",
+        "thumbnail":"vignette_cours2.png",
         "item": [
           {
             "index": 0,
@@ -342,11 +348,63 @@
         ]
       },
       {
-        "index": 3,
+        "index": 4,
+        "guid": "JrGP",
+        "code": "course_3",
+        "type": "course",
+        "title": "course_3.title",
+        "description":"course_3.description",
+        "thumbnail":"vignette_cours3.png",
+        "item": []
+      },
+      {
+        "index": 5,
+        "guid": "JgPD",
+        "code": "course_4",
+        "type": "course",
+        "title": "course_4.title",
+        "description":"course_4.description",
+        "thumbnail":"vignette_cours4.png",
+        "item": []
+      },
+      {
+        "index": 6,
+        "guid": "JpDR",
+        "code": "course_5",
+        "type": "course",
+        "title": "course_5.title",
+        "description":"course_5.description",
+        "thumbnail":"vignette_cours5.png",
+        "item": []
+      },
+      {
+        "index": 7,
+        "guid": "JdRG",
+        "code": "course_6",
+        "type": "course",
+        "title": "course_6.title",
+        "description":"course_6.description",
+        "thumbnail":"vignette_cours6.png",
+        "item": []
+      },
+      {
+        "index": 8,
+        "guid": "JddG",
+        "code": "course_7",
+        "type": "course",
+        "title": "course_7.title",
+        "description":"course_7.description",
+        "thumbnail":"vignette_cours7.png",
+        "item": []
+      },
+      {
+        "index": 9,
         "guid": "dPcw",
         "code": "quiz",
         "type": "quiz",
         "title": "quiz.title",
+        "description":"quiz.description",
+        "thumbnail":"vignette_cours8.png",
         "item": [
           {
             "index": 0,
