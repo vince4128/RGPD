@@ -18,13 +18,14 @@
     position:fixed;
     width:$asideWidth;
     height:100%;
+    min-height: 100vh;
     top:0;
     left:-$asideWidth;
     z-index:99;
     -webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    overflow:hidden;
+    overflow-x:hidden;
 
     @include mq('tablet-wide','max') {
         width:$asideWidthMd;
