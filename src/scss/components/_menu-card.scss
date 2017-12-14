@@ -1,20 +1,136 @@
+.c-menu-header{
+    display:block;
+    max-width: 1280px;
+    min-height: 100px;
+    margin:8rem auto 3rem;
+    position: relative;
+    color:#fff;
+
+    h1{
+        font-size:5em;
+    }
+
+    //breakpoint width
+    @include mq('tablet-wide', max) {
+        h1{
+            font-size:3em;
+        }
+
+        h4{
+            font-size: 1em;
+        }
+    }
+
+}
+
+.c-menu-card__wrapper{
+    //padding-top:15vh;
+    display: block;
+    max-width: 1280px;
+    width: 75%;
+    margin:0 auto;
+
+    //breakpoint width
+    @include mq('tablet', max) {
+        width: 95%;
+    }
+
+}
+
 .c-menu-card{
-    display:inline-block;
-    width: 50%;
-    height: 204px;
+    box-sizing: border-box;
+    display:block;
+    max-width: 1280px;
+    height: 125px;
     margin:0 auto;
     position: relative;
-    background-color: #333;
+    background-color: rgba(245,245,245,0.9);
+    cursor:pointer;
+    border-radius: 4px;
+    margin:3px 0;
+
+    //breakpoint width
+    @include mq('tablet-wide') {
+        display:inline-block;
+        width: 48%;
+        margin:3px .75%;
+        border-radius: none;
+
+        &:last-child{
+            margin:3px 25%;
+        }
+    }
+
+    &:hover{
+        .c-menu-card__img{
+            transform: scale(1.1);
+        }
+        .c-menu-card__icon{
+            transform: scale(1.2);
+        }
+    }
+
 }
 
 .c-menu-card__img{
+    position: absolute;
+    box-sizing: border-box;
+    padding:15px;
+    top:0;
+    left:0;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     background-size: cover;
-    width: 108px;
-    position: relative;
+    width:120px;
+    height:120px;
+    transition:all .3s;
+    
+    img{
+        max-width: 100%;
+    }
 }
 
 .c-menu-card__txt{
+    position: absolute;
+    box-sizing: border-box;
+    top:0;
+    left:120px;
+    height:125px;
+    padding-right: 25px;
+    
+    header{
+        font-size: 1.1em;
+        padding:2em 1em 1em;
+        color:$color1;
+    }
 
+    p{
+        padding: 0 1em;
+    }
 }
+
+.c-menu-card__icon{
+    position:absolute;
+    top:5px;
+    right:5px;
+    width:25px;
+    height:25px;
+    line-height: 25px;    
+    color:$color3;
+    border-radius:50%;
+    text-align: center;
+    transition: all .3s;
+
+    &.c-menu-card__icon--lock{
+        background-color: $color4;
+    }
+
+    &.c-menu-card__icon--available{
+        background-color: $color1;
+    }
+
+    &.c-menu-card__icon--seen{
+        background-color: $color5;
+    }
+}
+
