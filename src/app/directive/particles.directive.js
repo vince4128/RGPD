@@ -15,7 +15,6 @@
         var directive = {
             link: link,
             restrict: 'A'
-            //template: '<div><canvas></canvas></div>',
         };
         return directive;
 
@@ -35,9 +34,6 @@
             canvas[0].width = canvas[0].clientWidth;
             canvas[0].height = canvas[0].clientHeight;
             var ctx = canvas[0].getContext("2d");
-
-            alert(canvas.width);
-            alert(canvas.height);
             
             var TAU = 2 * Math.PI;
             
@@ -70,8 +66,8 @@
                 ctx.beginPath();
                 var distM = distMouse(this);
                 if (distM > 500) {
-                  ctx.fillStyle = "#8f9aa3";
-                  ctx.globalAlpha = .2;
+                  ctx.fillStyle = "#012C40";
+                  ctx.globalAlpha = .3;
                 } else {
                   ctx.fillStyle = '#e74c3c';
                   ctx.globalAlpha = 1 - distM / 240;
@@ -117,9 +113,9 @@
                       var distM = distMouse(ball2);
                       if (distM > 150) {
                         ctx.strokeStyle = "#8f9aa3";
-                          ctx.globalAlpha = .2;
+                          ctx.globalAlpha = .4;
                       } else {
-                        ctx.globalAlpha = 0;
+                        ctx.globalAlpha = .2;
                       }
                       ctx.moveTo((0.5 + ball.x) | 0, (0.5 + ball.y) | 0);
                       ctx.lineTo((0.5 + ball2.x) | 0, (0.5 + ball2.y) | 0);
