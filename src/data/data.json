@@ -15,19 +15,20 @@
         "thumbnail":"vignette_cours7.png",
         "item": [
           {
-            "index": 1,
+            "index": 0,
             "guid": "VJuK",
             "code": "page_1",
-            "type": "text",
+            "type": "textimg",
             "title": "intro.page_1.title",
             "sound": "intro.page_1.fileName",
             "instruction": "intro.page_1.instruction",
             "content": {
-              "text": "intro.page_1.content.text"
+              "text": "intro.page_1.content.text",
+              "img":"entreprise.png"
             }
           },
           {
-            "index": 0,
+            "index": 4,
             "guid": "hi4B",
             "code": "page_2",
             "type": "orderlist",
@@ -56,7 +57,7 @@
             }
           },
           {
-            "index": 2,
+            "index": 1,
             "guid": "YeHS",
             "code": "page_3",
             "type": "clicktosee",
@@ -84,7 +85,7 @@
             }
           },
           {
-            "index": 3,
+            "index": 2,
             "guid": "RsRW",
             "code": "page_4",
             "type": "qsimple",
@@ -117,7 +118,7 @@
             }
           },
           {
-            "index": 4,
+            "index": 3,
             "guid": "KO11",
             "code": "page_5",
             "type": "textimg",
