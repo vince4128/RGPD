@@ -1,0 +1,14 @@
+.c-text-img__img-wrapper{
+    text-align: center;
+    background-color: rgba(1,44,64,0.6);
+    //background: url('') no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+    position:relative;
+    img{
+        max-height: 50vh;
+        max-width:100%;
+        margin:0 auto;
+        transition: all .3s ease;
+    }
+}

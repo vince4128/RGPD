@@ -1,0 +1,29 @@
+.c-item__header{
+    position:relative;
+    background-color: $color2;
+    text-align: center;
+    &::after{
+        color: $color3;
+    }
+}
+
+.c-item__header--top{
+    @include triangle('top', 5rem, 'out', 2rem, 'after');
+}
+
+.c-item__header--bottom{
+    @include triangle('bottom', 5rem, 'out', 2rem, 'after');
+}
+
+.c-item__header__titre{
+    padding:0.5em 1em 0 1em;
+    color:$color3;
+}
+
+.c-item__header__instruction{
+    font-family: 'lato-semibold-italic',sans-serif;
+    background-color: $color3;
+    color:#888;
+    padding:0.75em 1em 0.75em 1em;
+    margin-bottom:0;
+}

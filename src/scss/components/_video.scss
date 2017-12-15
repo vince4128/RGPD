@@ -6,6 +6,11 @@
     max-width: 1280px;
     width:80%;
     overflow:hidden;
+
+    video{
+        z-index:99999;
+    }
+    
  
     //Tous les blocs media-queries ci-dessous sont à supprimer si vous trouvez le comportement étrange
 

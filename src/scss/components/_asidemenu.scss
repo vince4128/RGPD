@@ -53,6 +53,10 @@
         list-style: none;
         padding: 0;
         margin: 0;
+
+        li{
+            position:relative;
+        }
     }
 
     a{
@@ -83,5 +87,21 @@
         background-color: #fff;
         color:$color2;
         cursor: pointer;
+    }
+}
+
+.c-menu-aside__icon{
+    position:absolute;
+    top:15px;
+    right:5px;
+    width:25px;
+    height:25px;
+    line-height: 25px;    
+    color:$color3;
+    border-radius:50%;
+    text-align: center;
+    transition: all .3s;
+    i:nth-child(2) {
+        display:none;
     }
 }

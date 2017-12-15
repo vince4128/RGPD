@@ -1,9 +1,11 @@
 //Wrapper
 
+.c-didacticiel{
+    background-color: rgba(1,44,64,0.6); 
+}
+
 .c-didacticiel--wrapper{
     position: relative;
-    //background-color: #000;
-    border:1px solid #000;
     margin:0 auto;
     max-width: 1280px;
     width:80%;

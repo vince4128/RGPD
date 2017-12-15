@@ -2,7 +2,7 @@
     display:block;
     max-width: 1280px;
     min-height: 100px;
-    margin:8rem auto 3rem;
+    margin:6rem auto 3rem;
     position: relative;
     color:#fff;
 
@@ -47,18 +47,24 @@
     background-color: rgba(245,245,245,0.9);
     cursor:pointer;
     border-radius: 4px;
-    margin:3px 0;
+    border-bottom:2px solid rgba(230,230,230,1);
+    margin:2px 0;
 
     //breakpoint width
     @include mq('tablet-wide') {
         display:inline-block;
         width: 48%;
-        margin:3px .75%;
+        margin:1px .75%;
         border-radius: none;
 
         &:last-child{
             margin:3px 25%;
         }
+    }
+
+    //breakpoint width
+    @include mq('phone-wide', max) {
+        background-color: rgba(245,245,245,0.95);
     }
 
     &:hover{
@@ -88,6 +94,11 @@
     img{
         max-width: 100%;
     }
+
+    //breakpoint width
+    @include mq('phone-wide', max) {
+        display: none;
+    }
 }
 
 .c-menu-card__txt{
@@ -107,6 +118,17 @@
     p{
         padding: 0 1em;
     }
+
+    //breakpoint width
+    @include mq('phone-wide', max) {
+        position:relative;
+        left:0;
+        header{
+            padding:1em;
+        }
+        border-left:2px solid $color1;
+        border-bottom:2px solid rgba(230,230,230,1);
+    }
 }
 
 .c-menu-card__icon{
@@ -121,6 +143,10 @@
     text-align: center;
     transition: all .3s;
 
+    i:nth-child(2) {
+        display:none;
+    }
+
     &.c-menu-card__icon--lock{
         background-color: $color4;
     }
@@ -131,6 +157,11 @@
 
     &.c-menu-card__icon--seen{
         background-color: $color5;
+    }
+
+    //breakpoint width
+    @include mq('phone-wide', max) {
+        top:50px;
     }
 }
 

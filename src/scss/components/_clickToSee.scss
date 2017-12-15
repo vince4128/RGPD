@@ -1,0 +1,66 @@
+/*.c-clicktosee__toclick-wrapper{
+    display:table;
+    table-layout:fixed;
+    width:100%;
+    height:100%;
+}
+
+.c-clicktosee__toclick-item{
+    background: $color2;
+    display: table-cell;
+    text-align: center;
+    vertical-align:middle;
+    line-height: 13em;
+}*/
+
+.c-clicktosee__toclick-wrapper{
+    width:100%;
+    display:block;
+    text-align: center;
+}
+
+.c-clicktosee__toclick-item{
+    display:inline-block;
+    min-width: 150px;
+    max-width: 250px;
+    margin:5px;
+    width:100%;
+    //padding:1em;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.c-clicktosee__toclick-item--hide{
+    display:none;
+    //background-color: $color1;
+}
+
+.c-clicktosee__toclick-item--open{
+    display:block;
+    position:realtive;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    height: auto;
+}
+
+.c-clicktosee--checked{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+}
+
+.c-cliktosee-item__img--round{
+    width:250px;
+    max-width: 100%;
+}
+
+.c-cliktosee__icon--back{
+    margin:.75em;
+}
+
+.c-cliktosee-item__instruction{
+    padding:.25em;
+}

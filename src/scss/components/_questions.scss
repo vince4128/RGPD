@@ -1,0 +1,81 @@
+.c-question{
+    display:block;
+}
+
+.c-question__prop{
+    display:block;
+    //margin-bottom: 0.3em;
+
+    label{
+        width:100%;
+        padding: 0.6em 1em 0.6em 2em;
+        display:inline-block;
+        position:relative;
+        background-color: $color3;
+        color:$color1;
+        @include border-radius(2px);
+        transition: all .3s ease;
+        cursor:pointer;
+        text-align: left;
+    }
+
+    input[type=checkbox]:checked + label, input[type=radio]:checked + label{
+        background-color: $color2;
+        color:#fff;
+        padding: 0.6em 0.25 0.6em 2.25em;
+    }
+
+    .quiz-num{
+        position:absolute;
+        padding-top: 0.65em;
+        top:0;
+        left:0;
+        display: inline-block;
+        width:1.7em;
+        height:100%;
+        text-align: center;
+        background-color: $color1;
+        color:#fff;
+        transition: all .3s ease;
+        border-radius: 1px 0 0 1px;
+          -webkit-border-radius: 1px 0 0 1px;
+          -moz-border-radius: 1px 0 0 1px;
+        #selected{
+          display: none;
+        }
+        #not-selected{
+          display: inline;
+        }
+    }
+
+    input[type=checkbox]:checked + label .quiz-num, input[type=radio]:checked + label .quiz-num{
+        display: inline-block;
+        background-color: $color2;
+        color: #fff;
+        #selected{
+          display: inline;
+        }
+        #not-selected{
+          display: none;
+        }
+    }
+
+    label.good,
+    label.good .quiz-num,
+    label.good review-q{
+      background-color: green !important;
+      color: #fff;
+    }
+
+    label.bad,
+    label.bad .quiz-num,
+    label.bad review-q{
+      background-color: red !important;
+      color: #fff;
+    }
+
+    input[type=checkbox], input[type=radio] {
+        display: none;
+    }
+}
+
