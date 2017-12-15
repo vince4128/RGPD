@@ -20,7 +20,7 @@
 
         function link(scope, element, attrs) {
 
-            var generatedTemplate = '<canvas></canvas>';
+            var generatedTemplate = '<canvas id="particles"></canvas>';
             element.append($compile(generatedTemplate)(scope));
 
             //var canvas = document.querySelector("#canvas");
@@ -67,7 +67,7 @@
                 var distM = distMouse(this);
                 if (distM > 500) {
                   ctx.fillStyle = "#012C40";
-                  ctx.globalAlpha = .3;
+                  ctx.globalAlpha = .1;
                 } else {
                   ctx.fillStyle = '#e74c3c';
                   ctx.globalAlpha = 1 - distM / 240;
@@ -113,9 +113,9 @@
                       var distM = distMouse(ball2);
                       if (distM > 150) {
                         ctx.strokeStyle = "#8f9aa3";
-                          ctx.globalAlpha = .4;
+                          ctx.globalAlpha = .1;
                       } else {
-                        ctx.globalAlpha = .2;
+                        ctx.globalAlpha = .1;
                       }
                       ctx.moveTo((0.5 + ball.x) | 0, (0.5 + ball.y) | 0);
                       ctx.lineTo((0.5 + ball2.x) | 0, (0.5 + ball2.y) | 0);
