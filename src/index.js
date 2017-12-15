@@ -13,6 +13,17 @@ require("../assets/img/vignette_cours4.png");
 require("../assets/img/vignette_cours5.png");
 require("../assets/img/vignette_cours6.png");
 require("../assets/img/vignette_cours7.png");
+require("../assets/img/videoposter.jpg");
+require("../assets/img/rgpd-lock.svg");
+require("../assets/img/rgpd-lock.png");
+require("../assets/img/bgmenu.jpg");
+require("../assets/img/entreprise.png");
+require("../assets/img/register.jpg");
+require("../assets/img/blurrbg.jpg");
+require("../assets/img/blurrbg2.png");
+require("../assets/img/blurrbg3.png");
+require("../assets/img/coordonnees.png");
+require("../assets/img/woodbg.jpg");
 
 /* video */
 require("../assets/video/videotest.mp4");
@@ -47,6 +58,7 @@ require("./app/template/textimg/textimg.html");
 require("./app/template/quiz/introquiz.html");
 require("./app/template/quiz/resultquiz.html");
 require("./app/template/completionbar/completion_bar.html");
+require("./app/template/completionbar/completion_home.html");
 require("./app/template/didacticiel/didacticiel.html");
 require("./app/template/video/video.html");
 require("./app/template/editablefield/editable_field.html");
@@ -54,6 +66,7 @@ require("./app/template/langdropdown/langdropdown.html");
 require("./app/template/orderlist/orderlist.html");
 require("./app/template/orderlist/orderitem.html");
 require("./app/template/popup/reprisePopup.html");
+require("./app/template/chart/chart.html");
 
 /*  js  */
 //Attention à l'ordre d'importation des fichiers
@@ -88,6 +101,7 @@ require("./app/core/config.js");
 
 /* Angular - components */
 require("./app/component/completionbar.component.js");
+require("./app/component/completionhome.component.js");
 require("./app/component/text.component.js");
 require("./app/component/textimg.component.js");
 require("./app/component/clicktosee.component.js");
@@ -107,6 +121,7 @@ require("./app/directive/itemgenerator.directive.js");
 require("./app/directive/video.directive.js");
 require("./app/directive/asideMenu.directive.js");
 require("./app/directive/particles.directive.js");
+require("./app/directive/chart.directive.js");
 
 /* Angular - services */
 require("./app/service/data.service.js");
