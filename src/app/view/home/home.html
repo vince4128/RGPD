@@ -1,28 +1,16 @@
-<!--<div>
-    <ul>
-        <li ng-repeat="section in vm.data.section">
-            <a ng-style="{ color: section.read ? 'green' : 'black' }" 
-               data-ui-sref="home.section({ sectionId: section.id, itemId: 0 })">{{section.title | translate}}</a>
-        </li>
-    </ul>
-</div>-->
+<!--overlay-->
+<div id="overlay-view" class="overlay-view animated fadeIn" data-aside></div>
 
-<!--<section class="c-hero--home">
-    <script>
-        particlesJS.load('particles-js', 'data/particles.json', function() {
-            console.log('callback - particles-js config loaded');
-        });
-    </script>
-    <div>
-        <img src="" alt="" class="c-hero__bg">
-    </div>
-</section>-->
+<!--sidebar menu-->
+<div data-ng-include="'app/view/layout/sidebar.html'" class="c-menu-aside"></div>
+
 <span ng-if="!vm.inExo">
 <div class="c-hero--home animated fadeIn"></div>
 <section class="c-menu-card__wrapper animated fadeInUp">
     <article class="c-menu-header">
         <h1 translate="{{vm.data.header.title}}">{{vm.data.header.title}}</h1>
         <h4 translate="{{vm.data.module.description}}">{{vm.data.header.description}}</h4>
+        <completion-home list="vm.data.section"></completion-home>
     </article>
     <!--<article ui-sref="home.section({ sectionId: section.id, itemId: 0 })" class="c-menu-card" ng-repeat="section in vm.data.section" class="">-->
     <article ui-sref="{{vm.checkAvailability($index)}}" class="c-menu-card" ng-repeat="section in vm.data.section" class="">
@@ -38,7 +26,7 @@
             <div class="c-menu-card__icon" ng-class="{ 'c-menu-card__icon--lock': !section.read && section.id != 0, 'c-menu-card__icon--seen': section.read || section.id == 0, 'c-menu-card__icon--available': !section.read && vm.data.section[$index-1].read}">
                 <i ng-if="!section.read && !vm.data.section[$index-1].read && section.id != 0" class="fa fa-lock" aria-hidden="true"></i>
                 <i ng-if="section.read" class="fa fa-check" aria-hidden="true"></i>
-                <i ng-if="!section.read && vm.data.section[$index-1].read || section.id == 0" class="fa fa-flag" aria-hidden="true"></i>                
+                <i ng-if="!section.read && vm.data.section[$index-1].read || section.id == 0" class="animated infinite bounce fa fa-flag" aria-hidden="true"></i>                
             </div>
         </div>
     </article>

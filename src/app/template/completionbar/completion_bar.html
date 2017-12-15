@@ -1,4 +1,10 @@
-<div>
+<!--<div>
     <p>{{$ctrl.currentItemIndex+1}} / {{$ctrl.list[$ctrl.currentSectionIndex].item.length}}</p>
     <p>{{$ctrl.currentIndex}} / {{$ctrl.getLength($ctrl.list)}}</p>
-</div>
+</div>-->
+
+<div class="" style="">
+        <div class="progress" style="height:10px;margin-bottom:0;padding:0">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$ctrl.completionExoPercent}}" aria-valuemin="0" aria-valuemax="100" ng-attr-style="width:{{(($ctrl.currentItemIndex+1)*100)/$ctrl.list[$ctrl.currentSectionIndex].item.length}}%;"></div>
+        </div>
+ </div>

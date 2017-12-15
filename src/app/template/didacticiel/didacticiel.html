@@ -1,22 +1,44 @@
-<div ng-repeat="item in $ctrl.internalItem.content.pointers" ng-if="$ctrl.currentItem == $index">{{item.text}}</div>
-
-<div class="c-didacticiel--wrapper--16--9">
-    <div class="content">
-        <img ng-src="img/{{$ctrl.internalItem.content.img}}" alt="">
-        <div ng-repeat="pointer in $ctrl.internalItem.content.pointers">
-            <span ng-if="$index === $ctrl.currentItem"
-                class="c-didacticiel__pointer notclicked" 
-                ng-class="{clicked:pointer.seen}" 
-                ng-attr-style="top:{{pointer.top}}%; left:{{pointer.left}}%; width:{{pointer.width}}%; height:{{pointer.height}}%;"
-                id="{{ 'myDropover' + $index }}"
-                ng-dropover="{{ 'myDropover' + $index }}" 
-                ng-dropover-options="{'position': 'bottom-left', 'triggerEvent': 'none', 'verticalOffset': 10, 'closeOnClickOff': false}">
-                <div ng-dropover-contents class="arrowed">
-                    <p><u>Instructions</u></p>
-                    <div>{{pointer.text | translate}}</div>
-                    <button ng-click="$ctrl.close($index); pointer.seen = true; $ctrl.checkReadEvent();">{{'label.ok' | translate}}</button>
-                </div>
-            </span>
+<section class="c-didacticiel">
+    <div class="c-didacticiel--wrapper--16--9">
+        <div class="content">
+            <br/>
+            <img animated fadeIn ng-src="img/{{$ctrl.internalItem.content.img}}" alt="">
+            <div ng-repeat="pointer in $ctrl.internalItem.content.pointers">
+                <span ng-if="$index === $ctrl.currentItem" class="c-didacticiel__pointer notclicked" ng-class="{clicked:pointer.seen}" ng-attr-style="top:{{pointer.top}}%; left:{{pointer.left}}%; width:{{pointer.width}}%; height:{{pointer.height}}%;"
+                    id="{{ 'myDropover' + $index }}" ng-dropover="{{ 'myDropover' + $index }}" ng-dropover-options="{'position': 'bottom-left', 'triggerEvent': 'none', 'verticalOffset': 10, 'closeOnClickOff': false}">
+                    <div ng-dropover-contents class="arrowed">
+                        <p>
+                            <u>Instructions</u>
+                        </p>
+                        <div>{{pointer.text | translate}}</div>
+                        <button ng-click="$ctrl.close($index); pointer.seen = true; $ctrl.checkReadEvent();">{{'label.ok' | translate}}</button>
+                    </div>
+                </span>
+            </div>
+            <br/>
         </div>
     </div>
-</div>
+</section>
+
+<section class="c-item__header c-item__header--top animated fadeInUp">
+    <p class="c-item__header__instruction" translate="{{$ctrl.item.instruction}}">{{$ctrl.item.instruction}}</p>
+</section>
+
+<section class="container" ng-if="$ctrl.currentItem || $ctrl.currentItem === 0">
+    <br/>
+    <span ng-repeat="item in $ctrl.item.content.pointers" ng-if="$ctrl.currentItem == $index">
+        <!--<section class="card c-card--classic animated flipInX">
+                <article class="card-body">
+                    <div>
+                        <blockquote class="blockquote">
+                            <p translate="{{item.text}}" class="mb-0">{{item.text}}</p>
+                        </blockquote>
+                    </div>
+                </article>
+            </section>-->
+        <div class="alert alert-info animated flipInX">
+            <strong>Info : </strong>&nbsp;
+            <span translate="{{item.text}}" class="mb-0">{{item.text}}</span>
+        </div>
+    </span>
+</section>

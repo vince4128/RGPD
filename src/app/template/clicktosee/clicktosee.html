@@ -1,14 +1,53 @@
-<h1>Directive clicktosee {{$ctrl.item.read}}</h1>
-<hr>
-
-<ul>
-    <li ng-repeat="item in $ctrl.item.content.clickableitem">
-        <a href="" ng-click="item.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()">cliquer ici pour révéler {{item.img}} 
-            <span ng-if="item.seen">vu !</span>
-        </a>
-    </li>
-</ul>
-
-<ul>
-    <li ng-repeat="item in $ctrl.item.content.clickableitem" ng-if="$ctrl.currentItem == $index">{{item.text}}</li>
-</ul>
+<section class="c-item__header c-item__header--bottom">
+        <!--<p class="c-item__header__titre" translate="{{$ctrl.item.title}}">{{$ctrl.item.title}}</p>-->
+        <p class="c-item__header__instruction" translate="{{$ctrl.item.instruction}}">{{$ctrl.item.instruction}}</p>
+    </section>
+    
+    <br>
+    
+    <div class="c-clicktosee__toclick-wrapper">
+        <div class="c-clicktosee__toclick-item" ng-repeat="item in $ctrl.item.content.clickableitem" ng-class="{'c-clicktosee__toclick-item--hide':$ctrl.currentItem!=null,'c-clicktosee__toclick-item--open':$ctrl.currentItem==$index}">
+    
+            <div class="c-flip__container" ng-if="$ctrl.currentItem === null">
+                <section ng-click="item.seen = true; $ctrl.currentItem=$index; $ctrl.checkReadEvent()">
+                    <div class="c-flip__flipper">
+                        <div class="c-flip--front">
+                            <i class="fa fa-check-circle c-clicktosee--checked fa-2x" ng-if="item.seen" aria-hidden="true"></i>
+                            <!--front content-->
+                            <!--img-->
+                            <img class="img-rounded c-cliktosee-item__img--round" src="img/register.jpg" alt="">
+                            <hr>
+                            <div class="c-cliktosee-item__instruction">
+                                <h4 translate="{{item.titre}}">{{item.titre}}</h4>
+                                <p translate="{{item.instruction}}">{{item.instruction}}</p>
+                            </div>
+                        </div>
+                        <div class="c-flip--back">
+                            <!--back content-->
+                            <i class="fa fa-hand-pointer-o fa-4x c-cliktosee__icon--back" aria-hidden="true"></i>
+                            <hr>
+                            <div class="c-cliktosee-item__instruction">
+                                <p translate="{{item.instruction}}">{{item.instruction}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+    
+            <section ng-if="$ctrl.currentItem == $index">
+                <section class="container">
+                    <section class="card c-card--classic">
+                        <article class="card-body">
+                            <h4 class="card-title" translate="{{item.titre}}">{{item.titre}}</h4>
+                            <hr>
+                            <p translate="{{item.text}}">{{item.text}}</p>
+                            <div class="text-center">
+                                <button ng-click="$ctrl.currentItem=null">Retour</button>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+            </section>
+    
+        </div>
+    </div>

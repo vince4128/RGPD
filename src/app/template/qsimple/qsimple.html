@@ -1,19 +1,54 @@
-<h1>qsimple directive</h1>
+<section class="c-hero c-hero--question">
+        
+    <div>
+        <img src="img/blurrbg.jpg" alt="" class="c-hero__bg">
+    </div>
+        
+    <div class="hero--title">
+    
+        <h4 class="animated fadeIn" translate="{{$ctrl.item.content.question}}">{{$ctrl.item.content.question}}</h4>
+            <span class="hero--description text-center">
+                    <!--<img src="img/rgpd-lock.png" alt="" class="c-main-menu--preview__logo">-->
+                    <i class="fa fa-question fa-5x" aria-hidden="true"></i>
+            </span>
+        </div>
+        
+</section>
 
 <!--enonce-->
-<p>{{$ctrl.item.content.question}}</p>
+<!--<p translate="{{$ctrl.item.content.question}}">{{$ctrl.item.content.question}}</p>-->
 
-<!--proposition-->
-<ul>
-    <li ng-repeat="p in $ctrl.item.content.proposal">
-        <input type="radio" id="{{'radio' + $index}}" ng-value="$index" ng-model="$ctrl.radio.checked" ng-disabled="$ctrl.item.read"/>
-        <label for="{{'radio' + $index}}">{{p.text}}</label>
-    </li>
-</ul>
+<section class="c-item__header c-item__header--bottom animated fadeInDown">
+        <p class="c-item__header__instruction" translate="{{$ctrl.item.instruction}}">{{$ctrl.item.instruction}}</p>
+</section>
 
-<!--feedback-->
-<p ng-if="$ctrl.item.read && $ctrl.feedback.feedOk">{{$ctrl.item.content.feedback.ok}} {{$ctrl.feedback.feedOk}}</p>
-<p ng-if="$ctrl.item.read && !$ctrl.feedback.feedOk">{{$ctrl.item.content.feedback.ko}} {{$ctrl.feedback.feedOk}}</p>
+<br>
+<br>
+
+<section class="container">
+    <section class="row">  
+        <section class="col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3"></section>
+        <!--proposition-->
+        <div ng-repeat="p in $ctrl.item.content.proposal" class="c-question__prop">
+            <input type="radio" id="{{'radio' + $index}}" ng-value="$index" ng-model="$ctrl.radio.checked" ng-disabled="$ctrl.item.read"/>
+            <label for="{{'radio' + $index}}" data-ng-class="{good:$ctrl.item.read && p.value, bad:$ctrl.item.read && !p.value}">
+                <span class="quiz-num"><i id="not-selected" class="fa fa-circle-thin" aria-hidden="true"></i><i id="selected" class="fa fa-circle" aria-hidden="true"></i></span>
+                <span translate="{{p.text}}">{{p.text}}</span>
+            </label>
+        </div>
+
+        <!--feedback-->
+        <p class="alert alert-success" ng-if="$ctrl.item.read && $ctrl.feedback.feedOk" translate="{{$ctrl.item.content.feedback.ok}}">{{$ctrl.item.content.feedback.ok}} {{$ctrl.feedback.feedOk}}</p>
+        <p class="alert alert-danger" ng-if="$ctrl.item.read && !$ctrl.feedback.feedOk" translate="{{$ctrl.item.content.feedback.ko}}">{{$ctrl.item.content.feedback.ko}} {{$ctrl.feedback.feedOk}}</p>
+        
+    </section>
+</section>
+
+<br>
+
+
 
 <!--bouton-->
-<button ng-click="$ctrl.check()" ng-disabled="$ctrl.item.read">valider</button>
+<div class="text-center">
+    <button ng-click="$ctrl.check()" class="btn btn-primary" ng-disabled="$ctrl.item.read">valider</button>
+</div>   

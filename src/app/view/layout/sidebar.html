@@ -5,11 +5,25 @@
     </span>
 </div>
 <ul>
-    <li data-aside><a href="" data-ui-sref="home">Home</a></li>
+    <li data-aside>
+        <a href="" data-ui-sref="home">Home</a>
+        <div class="c-menu-aside__icon" ng-class="{ 'c-menu-card__icon--lock': !section.read && section.id != 0, 'c-menu-card__icon--seen': section.read || section.id == 0, 'c-menu-card__icon--available': !section.read && vm.data.section[$index-1].read}">
+            <i class="fa fa-home" aria-hidden="true"></i>             
+        </div>
+    </li>
     <li data-aside ng-repeat="section in vm.data.section">
        <a href=""  data-ui-sref="home.section({ sectionId: section.id, itemId: 0 })">{{section.title | translate}}</a>
+       <div class="c-menu-aside__icon" ng-class="{ 'c-menu-card__icon--lock': !section.read && section.id != 0, 'c-menu-card__icon--seen': section.read || section.id == 0, 'c-menu-card__icon--available': !section.read && vm.data.section[$index-1].read}">
+            <i ng-if="!section.read && !vm.data.section[$index-1].read && section.id != 0" class="fa fa-lock" aria-hidden="true"></i>
+            <i ng-if="section.read" class="fa fa-check" aria-hidden="true"></i>
+            <i ng-if="!section.read && vm.data.section[$index-1].read || section.id == 0" class="fa fa-flag" aria-hidden="true"></i>                
+        </div>
     </li>
     <li>
             <langdropdown></langdropdown>
     </li>
+</ul>
+
+<ul>
+    <li ng-repeat="section in vm.data.section">{{section.read}}</li>
 </ul>
