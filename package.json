@@ -46,6 +46,7 @@
     "angular-ui-notification": "^0.3.6",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
+    "chart.js": "^2.7.1",
     "font-awesome": "^4.7.0",
     "lato-webfont": "^2.15.1",
     "ng-dialog": "^1.4.0",
